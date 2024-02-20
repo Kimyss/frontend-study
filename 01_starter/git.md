@@ -5,7 +5,7 @@
   마지막 라인 : 꼬리말(#이슈 넘버)(선택)
 
   작성팁 : 최대한 구체적으로 작성, 개인적인 팁으로 주간보고에 그대로 쓸 정도로 작성
-  참고자료 : 
+  참고자료 : https://github.com/RomuloOliveira/commit-messages-guide/blob/master/README_ko-KR.md
 
   # ----------(예시)------------------------------
   fix: Safari에서 모달을 띄웠을 때 스크롤 이슈 수정
