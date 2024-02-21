@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- lang : 문서의 언어를 명시하는 속성 ko는 값 -->
+<html lang="ko"> 
+<head>
+  <!-- 문서의 정보는 <head> 태그 안에 작성 -->
+  <meta charset="UTF-8">      
+  <!-- UTF -8 : 유니코드를 의미 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--  문서의 제목을 정의, 브라우저탭에서 확인 <title> -->
+  <title>Test</title>
+
+<!-- CSS,JS 연결하기 -->
+<!-- 외부 스타일시트 방식 -->
+  <link rel="stylesheet" href="css/main.css">
+
+<!-- 내부스타일시트 방식 -->
+<style>
+  div {
+    text-decoration: underline;
+  }
+</style>
+<!--  외부 스크립트  -->
+<script src="./js/main.js"></script>
+<!--  내부 스크립트 -->
+<script>
+  console.log('내부 스크립트');
+</script>
+</head>
+<body>
+  <!--  사용자 눈에 보이는 구조는 <body>태그 안에 작성 -->
+    <div>Hello World!</div>
+
+  <!--  화면에 이미지 출력하기  -->
+  <!--  alt(대체하다): 이미지가 출력되지 못하는 경우 대신 출력할 텍스트 (대체텍스트)  
+        이미지의 경로가 잘못 되거나 네트워크가 불안정하는 등 이미지 대신 화면에 나올 글자 
+        +웹 접근성과 관련(스크린 리더가 alt 텍스트 읽어줌)
+  -->
+  <!-- Quiz: 상대경로/ 절대경로 사용하여 로고이미지 출력하기 -->
+    <img src="images/logo.png" alt="로고">
+    <img src="./images/logo.png" alt="로고">
+    <img src="/02_test/images/logo.png" alt="로고">
+
+    <!--  블로그에서 로고이미 따오기 (절대 경로) -->
+    <img src="	https://heropy.blog/css/images/logo.png" alt="로고">
+
+    <!-- CSS로 배경 이미지 넣기 -->
+    <div class="logo"></div>
+
+    <!--  페이지를 나누고 연결(링크) 하기 -->
+    <!--  href : 다른 페이지로 이동할 수 있는 참조가 되는 경로를 입력 -->
+    <a href="http://www.naver.com">NAVER</a>
+
+    <a href="./about/about.html">About</a>
+    <!-- index.html로 만들면 생략가능
+        브라우저가 해당 이름을 가진 파일을 우선적으로 찾아 실행하기 때문 -->
+    <a href="./about">About</a>
+
+
+</body>
+</html>
+
+<!-- 개발자도구 사용하기 -->
+<!--  브라우저에서 제공하는 개발자도구를 이용해서 웹사이트를 분석하고 테스트하는 방법
+      F12
+      우클릭 -> 검사  눌러도 가능
+      셀렉트 기능 단축키 : ctrl + shift + c
+
+      1)Elemests 탭 :HTML에 대한 요소, 정보 확인
+      
+      2)Styles 탭 : 특정 HTML 요소에 어떤 스타일이 적용되었는지 CSS에 대한 정보를 확인
+                    다른 스타일을 임시로 적용 가능 (실제로 개발할 때 자주 사용)
+
+                    여기서 임의로 적용한 스타일은 새로고침하면 리셋됨
+                    다른 사람이 만든 웹 사이트에도 내가 원하는 스타일을 적용해 볼 수있음
+      3)computed 탭 : CSS박스 모델과 함께 실제로 적용된 스타일 값만 모아서 볼수있음
+
+      4)console 챕 : JS를 다룰 때 주로 사용
+
+    -->
+  
