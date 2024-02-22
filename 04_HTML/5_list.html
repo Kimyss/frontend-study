@@ -4,6 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <style>
+    span{
+      color: yellow;
+      background-color: black;
+    }
+    
+    div{
+      color: brown;
+      background-color: yellow;
+    }
+
+    a{
+      color :brown
+    }
+  </style>
+
+  </style>
 </head>
 <body>
   <!-- list(목록) 요소는 주로 메뉴나 탭 목록 등에 쓰임 -->
@@ -50,6 +68,92 @@
       </ul>
     </li>
   </ul>
+
+
+  <!-- anchor(인라인) : 닻, 페이지를 이동하는 하이퍼링크를 지정-->
+  <!-- 인라인 요소 -> 수평 배열 -->
+  <!-- 
+       target 속성 : 링크된 페이지를 어디에 표시할지 타겟 지정
+       _self : 현재탭 (기본값)
+       _blank : 새로운 탭
+   -->
+  <a href="http://www.naver.com">Naver</a>
+  <a href="http://www.google.com" target="_black">Google</a>
+
+  <!-- 추가설명 !! 임시 태그 -->
+  <a href="#">임시 태그</a>
+  <!-- 해당 #id 영역으로 이동 -->
+  <a href="#intro">Intro</a>
+  <a href="#guide">Guide</a>
+
+  <!-- span(인라인): 텍스트 구분을 위해 사용(주로 글자에 스타일 적용할때) -->
+  <p>
+    <span>동해물</span>과 백두산이 마르고 닳도록
+  </p>
+
+  <!-- span(인라인)을 div로 바꿔보기 -->
+  <!-- div는 글자를 다루는데 적합하지 않다 -->
+  <p>
+    <div>동해물</div>과 백두산이 마르고 닳도록
+  </p>
+
+  <!-- break(인라인): 줄바꿈 -->
+  <p>
+    동해물과 백두산이<br>마르고 닳도록
+  </p>
+  
+  <!-- 엔터키로 줄바꿈 하는 것은 공백 1개로 처리됨  -->
+  <p>
+    동해물과            백두산이
+    마르고 
+    
+    닳도록
+  </p>
+
+  <!-- (참고) HTML 특수문자(HTML Entities)
+      대표적으로 &lt;  &gt;  %nbsp  &copy; 등 -->
+  
+  <!-- 사용 예1) HTML에서 공백처리  -->
+  <p>
+    동해물과 백두산이 &nbsp;&nbsp;&nbsp;&nbsp; 마르고 닳도록
+  </p>
+
+  <!-- 사용 예2) <div>를 태그가 아닌 그냥 출력하기 싶다면 -->
+  &lt;div&gt;
+  &copy;
+
+  <!-- horizontal rule(블록): 수평줄 -->
+  <hr>
+
+  <!--  Quiz  -->
+  <h3> Quiz: p, span, br을 이용하여 같이 출력하기</h3>
+  <p>
+    동해물과 백두산이 마르고 닳도록
+    <br> 
+    하느님이 보우하사 <span>우리나라</span> 만세
+  </p>
+  
+  <hr>
+  <a href="#">TEST</a>
+  
+
+
+
+
+
+  <!-- 임시 태그 이동 테스트 -->
+  <hr>
+  <h2 id ="intro">Intro</h2>
+  <p style="height: 300px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita ullam quas tenetur omnis iste quam sit, quibusdam sapiente reiciendis minus ex dignissimos ipsum cupiditate pariatur explicabo et culpa? Nam, voluptatem.</p>
+  <p style="height: 300px">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda sed voluptatem facere alias quas autem quaerat provident aliquid numquam praesentium? Id illum maiores tempore minus, ducimus sunt eum laboriosam inventore!</p>
+  <p style="height: 300px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, ea nobis minima molestias tempora labore repellat, ipsum reprehenderit quas commodi aliquid corporis facilis dolorem enim laboriosam dolore minus, consequatur iure?</p>
+
+  <h2 id="guide">Guide</h2>
+  <p style="height: 300px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium aliquam fugit ullam rem, porro, perferendis sapiente iste inventore ipsam nam omnis qui corrupti. Omnis, provident dicta aperiam non magnam odio?</p>
+  <p style="height: 300px">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit aperiam hic reiciendis obcaecati distinctio tenetur autem corporis quod ex. Fugit omnis esse repudiandae magni accusantium quam quo ipsum temporibus fuga?</p>
+  <p style="height: 300px">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum facilis eum necessitatibus maxime doloribus repellendus non aperiam? Provident accusantium, magnam dolorum nam facilis quas labore possimus necessitatibus, numquam quia excepturi.</p>
+
+
   
 </body>
 </html>
