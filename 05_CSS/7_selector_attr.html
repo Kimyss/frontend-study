@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 속성 선택자: HTML의 속성과 값으로 요소 선택 []기호사용 */
+    [disabled]{
+      color: red;
+    }
+
+    [type="password"]{
+      color: red;
+    }
+    [value=MONG]{
+      color: violet;
+    }
+  [data-fruit-name]{
+    color: darkblue;
+  }
+  </style>
+</head>
+<body>
+  <input type="text" value="MONG">
+  <input type="password" value="1234">
+  <input type="text" value="ABCD" disabled>
+  <span data-fruit-name="apple">사과</span>
+</body>
+</html>
