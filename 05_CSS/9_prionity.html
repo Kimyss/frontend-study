@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 우선 순위가 낮은 것부터  */
+    /* body(상속) -> * 0점 -> 태그(1점) -> 클래스(10점) -> id(100점) -> 인라인(1000점) -> !important(최고점!) */
+    #hello{
+      color: yellow;
+      font-size: 40px;
+    }
+    /* 선택자를 여러개 사용하여 명확하게 선택하면 우선순위가 올라감 */
+    div.hello{
+      color: green;
+    }
+    /* 점수가 같으면 가장 마지막에 해석된 스타일이 적용된다 */
+    div{
+      /* !important는 점수가 무한대
+        CSS초보자들이 종종 사용하는데 되도록이면 사용 지양 
+        남발하면 산중에 스타일을 바꾸려고 할 때 수정이 불가
+        
+        무조건 적용 되어야 하는 스타일이거나 절대 변경되면 안되는
+        특수한 경우에만 사용*/
+      color: red !important;
+      font-size:50px;
+    
+    .hello{
+      color: orange;
+    }
+    div{
+      color: royalblue;
+    }
+    *{
+      color: darkblue;
+    }
+    body{
+      color: violet;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="hello"
+  class="hello"
+  style="color: olive;"
+  >
+    Hello
+  </div>
+  
+</body>
+</html>
