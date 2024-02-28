@@ -40,11 +40,11 @@
       z-index: 2;
     }
     /* 정리:
-    position이 적용된 요소들이 많으때 누가 만 앞에 올것인가? 
+    position이 적용된 요소들이 많을때 누가 맨 앞에 올것인가? 
     z-index로 조정: 요소의 쌓임 정도를 지정(숫자높을수록위에)*/
 
-  /* (중요) positopn속성의 값 (static)제외*이 같이있어야되고
-      flex itemdpt 에서 사용가능
+  /* (중요) positon속성의 값 (static)제외*이 같이있어야되고
+      flex items 에서 사용가능
       /* 주로 슬라이드 메뉴, 드릅다운(콤보박스)모달창이나 로딩,
       백그라운드 비활성화 영역 등에 사용*/
       
@@ -52,7 +52,7 @@
         width: 100px;
         height: 100px;
         background-color: orange;
-        font: 40px;
+        font-size: 40px;
         /* position relative; */
 
         /* display 속성이 block으로 변경됨 */
@@ -64,13 +64,13 @@
   </style>
 
   <script>
-    // 밑에 깔린 요소도 마같이 클릭 되는지 확인하기 위한 함수(기능)
+    // 밑에 깔린 요소도 같이 클릭 되는지 확인하기 위한 함수(기능)
     function print(el){
       console.log(el);
     }
     // (참고)이벤트 버블링
-    // 이벤트가 제일 깊은 곳에 있는 요소에서 시작해 부모 요소를 거슬러 올라가며 발생하는 모양이 마치 물속 거품(bubbl)과 닮았기 때문
-    // 몇몇 이벤트(focus 등)를 제외 하곤 대부분의 이벤트는 버브링 됨
+    // 이벤트가 제일 깊은 곳에 있는 요소에서 시작해 부모 요소를 거슬러 올라가며 발생하는 모양이 마치 물속 거품(bubble)과 닮았기 때문
+    // 몇몇 이벤트(focus 등)를 제외 하곤 대부분의 이벤트는 버블링 됨
   </script>
   
 </head>
@@ -82,7 +82,7 @@
   </div>
 
   <!-- (참고) position속성의 값으로 absolute,flex가 지정된 요소는 
-      display가 blcok로 변경됨 -->
+      display가 block로 변경됨 -->
 <span>123</span>
 </body>
 </html>
