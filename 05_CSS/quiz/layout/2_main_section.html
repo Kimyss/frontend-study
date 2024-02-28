@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main-background{
+      height: 500px;
+      background-image: url("../image/shoes.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      text-align: center;
+      /* 마진 상쇄 피하려면 */
+      /* 1. padding 사용하기(권장) */
+      /* padding-top: 50px */
+      /* 2.테두리가 안붙게 살짝 떨어뜨림(꼼수) */
+      padding: 0.1px;
+    }
+    .main-title{
+      color: #fff;
+      font-size: 40px;
+      margin-top: 100px;
+      /* (참고)margin collapse 현상(마진상쇄)
+        : 박스들의 테두리가 만나면 margin 하나로 합쳐진다 
+          둘 다 margin 있으면 둘중에 더 큰 margin 하나만적용*/
+    }
+    
+    .main-content{
+      color: white;
+    }
+    .main-button{
+      padding: 10px 30px;
+      font-size: 20px;
+      background-color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;      
+    }
+    .main-button:hover{
+      background-color: #eee;
+    }
+    /* 겹치는 레이아웃 만들기 */
+    .sub-description{
+      width: 80%;
+      max-width: 700px;
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 20px;
+      
+      margin: 0 auto;
+      
+      /* relative사용시 */
+      /* position: relative;
+      top: 100px; */
+
+      /* absolute사용시 */
+      position: absolute;
+      bottom: -100px;
+      left: 0;
+      right: 0;
+      
+    }
+
+    
+    
+    
+    .history{
+      background-color: #aeaeae;
+      padding: 100px 20px 40px;
+    }
+    .history>h4{
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="main-background">
+    <h4 class="main-title">Buy our excellent shoes!</h4>
+    <p class="main-content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatem sapiente atque magni voluptatum veritatis, officiis corrupti itaque sequi nisi ducimus ipsa, deserunt ut doloremque possimus animi ratione. Doloremque, recusandae.
+    </p>
+    <button type="button" class="main-button">Buy Now</button>
+    
+    <div class="sub-description">
+      <h4>How we design our shoes</h4>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br>
+        Perferendis mollitia voluptatum delectus dolorem.<br>
+        Adipisci ducimus itaque dolorem similique quae sint possimus!<br>
+      </p>
+    </div>
+
+    <!-- <div style="background-color: yellow;">테스트용 div</div> -->
+  </div>
+
+  <div class="history">
+    <h4>Our best shoes & History</h4>
+    <ul>
+      <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, minima non ut blanditiis, mollitia veniam excepturi quia corporis provident quibusdam fuga odit modi repellat voluptas saepe libero quam, praesentium nihil?</li>
+      <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum accusamus molestiae possimus distinctio cupiditate culpa, aut velit commodi et! Rerum est, ad repellendus vero distinctio ab modi dicta officia voluptates?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, molestias et soluta at atque officia perferendis voluptates ipsa, animi optio dolor ex aperiam asperiores quasi quis, iste velit. Omnis, veniam?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eos ipsam facilis error dolorum quidem sunt exercitationem, iure atque quis reprehenderit sapiente esse similique tenetur a harum. Cumque, veritatis id!</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum qui nobis beatae fugiat quam dolorem blanditiis?</li>
+    </ul>
+  </div>
+</body>
+</html>
