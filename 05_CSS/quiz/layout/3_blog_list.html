@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 공통스타일은 앞부분에 작성 */
+    ul{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+      color: #000;
+    }
+    .navbar{
+      display: flex;
+      /* column-gap: 10px; */
+    }
+    .navbar>li{
+    width: 60px;
+    background-color: #eee;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    }
+    navbar li a{
+      font-size: 20px;
+    }
+    li+li{
+      margin-left: 10px;
+      top: 10px;
+      left: 50px;
+    }  
+    .container{
+      display: flex;
+      width: 800px;
+      margin: 0 auto;
+      /* 가로길이가있는 블록요소 margin개능 */
+    }
+
+    .blog-content{
+      width: 80%;
+      height: 200px;
+      /* background-color: royalblue; */
+    }
+    .blog-img{
+      background-color: chartreuse; 
+      width: 20%;
+      height: 200px;
+    }
+
+    .content-header{
+      display: flex;
+      align-items: center;
+    }
+    .profile{
+      display: block;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .blog-name>h4,
+    .blog-name>p{
+      margin: 5px;
+    }
+    .blog-img >img{
+      width: 100%;
+      /* height: 100%; */
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Tip! 레이아웃을 만드는 기본:
+    뭘 만들든 레이아웃은 항상 수평(행)으로 자른 후 박스부터 만들고 시작하면 됨
+    그리고 이 박스들을 전부 <div>러 구현해 놓으면 됨(물론 시맨틱 태그도 최대한 활용)
+    그러고 안에 글 넣고 그림 넣고 하면 끝 !
+    
+    이 때 <div>는 블로 요소이기 때문에 위아래로 배치
+    좌우로 나란히 배치하고 싶으면 float(😢), inline-block(😐),flexbox(🙂)
+  -->
+
+  <!-- nav bar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="#">영화</a></li>
+      <li><a href="#">맛집</a></li>
+      <li><a href="#">IT</a></li>
+      <li><a href="#">컴퓨터</a></li>
+    </ul>
+  </nav>
+  <!-- blog list -->
+  <div class="container">
+    <div class="blog-content">
+      <div class="content-header">
+      <!-- 프로필 이미지 -->
+      <img src="../image/pika.png" alt="pika" class="profile">
+      <!-- 작성자,시간 -->
+      <div class="blog-name">
+          <div>피카</div>
+          <div>1시간전</div>
+        </div>
+      </div>
+      <!-- 글 제목h, 글 내용 -->
+      <div class="content-body">
+        <h4>가성비 맛집발견했어요</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Nesciunt maxime esse non! Iste,veritatis ad? Atque, deserunt ali</p>
+      </div>
+    </div>
+    <!-- 샘플이미지 -->
+    <div class="blog-img">
+    <img src="https://dummyimage.com/300x400" alt="sample" width="" height="">
+    </div>
+  </div>
+</body>
+</html>
