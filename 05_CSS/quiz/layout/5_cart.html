@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 공통 스타일 */
+    *{
+      box-sizing: border-box;
+    }
+    .camera{
+      width: 50px;
+      margin: 0 auto;
+    }
+    .converse{
+      width: 50px;
+    }
+    table{
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 10px;
+    }
+    th,td{
+      border: 2px solid lightblue;
+      padding: 10px;
+    }
+
+    .cart-background{
+      width: 100%;
+      background-color: lightblue;
+      padding: 30px;
+    }
+
+    .inner{
+      width: 100%;
+      max-width:700px;
+      margin: 0 auto; 
+      /* 가로길이를 갖는 */
+    }
+    .cart-list{
+      width: 100%;
+
+    }
+    .btn-group{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .btn{
+      width: 100px;
+      height: 40px;
+      outline: none;
+      background-color: red;
+      color: white;
+      border-radius: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="cart-background">
+    <!-- 가운데 정렬을 위한 div -->
+    <div class="inner">
+      <h2>장바구니</h2>
+      <table>
+        <table class="cart-list">
+          <!-- 4행 5열 만들기 -->
+          <tr>
+            <th></th>
+            <th>ITEM</th>
+            <th>AMONT</th>
+            <th>PRICE</th>
+            <th>TOTAL</th>
+          </tr>
+          <tr>
+            <td><img src="../image/item1.png" alt="카메라" class="camera"></td>
+            <td>카메라</td>
+            <td>1</td>
+            <td>100,000</td>
+            <td>100,000</td>
+          </tr>
+          <tr>
+            <td><img src="../image/item2.png" alt="컨버스" class="converse"></td>
+            <td>신발</td>
+            <td>2</td>
+            <td>59,000</td>
+            <td>118,000</td>
+          </tr>
+          <tr>
+            <td colspan="5"><span class="orderp">주문금액:218,000</span></td>
+          </tr>
+        </table>
+
+        <div class="btn-group">
+          <a href="#">계속 쇼핑하기</a>
+          <button type="button" class="btn">구매하기</button>
+
+        </div>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
