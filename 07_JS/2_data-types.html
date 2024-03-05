@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+    // 데이터 타입(자료형)
+
+    //String(문자 데이터)
+    // 큰따옴표(""), 작은 따옴표(''),백틱(``)
+    const myName = "JHKIM";
+    const email = 'geoblo@naver.com';
+    const hello = `hello ${myName}?!`; //템플릿 리터럴(ES6차)
+    // 백틱 미사용 시 데이터 끼워넣기
+    const concat = 'Hello ' + myName + '?!';
+
+    console.log(myName);
+    console.log(email);
+    console.log(hello);
+    console.log(concat);
+
+    // Number(숫자 데이터)
+    // 정수 및 부동소수점(실수) 숫자를 나타냄
+    const number = 123;
+    const opacity = 0.57;
+
+    console.log(number);
+    console.log(opacity);
+
+    // boolean(논리 데이터)
+    // true(참), false(거짓) 두가지 값만 존재
+    // 이분법적으로 구분해야 하는 상황에서 사용 
+    //  -> 조건문/반복문에서 조건을 판단할때
+    const checked = true;
+    // const checked = 'true'; 문자데이터인 true
+    const isshow = false;
+
+    console.log(checked);
+    console.log(isshow);
+
+    // undifined
+    // 아무것도 정의되지 않은 상태를 의미(값이 할당되지 않은 상태)
+    // 변수의 초기화를 하지 않으면 자동으로 undifined가 할당
+    // (초기화: 변수를 선언하고 처음으로 값을 저장하는 것
+    // const 무조건 값을 넣어아햐는값
+    let undef;
+    console.log(undef);
+
+    const obj = { abc: 123 };
+    console.log(obj.abc);
+    console.log(obj.xyz);
+
+    // null
+    // 어떤 값이 의도적으로 비어있음을 의미
+    // underfined와 다른 점은 개발자가 명시적으로 값이 
+    // 비어있음을 나타낼 때 사용
+    let name = null;
+    console.log(name);
+
+    name = 'JHKIM'
+    console.log(name);
+
+    // Object (객체 데이터)
+    // 관련있는 여러 데이터를 key-value 한쌍의 형태로 저장
+    // {}중괄호 방식을 주로 사용
+    const user = { 
+      //속성(property)
+      //key: value
+      name: 'goni',       //문자데이터
+      age:99,             //숫자데이터
+      isMarried:false,    //논리 데이터
+    };
+
+    console.log(user);
+    // 객체 내부에 특정 데이터만 출력
+    console.log(user.name);
+    console.log(user.age);
+    console.log(user.isMarried);
+
+    // Arrary(배열 데이터)
+    // 여러 데이터를 순차적으로 저장
+    // []대괄호 방식을 주로 사용
+    // 배열의 인덱스는 0부터 시작
+    const fruits = ['Apple', 'Banana','Cheery'];
+    console.log(fruits);
+
+    // 배열의 특정데이터만 출력
+    console.log(fruits[0]);
+    console.log(fruits[1]);
+    console.log(fruits[2]);
+    
+    //다른 종류의 데이터(데이터타입)를 포함시킬 수도 있지만, 대부분 같은종류의 데이터를 나녕ㄹ
+    const arr =['goni', 99, false];
+
+    console.log(arr[0]);
+    console.log(arr[1]);
+    console.log(arr[2]);
+
+    // (활용 예) 상품리스트나 사용자리스트
+    const productlist = [
+      {
+        productId:1,
+        productName:'고려은단 비타민',
+        price:329000,
+        productiImg:'http://이미지경로',
+        brand: '고려은단'
+      },
+      {
+        productId:2,
+        productName:'콘드로이친1200',
+        price:285000,
+        productiImg:'http://이미지경로',
+        brand: '관절엔'
+      },
+      {
+        productId:3,
+        productName:'에버콜라겐C',
+        price:210000,
+        productiImg:'http://이미지경로',
+        brand: '뉴트리'
+      }
+    ];
+    console.log(productlist[0].productiImg);
+
+    const userlist = [
+      {
+        userId:'geoblo',
+        name:'김재현',
+        age: 99,
+        email:'geoblo@naver.com',
+        hobby:['배드민턴','싸이클', '스노우보드']
+      },
+      {
+        userId:'javakim',
+        name: '김자바',
+        age: 20,
+        email:'jsjs@gmail.com',
+        hobby:['멍때리기']
+      }
+    ];
+
+    console.log(userlist[0].hobby[2]);
+
+    // (참고) JS는 매우 유연한 언어
+    // 데이터 타입이 값을 넣는 순간에 결정되고 여러 데이터 타입을 넣을 수있음
+    // => 동적 타입 언어
+
+    let e = 1;
+    console.log(typeof e);    //typeof 데이터 타입을 체크
+    e = 'abc';
+    console.log(typeof e);
+  </script>
+</body>
+</html>
