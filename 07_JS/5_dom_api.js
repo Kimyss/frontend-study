@@ -11,7 +11,7 @@ console.log(boxEl);
     실제 이벤트가 발생하면 연결된 콜백 함수(handler)를 실행 */
 boxEl.addEventListener('click',function(){
   console.log('click');
-
+})
   // classList속성: 요소의 HTML class속성에 대한 제어 명령이포함
   // 추가하기
   boxEl.classList.add('active');    //요소에 active라는 class를 추가
@@ -24,7 +24,7 @@ boxEl.addEventListener('click',function(){
   boxEl.classList.remove('active'); //요소에 active라는 class가 있으면 제거
   hasActive = boxEl.classList.contains('active'); 
   console.log(hasActive);
-});
+
 
 // 활용 예: active라는 클래스에 미리 스타일을 지정하고 클릭한 특정 요소에 스타일을 적용할 때
 
