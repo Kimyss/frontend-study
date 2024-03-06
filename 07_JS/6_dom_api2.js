@@ -8,8 +8,9 @@ console.log(boxEls); //요소들의 리스트가 반환됨 => 앞에서 사용�
 boxEls.forEach(function(boxEl,index) {
   console.log(index, boxEl);
   
-  // boxEl.classList.add('order-${index + 1}');
+  boxEl.classList.add(`order-${index + 1}`);
 });
+
 // 요소의 내용 확인 및 수정
 const boxEl = document.querySelector('.box');
 console.log(boxEl.textContent);   //요소의 내용 출력
