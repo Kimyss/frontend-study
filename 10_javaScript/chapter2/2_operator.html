@@ -188,8 +188,17 @@
     // if (dbData === null) {
     //   result = '기본값'
     // }
+
     result = dbData || '기본값'; //null false값 -> 뒤로 넘어간후 '기본값' 문자 false로 취급하여 출력
     document.write(result, '<br>');
+
+    // (참고) null 병합 연산자(ES2020)
+    // nullish(null 계열의 값): null, undefined  일때만 기본값을 주고싶다? 할때
+    // const inputName = "Goni";
+    const inputName = '';
+    const nickName = inputName ?? 'Guest';
+    document.write(nickName, '<br>');
+
 
     // JS에서 false로 취급 되는 값들 : false, null, undefined, 0, NaN, ''(빈문자) 
 
@@ -202,7 +211,31 @@
     let ff = aa || bb || cc || dd || ee;
     // ff에 저장된값은?
     // 4 
-    document.write(ff);
+    document.write(ff, '<br>');
+
+    // 7.삼항 연산자
+    // 조건에 다라 2개의 값 중 하나를 반환
+    // 조건식? 값1: 값2;  앞 : true 뒤 : false;
+    
+    document.write('<h2>삼항 연산자 (조건 연산자)</h2>');
+    result = false ? 'javascript': 'hello';
+    document.write(result, '<br>');
+
+    const score = 95;
+    // result = score >=90 ? 'A' : 'B';   
+    // 간단한 조건문은 if문 보단 삼항연산자 사용
+    result = score >=90 ? 'A' :(score >=80 ? 'B' :'C');
+    document.write(result, '<br>');
+
+    // 홀짝 판별기
+    // window.prompt('사용자에게 보여줄 메세지', '사용자가 아무입력x 때 기본값')
+    // 확인을 누르면 입력값이, 취소를 누르면 null을 반환
+    const number = Number(prompt('숫자를 입력하세요', '0'));   //prompt 문자데이터를 받아 문자를 입력
+    document.write(number,' ', typeof number, '<br>');
+
+    // (참고) %연산 시 문자가 숫자로 자동 타입 변환이 일어남  단, '+' 는 주의요망 Number() 숫자데이터로 변환
+    result = number % 2 ===0 ? '짝수' :'홀수';  
+    document.write(result, '<br>');
 
   </script>
 </body>
