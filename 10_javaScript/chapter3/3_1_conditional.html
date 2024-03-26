@@ -93,10 +93,12 @@
       document.write('햇살 가득한 봄이네요 !');
     } else if (month >= 6 && month <= 8) {
       document.write('여행 가기 좋은 여름이네요!');
-    } else if (month >= 9 && month <= 11) {
+    } else if (month >= 9 && month <= 11) {1
       document.write('독서의 계절 가을이네요!');
-    } else {  //나머지 입력
-      document.write('눈이오는 겨울이네요 !')
+    } else if (month == 12 || month <= 2) {   //=== 값과 타입비교 month는 문자 12는 숫자? 라서?
+      document.write('눈이오는 겨울이네요 !');
+    }else{
+      document.write('잘못된 입력입니다');
     }
 
     // Quiz : 명확히 하려면 else if 문을 사용하여 12,1~2 체크하는 조건식 넣기
