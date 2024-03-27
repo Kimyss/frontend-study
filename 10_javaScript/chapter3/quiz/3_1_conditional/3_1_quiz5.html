@@ -18,7 +18,13 @@
     const num2 = Number(prompt('정수2 입력', '0'));
     const num3 = Number(prompt('정수3 입력', '0'));
 
-    switch(
+    // 조건식 ? 참 : 거짓     조건식      ? 참 : 거짓
+    result = num1 > num2 ? (num1 > num3 ? num1 : num3) : (num2 > num3 ? num2 :num3);
+    document.write('최대값은? '+ result, '<br>');
+
+    result2 = num1 > num2 ? (num2 < num3 ? num2 : num3) : (num1 > num3 ? num3 : num1);
+    document.write('최소값은? ' + result2, '<br>');
+    
     
   </script>
 </head>
