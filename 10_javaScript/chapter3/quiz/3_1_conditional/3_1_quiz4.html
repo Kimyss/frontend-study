@@ -18,27 +18,27 @@
 
     // 풀이4-1
 
-    // const height =  prompt('신장?' ,'0');
-    // document.write('신장' + height + 'cm',);
+    const height =  prompt('신장?' ,'0');
+    document.write('신장' + height + 'cm ');
 
-    // if (height >= 150) {
-    //   document.write('놀이기구 이용가능');
-    // }else if(height < 150){
-    // const sure = confirm('부모님과 함께 왔나요?')
-    //   if(sure){
-    //     document.write('좋은시간 보내세요')
-    //   } else {
-    //     document.write('어른 모시고 오세요')
-    //   }
-    // }
+    if (height >= 150) {
+      document.write('놀이기구 이용가능','<br>');
+    }else if(height < 150){
+    const sure = confirm('부모님과 함께 왔나요?');
+      if(sure){
+        document.write('좋은시간 보내렴','<br>')
+      } else {
+        document.write('어른 모시고 오세요','<br>')
+      }
+    }
 
     const height1 = prompt('신장을 입력하세요');
     let msg = '놀이기구 이용가능'
 
     if (height1 < 150) {
-      const withMom = confirm('부모님과 함께 왔니?')
+      const withMom = confirm('부모님과 함께 왔니?');
       if(withMom){
-        msg = '좋은시간 보내렴';
+        msg = '좋은시간 보내렴','<br>';
       } else {
         msg = '어른 모시고 다시오렴'
       }
@@ -46,7 +46,8 @@
     document.write(msg);
 
     // 다른풀이
-    // msg = confirm('부모님과 함께 왔니?') ? ('좋은시간 보내렴' : '어른 모시고 다시오렴');
+    // msg = confirm('부모님과 함께 왔니?') ? '좋은시간 보내렴' : '어른 모시고 다시오렴';
+    
   </script>
 </head>
 <body>

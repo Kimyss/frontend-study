@@ -12,32 +12,32 @@
 
     // 풀이6
     
-    // const subjectInput = prompt('과목?','과목');
-    // const subject = subjectInput
+    const subjectInput = prompt('과목?','과목');
+    const subject = subjectInput
 
-    // switch (subject) {
-    //   case '수학':
-    //     document.write(subject + '코드: 01');
-    //     break;
-    //   case '영어':
-    //     document.write(subject +'코드: 02');
-    //     break;
-    //   case '국어':
-    //     document.write(subject +'코드: 03');
-    //     break;
-    //   case '국사':
-    //     document.write(subject + '코드: 04');
-    //     break;
-    //   default:
-    //   document.write('그 외 교과 코드: 00');
-    //     break;
-    // }
+    switch (subject) {
+      case '수학':
+        document.write(subject + '코드: 01','<br>');
+        break;
+      case '영어':
+        document.write(subject +'코드: 02','<br>');
+        break;
+      case '국어':
+        document.write(subject +'코드: 03','<br>');
+        break;
+      case '국사':
+        document.write(subject + '코드: 04','<br>');
+        break;
+      default:
+      document.write('그 외 교과 코드: 00','<br>');
+        break;
+    }
 
     //수업
-    const subject = prompt('과목입력');
-    let code = ' ';
+    const subject2 = prompt('과목입력');
+    let code = '';
     
-    switch (subject) {
+    switch (subject2) {
       case '수학':
         code = '01';
         break;
@@ -54,7 +54,7 @@
         code = '00';
         break;
     }
-    document.write(subject + '의 과목 코드' + code);
+    document.write(subject2 + '의 과목 코드' + code);
 
 
   </script>
