@@ -15,12 +15,20 @@
     const num = prompt('정수입력', '0');
     document.write('입력한 정수: ' + num, '<br>');
 
-    if (num % 3 ==0) {
-      document.write('3의 배수');
+    if (num % 3 === 0) {
+      document.write('3의 배수', '<br>');
     } else{
-      document.write('3의 배수 아님');
+      document.write('3의 배수 아님', '<br>');
     }
-    
+
+  const number = prompt('숫자입력', '0');
+  let msg = '3의 배수 아님';
+
+  if(num % 3 === 0){
+    msg = "3의 배수";
+  }
+  document.write(msg);
+
   </script>
 </head>
 <body>

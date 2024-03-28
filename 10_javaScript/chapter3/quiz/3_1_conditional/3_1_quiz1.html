@@ -12,14 +12,25 @@
 
     // 풀이1
 
+    //입력을 받아야 하니 prompt 그리고 number라는 변수에 저장
+
     let number = prompt('정수입력','0');
     document.write('입력한 숫자는 ' + number, '<br>');
 
     if (number <= 50) {
-      document.write('50미만');
+      document.write('50미만', '<br>');
     }else{
-      document.write('50이상');
+      document.write('50이상','<br>');
     }
+
+    // 
+    const num = prompt ('숫자 입력', '0');
+    let msg = '50미만'; 
+
+    if (num >= 50 ){
+      msg = '50이상';
+    }
+    document.write(msg);
     
   </script>
 </head>
