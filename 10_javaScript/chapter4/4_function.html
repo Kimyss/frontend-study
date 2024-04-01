@@ -81,7 +81,7 @@
     // 버튼 클릭할 때마다 배경색이 바뀌도록 함수 만들기
     // (위에 body태그 참조*)
 
-    const colors = ['yellow', 'aqua', 'purple', 'white',];
+    const colors = ['yellow', 'aqua', 'purple', 'white'];
 
     const bodyTag = document.querySelector('body');
     let index = 0; 
@@ -110,9 +110,9 @@
 
     // 로그인 함수 만들기 실습
     const dbUser = {
-      id: 'joker',
+      id: 'goni',
       pw: '1234',
-      name: '김조커'
+      name: '김재현'
     };
 
     // Quiz : login 함수 선언하고 호출하기
@@ -132,36 +132,31 @@
         alert('존재하지 않는 아이디 입니다')
       }
     }
+ 
 
     // 풀이2
-    // if(dbUser.id !== id){
-    //   alert('존재하지 않는 아이디 입니다.')
-    // }else if(dbUser.pw !== pw){
-    //   alert('잘못된 비밀번호입니다.');
-    // }else{
-    //   alert(`${dbUser.name} 님 방문을 환영합니다.`);
+    // function login(id, pw) {
+    //   if(dbUser.id !== id){
+    //     alert('존재하지 않는 아이디 입니다.')
+    //   }else if(dbUser.pw !== pw){
+    //     alert('잘못된 비밀번호입니다.');
+    //   }else{
+    //     alert(`${dbUser.name} 님 방문을 환영합니다.`);
+    //   }
     // }
 
 
-    // const btnLogin = document.querySelector('.btn-login');
-    // const inputId = document.querySelector('.id');
-    // const inputPw = document.querySelector('.pw');
-    
-    // btnLogin.addEventListner('click', function () {
-    //   // console.log(inputId.value, inputPw.value);
-    //   login(inputId.value, inputPw.value);
-    // });
-    
-  // 위에 ** 참조
+    // 위에 ** 참조
+
     const btnLogin = document.querySelector('.btn-login');
     const inputId = document.querySelector('.id');
     const inputPw = document.querySelector('.pw');
-
+    
     btnLogin.addEventListener('click', function () {
-      console.log(inputId.value, inputPw.value);
-      login();
+      // console.log(inputId.value, inputPw.value);
+      login(inputId.value, inputPw.value);
     });
-
+    
     
     // 4) 함수에서 return문의 역할
     // 데이터 (결과값)를 반환
@@ -198,10 +193,10 @@
     // Quiz: 이전 / 다음 버튼으로 이미지 넘기기
     // (위의 body태그 참조 ***)
 
-    const clickBtn = document.querySelector(button)
-    function gallery() {
+    // const clickBtn = document.querySelector(button)
+    // function gallery() {
       
-    }
+    // }
 
 </script>
 </body>
