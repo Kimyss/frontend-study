@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 문제2
+    // x의 n제곱을 반환해주는 함수, pow(x,n)를 만들어보세요. 
+    // x의 n 제곱은 x를 n번 곱해서 만들 수 있습니다.
+    // 예시:  
+    // pow(3, 2) = 3 * 3 = 9
+    // pow(3, 3) = 3 * 3 * 3 = 27
+    // 프롬프트 대화상자를 띄워 사용자로부터 x와 n을 입력받고 pow(x,n)의 반환 값을 보여주는 코드를 작성해 보세요.
+    // 주의: n은 1 이상의 자연수이어야 합니다. 이외의 경우엔 자연수를 입력하라는 alert 창을 띄우세요.
+
+    // **x와 n을 전달, x를 n번 반복**
+
+    // 풀이2
+
+    function pow(x, n) {          //매개변수
+      // let result = 1;             //*니까 초기값 0
+      let result = x;
+
+      for(let i =1; i <=n; i++){
+        result *= x;            //x를 n번만큼 곱셈
+      }
+
+      return result;
+    }
+
+    const xNum = Number(prompt('x입력', '0'));         //지역변수
+    const nNum = Number(prompt('n입력' ,'0'));
+
+    pow(xNum,nNum);
+    document.write(pow(xNum,nNum));
+    if(nNum <1){
+      alert('양의정수여야합니다')
+    } else{
+      document.write(pow(xNum,nNum));
+    }
+  </script>
+</body>
+</html>

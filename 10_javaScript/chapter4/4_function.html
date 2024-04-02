@@ -20,8 +20,8 @@
   <!-- *** -->
   <div>
     <p>
-      <button type="button" onclick="gallery()">이전</button>
-      <button type="button" onclick="gallery()">다음</button>
+      <button type="button" onclick="gallery('PREV')">이전</button>
+      <button type="button" onclick="gallery('NEXT')">다음</button>
     </p>
     <p>
       <img src="images/pic_1.jpg" alt="photo" class="photo">
@@ -176,27 +176,111 @@
     // document.write(result);
       
 
-    // 여러 과목의 점수를 입력받아 평균점수 구하기
-    // const subject = ['국어', '수학'];
+// 여러 과목의 점수를 입력받아 평균 점수 구하기
+// const subjects = ['국어', '영어', '수학'];
 
-    // function testAvg(arrData) {
-    //   let sum = 0;    //덧셈을 위한 변수
-    //   for(let i = 0; i < arrData.length; i++){
-    //     sum += Number(prompt(arrData[i] + '점수는?', '0'));
-    //   }
+// function testAvg(arrData) {
+//   let sum = 0;
+//   for (let i = 0; i < arrData.length; i++) {
+//     // sum += Number(prompt(arrData[i] + ' 점수는?', '0'));
+//   }
 
-    //   return sum / arrData.length;
-    // };
-    // document.write('평균점수는' + testAvg(subject) + '입니다');
+//   return sum / arrData.length;
+// }
+// document.write(`평균 점수는 ${testAvg(subjects)}점 입니다.`);
+    
 
 
     // Quiz: 이전 / 다음 버튼으로 이미지 넘기기
     // (위의 body태그 참조 ***)
+    // 힌트: img 태그를 선택 후 setAttribute를 이용하여 src 속성 변경
 
-    // const clickBtn = document.querySelector(button)
-    // function gallery() {
-      
+    let imgNum =1;
+    function gallery(direction) {
+      if(direction === 'NEXT'){
+        if(imgNum >= 8) return;   //함수종료
+        imgNum++;
+      }else if(direction ==='PREV'){
+        if(imgNum <=1) return;
+        imgNum--;
+      }
+      const imgTag = document.querySelector(".photo");
+      imgTag.setAttribute('src',`./images/pic_${imgNum}.jpg`);
+    }
+
+    /// 5) 스코프(유효범위)개념
+    // 변수 또는 함수의 사용 가능한 유효 범위
+    // 전역 스코프 : 코드의 어느 곳에서나 접근 가능
+    // 블록 스코프 : 선언된 블록 내부에서만 접근 가능
+    // 여기에서 블록은 함수, 조건문, 반복문 등의 중괄호 {}로 구분되는 모든 영역을 의미
+
+    // 전역변수와 지역변수
+    const globalNum = 50;           //전역변수
+    function testVarScope() {
+      const localNum = 200;         //지역변수
+      document.write(`함수 안: ${globalNum}<br>`);
+      document.write(`함수 안: ${localNum}<br>`);
+    }
+
+    testVarScope();
+
+    document.write(`함수 안: ${globalNum}<br>`);
+    // document.write(`함수 안: ${localNum}<br>`); //지역변수 출력안됨 함수를 호출했을시에만 사용 후 함수가 끝나면 변수 사라짐
+
+    // 전역과 지역을 나누는 이유?
+    // 변수명(또는 비슷한 기능의 함수명) 충돌을 피하기 위해
+    // 해당 데이터가 전체에서 쓰인다면 전역변수로, 함수 내 또는 제어문(조건문, 반복문) 내에서만 쓰이면 지역변수로 선언
+    // 지역 변수의 예 : for문의 초기화식
+    for(let i = 0; i < 1; i++){
+
+    }
+    for(let i = 0; i<5; i++){
+
+    }
+    // for문 안에 있는 두 지역 변수 i는 모두 각자 함수안에서 실행 후 함수 마친후 빠져나감
+    
+    // for(;;){
+
     // }
+    //**무한반복문 (for문 안에서 여러 어느 조건 안에서 멈추는 코드 작성요망)**
+
+    // 6) 내장함수
+    // 자바스크립트 엔진에 내장되어 바로 호출 가능한 함수
+    // 문자열 데이터를 정수형 데이터로 반환
+    console.log(parseInt('10.33')); // 10
+    console.log(parseInt('15.5px')); // 15
+    console.log(parseInt('a40')); // NaN
+    console.log(parseInt(true)); // NaN
+
+    // 문자열 데이터를 실수형 데이터로 반환
+    console.log(parseFloat('10.33')); // 10.33
+    console.log(parseFloat('15.5px')); // 15.5
+    console.log(parseFloat('a40')); // NaN
+    console.log(parseFloat(true)); // NaN
+    
+    // 문자형 데이터로 반환
+    console.log(String(5)); // '5'
+    console.log(String([1, 2, 3, 4])); // '1,2,3,4'
+    console.log(String(new Date())); // Sat Jan 07 2023 19:12:03 GMT+0900 (한국 표준시)
+
+    // 숫자형 데이터로 반환(숫자형으로 바꿀수 없으면 NaN을 반환)
+    console.log(Number('5')); // 5
+    console.log(Number(true)); // 1
+    console.log(Number(false)); // 0
+    console.log(Number('abc')); // NaN
+
+    // 논리형 데이터로 반환
+    // false 값들: false, 0(-0), ''(""), undefined, null, NaN
+    console.log(Boolean(5)); // true
+    console.log(Boolean(null)); // false
+    console.log(Boolean(10 > 9)); // true
+
+    // NaN(Not-a-Number) 값이면 true를 반환
+    console.log(isNaN(5)); // false
+    console.log(isNaN(5 - 2)); //false
+    console.log(isNaN('123')); // false, 테스트하기 전에 값을 숫자로 변환
+    console.log(isNaN('Hello')); // true
+
 
 </script>
 </body>
