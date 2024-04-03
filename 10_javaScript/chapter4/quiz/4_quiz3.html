@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     // 문제3
@@ -22,29 +24,45 @@
     const num2 = Number(prompt('숫자2 입력'));
     document.write('연산 결과: ' + calculator(num1, num2, operator));
 
-    function add(a, b){
-       a + b;
+    function add(a, b) {
+      return a + b;
     }
-    function minus(a, b){
-       a - b;
+    function minus(a, b) {
+      return a - b;
     }
-    function multiple(a, b){
-       a * b;
+    function multiple(a, b) {
+      return a * b;
     }
-    function divide(a, b){
-       a / b;
+    function divide(a, b) {
+      return a / b;
+    }
+    // function calculator(num1, num2, operator) {
+    //   switch (operator) {
+    //     case '+':
+    //       return add(num1, num2);
+    //     case '-':
+    //       return minus(num1, num2);
+    //     case '*':
+    //       return multiple(num1, num2);
+    //     case '/':
+    //       return divide(num1, num2);
+    //   }
+    // }
+
+    // if문 가능
+    function calculator(num1, num2, operator) {
+      if(operator === '+'){
+        return add(num1, num2);
+      }else if(operator ==='-'){
+        return minus(num1, num2);
+      }else if(operator ==='*'){
+        return multiple(num1, num2);
+      }else if(operator ==='/'){
+        return divide(num1, num2);
+      }
     }
     
-    switch(operator){
-      case '+':
-        return add(num1,num2);
-      case '-':
-        return minus(num1,num2);
-      case '*':
-        return multiple(num1,num2);
-      case '/':
-        return divide(num1,num2);
-    }
   </script>
 </body>
+
 </html>
