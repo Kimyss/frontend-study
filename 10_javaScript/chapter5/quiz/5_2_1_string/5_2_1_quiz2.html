@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,11 +12,21 @@
     // 연락처를 입력받은 후 정보가 노출되지 않도록 뒤의 네자리는 ****로 출력하세요.
 
     // 풀이2
-    
-    const name = prompt('이름입력','kim');
+
+    const userName = prompt('이름입력', 'kim');
+    const userPw = prompt('비밀번호입력', '1234');
+
+    const capital = userName.toUpperCase();
+    document.write(capital, '<br>');
+
+    const pw = userPw.slice(0, (userName.length - 4)) + '****';
+    document.write(pw, '<br>');
+
   </script>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
