@@ -226,28 +226,28 @@
     document.write(arr[1], '<br>');
     document.write(arr[2], '<br>');
 
-    document.write('********** <br>');
+
 
     document.write('<h4>배열값 가져오기-2 (for문)</h4>');
-    // for문 써서
-    for(let i = 0; i < arr.length; i++){
-      document.write(arr[i],'<br>');
+
+    for (let i = 0; i < arr.length; i++) {
+      document.write(arr[i], '<br>');
     }
-    
+
 
     document.write('<h4>배열값 가져오기-3 (in arr) (권장안함) </h4>');
-    for(const i in arr){      //key값을 가져옴
+    for (const i in arr) {      //key값을 가져옴
       document.write(arr[i], '<br>');
     }
 
 
     document.write('<h4>배열값 가져오기-4 (for of)</h4>');
-    for(const el of arr){     // value값을 가져온다
+    for (const el of arr) {     // value값을 가져온다
       document.write(el, '<br>');
     }
 
     document.write('<h4>배열값 가져오기-5 (for each)</h4>');
-    arr.forEach(function(element, index){
+    arr.forEach(function (element, index) {
       document.write(index, ': ', element, '<br>');
     });
 
@@ -270,8 +270,8 @@
     let x = fruits.pop();
     console.log(x);
     console.log(fruits);
-    
-    
+
+
     // 4)shift()
     // 배열에서 첫번째 데이터를 제거하고 그 첫번째 데이터를 반환해준다
     // 원본 배열이 변경됨
@@ -321,17 +321,17 @@
     fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
     const citrus = fruits.slice(3);
     console.log(citrus);
-    const citrus2 = fruits.slice(1,3);
+    const citrus2 = fruits.slice(1, 3);
     console.log(citrus2);
 
     // 10)sort()
     // 배열에 문자형 데이터가 있는 경우 오름차순으로 정렬
     // 원본 배열이 변경됨 
-    fruits = ['Banana', 'Orange','Apple', 'Mango'];
+    fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
     fruits.sort;
     console.log(fruits);
-    
-    let kor = ['나', '다', '가', '마','라'];
+
+    let kor = ['나', '다', '가', '마', '라'];
     kor.sort();
     console.log(kor);
 
@@ -343,7 +343,7 @@
     // 그래서 숫자 값으로 정렬하려면 정렬(비교) 함수를 정의해서 사용해야함
     // array.sort(정렬함수);    인자값으로 정렬함수 넣어야함
     // 정렬함수 : function(a, b) {return a - b}
-    points.sort(function(a, b) {return a - b});
+    points.sort(function (a, b) { return a - b });
     console.log(points);
     // 정렬 원리
     // 음수가 나오면 a, b순으로 두요소의위치를 바꾸지않음
@@ -351,9 +351,9 @@
     // 0이 나오면 변화 없음
 
     // Quiz 내림차순정렬
-    points.sort(function(a, b){return b - a});
+    points.sort(function (a, b) { return b - a });
     console.log(points);
-    
+
     // 활용 Tip     ( data type에 활용 예 참조 (고려은단...) )
     // // Object의 특정 키를 기준으로 sort() 함수를 사용하는 경우가 많음
     // 예: 쇼핑몰 상품 목록에서 가격 높은 순, 낮은 순, 리뷰 많은 순, 누적 판매 순
@@ -381,8 +381,8 @@
       },
     ];
 
-    persons.sort(function(a, b){
-      return b.point  - a.point;
+    persons.sort(function (a, b) {
+      return b.point - a.point;
     });
     console.log(persons);
 
@@ -390,7 +390,7 @@
     // 배열의 순서를 반대로 바꿈
     // 원본 배열이 변경됨
     // 보통 정렬된 배열을 역순으로 정렬할 때 사용
-    fruits = ['Banana', 'Orange','Apple', 'Mango'];
+    fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
     fruits.sort();
     console.log(fruits);
     fruits.reverse();
@@ -416,6 +416,7 @@
     index = fruits.includes('Banana', 3); // 검색 시작 위치 지정
     console.log(index); // false
 
-</script>
+  </script>
 </body>
+
 </html>

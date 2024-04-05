@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <input type="file">
   <!-- <input type="file" multiple> -->
@@ -17,7 +19,7 @@
     // 이미지 파일(jpg, png, gif)이 맞는지 검사하여
     // 아닐 경우에만 alert() 창을 띄워 경고하기.
     // (아래 샘플 코드의 주석을 해제하고 이어서 풀면 됩니다.)
-    
+
     //   // 풀이4
     // 샘플 코드
     const imgFileExt = ['jpg', 'png', 'gif'];
@@ -27,12 +29,14 @@
     fileInput.addEventListener('change', function () {
       // debugger;
       console.log(fileInput); // file input DOM 객체
-      console.log(fileInput.files); // FileList 객체
-      console.log(fileInput.files[0]); // File 객체
+      console.log(fileInput.files); // FileList 객체 선택된 파일목록 콘솔출력
+      console.log(fileInput.files[0]); // File 객체  선택된 인덱스0번(첫째파일)콘솔출력
 
       const fileName = fileInput.files[0].name; //객체안의 속성
+      // 선택된 첫번째 파일이름 가져와 'fileName' 변수에 할당
       console.log(fileName);
       const fileExt = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
+      // 파일이름에서 확장자 추출하고, 추출한 확장자를 소문자로 변환후 변수할당
       console.log(fileExt);
 
       // 하드코딩 관리 불편
@@ -55,10 +59,11 @@
       // }
 
       // 더 개선코드 2
-      if(!(imgFileExt.includes(fileExt))){
+      if (!(imgFileExt.includes(fileExt))) {
         alert('이미지 파일이 아닙니다')
       }
     });
   </script>
 </body>
+
 </html>
