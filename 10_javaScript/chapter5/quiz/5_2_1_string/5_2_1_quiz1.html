@@ -16,16 +16,34 @@
     const ssn = prompt('주민등록번호를 입력하세요.');
     // 012345 6789019 
     // 풀이1
-    if (ssn.charAt(6) === '1' || ssn.charAt(6) === '3') {
-      alert('남자입니다');
-    } else if (ssn.charAt(6) === '2' || ssn.charAt(6) === '4') {
-      alert('여자입니다');
-    } else {
-      alert('다시입력하세요');
+    // if (ssn.charAt(6) === '1' || ssn.charAt(6) === '3') {
+    //   alert('남자입니다');
+    // } else if (ssn.charAt(6) === '2' || ssn.charAt(6) === '4') {
+    //   alert('여자입니다');
+    // } else {
+    //   alert('다시입력하세요');
+    // }
+
+    // document.write(ssn.charAt(6), '<br>');
+    // document.write(ssn.charAt(7), '<br>');
+
+
+    // 수업
+    // const gender = ssn.slice(6, 7);
+    const gender = ssn(6);    //유사배열이기에 가능
+    let msg = '존재X 성별 입니다'
+    switch(gender){
+      case '1':
+      case '3':
+        msg = '남자입니다';
+        break;
+      case '2':
+      case '4':
+        msg = '여자입니다';
+        break;
     }
 
-    document.write(ssn.charAt(6), '<br>');
-    document.write(ssn.charAt(7), '<br>');
+    document.write(msg);
 
   </script>
 </head>

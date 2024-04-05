@@ -20,25 +20,45 @@
     
     //   // 풀이4
     // 샘플 코드
-    // const imgFileExt = ['jpg', 'png', 'gif'];
-    // const fileInput = document.querySelector('input[type="file"]');
+    const imgFileExt = ['jpg', 'png', 'gif'];
+    const fileInput = document.querySelector('input[type="file"]');
 
     // 첨부된 파일에 변화가 감지되었을때 'change' 이벤트 발생
-    // fileInput.addEventListener('change', function () {
-    //   // debugger;
-    //   console.log(fileInput); // file input DOM 객체
-    //   console.log(fileInput.files); // FileList 객체
-    //   console.log(fileInput.files[0]); // File 객체
+    fileInput.addEventListener('change', function () {
+      // debugger;
+      console.log(fileInput); // file input DOM 객체
+      console.log(fileInput.files); // FileList 객체
+      console.log(fileInput.files[0]); // File 객체
 
-    const file = fileInput.files[0];
+      const fileName = fileInput.files[0].name; //객체안의 속성
+      console.log(fileName);
+      const fileExt = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
+      console.log(fileExt);
 
-    const fileExt = file. ///?????
-    // let fileExt = imgFileExt.includes('jpg', 'png', 'gif');
-   
+      // 하드코딩 관리 불편
+      // if(!(fileExt === 'jpg'||
+      //   fileExt === 'png'||
+      //   fileExt === 'png')){
+      //   alert('이미지 파일이 아닙니다.');
+      //     }
 
-    
+      // 개선코드 1
+      // let valid = false;
+      // for (let i = 0; i < imgFileExt .length; i++){
+      //   if(fileExt.lastIndexOf(imgFileExt[i]) > -1 ){
+      //     valid = true;
+      //     break;
+      //   }
+      //   if(!(valid)){
+      //     alert('이미지 파일이 아닙니다');
+      //   }
+      // }
 
-    // });
+      // 더 개선코드 2
+      if(!(imgFileExt.includes(fileExt))){
+        alert('이미지 파일이 아닙니다')
+      }
+    });
   </script>
 </body>
 </html>

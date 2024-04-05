@@ -14,19 +14,17 @@
     // 풀이2
 
     const userName = prompt('이름입력', 'kim');
-    const userPw = prompt('비밀번호입력', '1234');
+    const userNum = prompt('연락처입력', '1234');
 
     const capital = userName.toUpperCase();
     document.write(capital, '<br>');
 
-    const pw = userPw.slice(0, (userName.length - 4)) + '****';
-    document.write(pw, '<br>');
+    const maskNum = userNum.slice(0, (userNum.length - 4)) + '****';
+    document.write(maskNum, '<br>');
 
+  
   </script>
 </head>
-
 <body>
-
 </body>
-
 </html>
