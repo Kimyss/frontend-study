@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제3
+    // 먹기 싫은 과일을 입력받은 다음 과일을 담은 배열에서 찾아 제거하고 콘솔에 출력해보세요.
+    // 입력한 과일이 배열에 없을 경우 '제거할 과일이 없습니다.' 라고 alert창을 띄운다.
+
+    const fruits = ['사과', '바나나', '딸기', '포도', '두리안', '파인애플'];
+
+    // // 풀이3
+
+    const fruitsDislike = prompt('먹기 싫은 과일');
+    let fruitsDis = false;
+
+    for (let i = 0; i < fruits.length; i++) {
+      // console.log(fruits);
+      if (fruitsDislike === fruits[i]) {
+        const fruitsRemove = fruits.splice(i, 1);
+        console.log("먹기싫은과일 : " + fruitsRemove);
+        console.log("남은 fruits 배열 : " + fruits);
+        fruitsDis = true;   //먹기 싫은과일 찾음
+        break;              //중지
+      }
+    }
+
+    if (!fruitsDis) {
+      alert('제거할 과일이 없습니다');
+    }
+
+
+    // const fruitsDislike = prompt('먹기 싫은 과일');
+
+    // for (let i = 0; i < fruits.length; i++) {
+    //   // console.log(fruits);
+    //   if (fruitsDislike === fruits[i]) {
+    //     const fruitsDis = fruits.splice(i, 1);
+    //     console.log("먹기싫은과일");
+    //     console.log(fruitsDis);
+    //     console.log("남은 fruits 배열");
+    //     console.log(fruits);
+    //     break;
+    //   } else {
+    //     alert('제거할과일없습니다');
+    //     break;
+    //   }
+    // }
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
