@@ -15,24 +15,25 @@
 
     // // 풀이3
 
-    const fruitsDislike = prompt('먹기 싫은 과일');
-    let fruitsDis = false;
+    // const fruitsDislike = prompt('먹기 싫은 과일');
+    // let fruitsDis = false;
 
-    for (let i = 0; i < fruits.length; i++) {
-      // console.log(fruits);
-      if (fruitsDislike === fruits[i]) {
-        const fruitsRemove = fruits.splice(i, 1);
-        console.log("먹기싫은과일 : " + fruitsRemove);
-        console.log("남은 fruits 배열 : " + fruits);
-        fruitsDis = true;   //먹기 싫은과일 찾음
-        break;              //중지
-      }
-    }
+    // for (let i = 0; i < fruits.length; i++) {
+    //   // console.log(fruits);
+    //   if (fruitsDislike === fruits[i]) {
+    //     const fruitsRemove = fruits.splice(i, 1);
+    //     console.log("먹기싫은과일 : " + fruitsRemove);
+    //     console.log("남은 fruits 배열 : " + fruits);
+    //     fruitsDis = true;   //먹기 싫은과일 찾음
+    //     break;              //중지
+    //   }
+    // }
 
-    if (!fruitsDis) {
-      alert('제거할 과일이 없습니다');
-    }
+    // if (!fruitsDis) {
+    //   alert('제거할 과일이 없습니다');
+    // }
 
+    
 
     // const fruitsDislike = prompt('먹기 싫은 과일');
 
@@ -40,16 +41,25 @@
     //   // console.log(fruits);
     //   if (fruitsDislike === fruits[i]) {
     //     const fruitsDis = fruits.splice(i, 1);
-    //     console.log("먹기싫은과일");
-    //     console.log(fruitsDis);
-    //     console.log("남은 fruits 배열");
-    //     console.log(fruits);
-    //     break;
+    //     console.log("먹기싫은과일: " + fruitsDis);
+    //     console.log("남은 fruits 배열: " + fruits);
     //   } else {
     //     alert('제거할과일없습니다');
-    //     break;
     //   }
     // }
+
+    // 수업
+    const disliked  = prompt('싫은과일');
+    const dislikedIndex = fruits.indexOf(disliked);
+    console.log(dislikedIndex);
+
+    // if (dislikedIndex === -1) {
+    //   alert('제거할 과일이 없습니다');
+    // }else {
+    //   fruits.splice(dislikedIndex, 1);
+    // }
+
+    // console.log(fruits);
 
 
   </script>

@@ -416,7 +416,197 @@
     index = fruits.includes('Banana', 3); // 검색 시작 위치 지정
     console.log(index); // false
 
-  </script>
-</body>
 
+    // 3. Math 객체
+    // 수학적인 상수와 내장 함수를 가진 객체로 수학 관련 속성과 함수를 제공
+    // 다른 객체와 달리 Math생성자가 아님. (new array | new String)
+    // 즉 객체를 생성하지 않고 사용가능  Math()XXXX => 정적(static)
+    // Math.속성명;
+    // Math.함수명();
+    document.write('<h1>Math 객체</h1>');
+
+    // 속성
+    document.write('<h4>원주율 PI</h4>');
+    document.write(Math.PI, '<br>');
+
+    // 1) Math.round()
+    // 숫자에 대한 반올림 처리(소수점 첫째 자리 반올림)
+    document.write('<h4>round() 소수첫째반올림</h4>');
+    document.write(Math.round(4.9),'<br>');
+    document.write(Math.round(4.7),'<br>');
+    document.write(Math.round(4.6),'<br>');
+    document.write(Math.round(4.5), ' (4.5) <br>');
+    document.write(Math.round(4.3),'<br>');
+    document.write(Math.round(4.2),'<br>');
+
+    document.write('<br>');
+
+    // 2)Math.ceil()
+    // 숫자에 대한 무조건 올림
+    document.write('<h4>ceil() 무조건올림</h4>');
+    document.write(Math.ceil(4.9),'<br>');
+    document.write(Math.ceil(4.7),'<br>');
+    document.write(Math.ceil(4.6),'<br>');
+    document.write(Math.ceil(4.5),'<br>');
+    document.write(Math.ceil(4.3),'<br>');
+    document.write(Math.ceil(4.2),'<br>');
+    // 예)
+    // 50 / 15 = 3.33333333333335, Math.ceil(50 /15) = 4
+    // 총 페이지수 = Math.ceil(총아이템수 50 /한 페이지당 보이는 아이템 수 : 15);
+
+
+    // 3)Math.floor()
+    // 숫자에 대한 무조건 내림 처리(소수 첫째 자리 내림)
+    document.write('<h4>floor() 무조건내림</h4>');
+    document.write(Math.floor(4.9),'<br>');
+    document.write(Math.floor(4.7),'<br>');
+    document.write(Math.floor(4.6),'<br>');
+    document.write(Math.floor(4.5), '<br>');
+    document.write(Math.floor(4.3),'<br>');
+    document.write(Math.floor(4.2),'<br>');
+
+    // 4)Math.trunc()
+    // 소수 부분은 무조건 버리고 정수 부문만 반환
+    document.write('<h4>trunc() 소수버리고 정수부분만</h4>');
+    document.write(Math.floor(4.9),'<br>');
+    document.write(Math.floor(4.7),'<br>');
+    document.write(Math.floor(4.6),'<br>');
+    document.write(Math.floor(4.5), '<br>');
+    document.write(Math.floor(4.3),'<br>');
+    document.write(Math.floor(4.2),'<br>');
+
+    // 5) Math.sign()
+    // 숫자가 양수인지 음수인지 확인하는 용도로 사용
+    // 양수이면 1, 음수이면 -1, 0이면 0을 반환
+    document.write('<h4>sign()</h4>');
+    document.write(Math.floor(-5),'<br>');
+    document.write(Math.floor(0),'<br>');
+    document.write(Math.floor(7),'<br>');
+    // 잘 안쓰이긴 함 -  비교연산자 (i < 0)~
+
+    // 6)Math.pow
+    // 거듭제곱(pow)한 값을 반환
+    document.write('<h4>pow(a, b) a의 b제곱 </h4>');
+    document.write(Math.pow(8,2), '<br>');
+
+    // (ES7차) 지수 연산자
+    // **은 지수를 뜻함
+    document.write('<h5>(ES6차)지수연산자</h5>');
+    document.write(8 ** 2,'<br>');
+    // 거듭제곱 연산을 여러번 결합할 때 유용
+    document.write(Math.pow(Math.pow(2,2),2),'<br>');
+    document.write(2 ** 2 ** 2, '<br>');
+
+    // 7) Math.sqrt()
+    // 제곱근(Square root) 값을 반환
+    document.write('<h4>sqrt() 제곱근반환</h4>')
+    document.write(Math.sqrt(64), '<br>');  //root64 = 8 
+
+    // 8)Math.abs()
+    // 절대값(absoulte)을 반환. 즉 , 무조건 양수로 반환
+    document.write('<h4>abs() 절대값 반환 (양수)</h4>');
+    document.write(Math.abs(-4,7), '<br>');
+
+    // 9)Math.min()
+    //   Math.Max()
+    // 최소값(), 최대값() 반환
+    document.write('<h4>max(), min()  최대값, 최소값 반환</h4>');
+    document.write(Math.min(0,150,30,20,-8,-200), '<br>');
+    document.write(Math.max(0,150,30,20,-8,-200), '<br>');
+
+    // 10)Math.random()
+    // 0보다 크거나 같고 1보다 작은 범위에서 숫자형 값을 반환
+    // 0.0이상 1.0 미만의 부동 소수점 난수(실수. 소수점값)를 반환
+    document.write('<h4>random()</h4>')
+    document.write(Math.random(), '<br>');    //랜덤 숫자반환
+
+    // 응용 1에서 10사이의 랜덤한 정수생성
+    document.write('<h4>1에서 10사이의 랜덤한 정수</h4>');
+    const randomNum = Math.random();
+    // 0.0 <= Math.random(); <= 1.0  0.0이상 1.0 미만의 소수점값
+    document.write(randomNum, '<br>');
+    // 0.0 <= Math.random() * 10; <= 1.0
+    document.write(randomNum * 10, '<br>');
+    // 0.0 <= floor(Math.random()) * 10; <= 1.0  **0이상** **10미만**의 정수값
+    document.write(Math.floor(randomNum) * 10, '<br>');
+    // // 0.0 <= math.floor(randomNum * 10) +1; <= 1.0  **1부터** **11미만**의 정수값
+    document.write(Math.floor(randomNum * 10) +1, '<br>');
+    
+    // 실제 실무에서 특정 범위의 랜덤 정수값을 생성하는 ㄱㅇ우가 많음
+    // 공식화 Math.floor(math.random() *(최대값 - 최소값 + 1)) + 최소값;
+    // 자주 쓰면 함수로 만들어 놓기
+    // document.write('<h4>최소값과 최대값 사이의 정수를 반환하는 함수</h4>')
+    // function getRandomIntger(min, max){
+    //   return Math.floor(math.random() *(max - min + 1)) + min;
+    // }
+    // document.write(getRandomIntger(10, 60), '<br>');
+
+    document.write('<h4>최소값과 최대값 사이의 정수를 반환하는 함수</h4>');
+    function getRandomInteger(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    document.write(getRandomInteger(30, 50), '<br>');
+    
+    // 실습 : 가위, 바위, 보 맞추기
+    document.write('<h4>가위 바위 보 맞추기</h4>');
+    const selecrRps = prompt('가위, 바위, 보 중 선택', '가위');
+    let user;
+
+    switch(selecrRps){
+      case '가위':
+        user = 1;
+        break;
+      case '바위':
+        user = 2;
+        break;
+      case '보':
+        user = 3;
+        break;
+      default:
+        alert('잘못 작성하셨습니다.');
+        location.reload();    //새로고침
+        break;
+    }
+
+    //1 ~ 3 사이의 랜덤한 정수 생성
+    const com = Math.floor(Math.random() * 3) +1; 
+    document.write(`<img src="images/Math_img_${com}.jpg">`);
+    
+    // if(com === user){
+    //   document.write(`<img src = "images/game_1.jpg">`);
+    // }else{
+    //   document.write(`<img src = "images/game_2.jpg">`);
+    // }
+    // document.write('<br>');
+
+    // Quiz : 가위 바위보 게임만들기
+    document.write('<h4>가위 바위 보 게임만들기</h4>');
+    
+    // document.write('컴퓨터가 낸 것');
+    // document.write(`<img src="images/math_img_${com}.jpg`);
+    // document.write('VS 내가 낸것');
+    // document.write(`<img src="images/math_img_${user}.jpg`);
+    
+    // 누가 이겼는지 출력
+    // user와 com의 차를 이용
+    // 0이면 비김
+    // 1 또는 -2 이면 내가이김
+    // 그 외는 내가짐
+    const whoWin = user - com;
+    if(whoWin ===0 ){
+      document.write('비김');
+    }else if (whoWin === 1 || whoWin === -2) {
+      document.write('이김');
+    }else {
+      document.write('짐');
+    }
+    document.write('<br>');
+
+    document.write('컴퓨터가 낸 것');
+    document.write(`<img src="images/math_img_${com}.jpg`);
+    document.write('VS 내가 낸것');
+    document.write(`<img src="images/math_img_${user}.jpg`);
+    
+</script>
+</body>
 </html>
