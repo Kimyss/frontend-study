@@ -44,11 +44,17 @@
 
     // 수업
 
-    const copyCopy1 = originArr.slice(0,4);
+    const copyCopy1 = originArr.slice(0, 4);
     console.log(copyCopy1);
     // copyCopy1.push(999999);
     // console.log(copyCopy1);
     // console.log(originArr);
+    const copyCopy2 = originArr.slice(0);
+    console.log(copyCopy2);
+    const copyCopy3 = originArr.slice();
+    console.log(copyCopy3);
+    const copyCopy4 = [].concat(originArr);
+    console.log(copyCopy4);
 
     console.log();
 

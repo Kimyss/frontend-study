@@ -35,34 +35,32 @@
     let min1 = points[0];   //infinity
 
     // 기본for문말고 for el of문도 써보자
-    for(const el of points){        //우측부터 하나씩 꺼내와 .
-      if(max1 < el){
+    for (const el of points) {        //우측부터 하나씩 꺼내와 .
+      if (max1 < el) {
         max1 = el;
       }
-      if(min1 > el) min1 = el
+      if (min1 > el) min1 = el
     }
     document.write('최대값 ' + max, '<br>');
     document.write(`최소값 ${min1}<br>`);
 
-  document.write('<br>');
+    document.write('<br>');
 
     // sort이용
-    points.sort(function(a, b){a -b});
+    points.sort(function (a, b) { a - b });
     console.log(points);
-    document.write('최대값 ' + points[points.length -1], '<br>');
+    document.write('최대값 ' + points[points.length - 1], '<br>');
     document.write(`최소값 ${points[0]}<br>`);
 
     document.write('<br>');
-    
+
     // (참고) ES 6차 spred연산자
     document.write('최대값: ' + Math.max(...points), '<br>');
     document.write(`최소값 ${Math.min(...points)}<br>`);
-
   </script>
 </head>
 
 <body>
-
 </body>
 
 </html>
