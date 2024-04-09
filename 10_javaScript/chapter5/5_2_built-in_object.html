@@ -596,7 +596,95 @@
     }
     document.write('<br>');
 
+    // 4.Date 객체
+    // 날짜와 시간을 다루는 객체로 날짜와 시간에 대한 정보를 보여줌
+    document.write('<h1>Date 객체</h1>');
+        // 4. Date객체
+    // 날짜와 시간을 다루는 객체로 날자와 시간에 대한 정보를 보여줌
+    document.write('<h1>Date 객체</h1>');
 
+    // 1)Date() 생성자
+    // Date 객체 생성 4가지 방식
+    // 변수 = new Date();
+    const now = new Date();   //현재날짜와 시간을 가져옴
+    document.write(now,'<br>');    
+
+    // 변수 = new Date(year, month, day, hours, minutes, seconds, milliseconds);
+    // 이때 month는 0부터 시작
+    const now2 = new Date(2024, 3, 9, 15, 33, 33, 33);
+    document.write(now2,'<br>')
+
+    // 변수 = new Date(milliseconds);
+    const now3 = new Date(0);
+    document.write(now3,'<br>');
+    const now4 = new Date(100000000);   //1970년 1월 1일 + 10000000000ms()
+    document.write(now4,'<br>');
+
+    // 변수 = new Date(Date String);
+    // 날짜 문자열로 Date객체 생성
+    const now5 = new Date('April 15, 2024 15:41:00');
+    document.write(now5,'<br>');
+    const now6 = new Date('2024-04-09T15:41:00')
+    document.write(now6,'<br>');
+
+    // 2)Get 함수
+    document.write('<h3>Get함수</h3>');
+    const today = new Date();
+    const nowYear = today.getFullYear();
+    const nowMonth = today.getMonth();
+    const nowDate = today.getDate();
+    const nowDay = today.getDay();
+    document.write('<h4>오늘 날짜 정보</h4>');
+    document.write('날짜정보(기본포맷): ' + today);
+    document.write(`연도: ${nowYear}<br>`);
+    document.write(`월: ${nowMonth}<br>`);
+    document.write(`일: ${nowDate}<br>`);
+    document.write('요일: ' + nowDay, '<br>');
+    document.write(` ${nowYear}-${nowMonth + 1}-${nowDate}`); //직접 포맷팅
+
+    // 특정 날자 정보를 갖는 날자 객체 생성
+    // 예: 2024년 12월 31일
+    const someday = new Date(2024, 11, 31);
+    // const someday = new Date('2024-12-31'); //문자
+    const theYear = someday.getFullYear;
+    const theMonth= someday.getMonth;
+    const theDate = someday.getDate;
+    const theDay = someday.getDay;
+    // document.write(`${theYear}-${theMonth + 1}-${theDate}`);
+
+    // (실습): 특정 날짜까지 D-Day 구하기
+    // 남은일 수 (밀리초) = 특정 날짜 객체시간 - 현재 날자 객체 시간
+    // 1초 = 1000ms
+    // 1분(60초) = 1000 * 60ms
+    // 1시간(60분) = 1000 * 60 * 60ms
+    // 1일(24시간) = 1000 * 60 * 60 * 24ms
+
+    const classEndDate = new Date(2024, 6, 18);
+    // const diffTime = classEndDate.getTime() - today.getTime();
+    const diffTime = classEndDate - today; //알아서getTime호출
+    //두 날짜간의 차이를 밀리초로 계산  
+    const diffDate = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    document.write('<h4>오늘부터 종강까지 남은 일수</h4>');
+    document.write('D-Day: ' + diffDate + '일 남았습니다');
+
+    // 3) Set 함수
+    document.write('<h3>Set함수</h3>');
+    let dd =  new Date();
+    document.write(dd,'<br>');
+    dd.setFullYear(2020);
+    document.write(dd,'<br>');   
+
+    // 날짜를 6개월전으로 설정
+    dd = new Date();
+    dd.setFullYear(dd.getFullYear(), dd.getMonth() - 6);
+    document.write(dd,'<br>');
+
+    // 날짜를 지난달 마지막 날로 설정
+    dd = new Date();
+    dd.setMonth(dd.getMonth(), 0)   //0 : 지난달
+    document.write(dd,'<br>');
+    
+  </script>
   </script>
 </body>
 
