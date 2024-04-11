@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
   <script>
     // 문제1
     // 날짜 생성하기
@@ -14,16 +15,22 @@
 
     // 풀이1
 
-    const day = new Date(2023, 1, 20, 3, 12);
+    const day = new Date(2023, 11, 20, 3, 12);
+    // document.write(day, '<br>');
+    // document.write(day.toLocaleString(), '<br>');
     const dayYear = day.getFullYear();
     const dayMonth = day.getMonth();
     const dayDate= day.getDate();
-    const dayDay = day.getDay();
+    const dayDay = ['일', '월', '화', '수', '목', '금', '토'] [day.getDay()];
     const dayHours= day.getHours();
     const dayMinutes =day.getMinutes();
     
-    document.write(`${dayYear}-${dayMonth}-${dayDate}-${dayDay}-${dayHours}-${dayMinutes}`);
+    document.write(`${dayYear}-${dayMonth + 1}-${dayDate}-${dayDay}-${dayHours}-${dayMinutes}`);
 
+    
+    // 수업
+    const d1 = new Date(2023, 1, 20, 3, 12);
+    document.write()
 
 
     

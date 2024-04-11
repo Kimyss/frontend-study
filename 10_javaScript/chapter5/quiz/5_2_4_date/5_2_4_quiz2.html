@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,16 +18,49 @@
     // 예시:
     // let date = new Date(2023, 0, 5);  // 2023년 1월 5일
     // "THU"가 출력되어야 합니다.
-    
-    
+
+
     // 풀이2-1
-    
-    
+    let date = new Date(2024, 3, 12);
+    document.write('요일: ' + date.getDay(), '<br>');
+
+    let days;
+    switch (date.getDay()) {
+      case 0:
+        days = 'SUN';
+        break;
+      case 1:
+        days = 'Mon';
+        break;
+      case 2:
+        days = 'TUE';
+        break;
+      case 3:
+        days = 'WED';
+        break;
+      case 4:
+        days = 'THU';
+        break;
+      case 5:
+        days = 'FRI';
+        break;
+      case 6:
+        days = 'SAT';
+      // break;
+    }
+
+    document.write(days,'<br>');
+
+
     // 풀이2-2
-    
+
+    let dayOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    document.write(dayOfWeek[(date.getDay())], '<br>')
   </script>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
