@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     // 템플릿 리터럴
@@ -22,12 +24,12 @@
     console.log(greeting2);
 
     // 선언문
-    function a() {
-      
+    function aa() {
+
     };
 
     // 표현식
-    const b = function (){
+    const bb = function () {
 
     };
 
@@ -59,7 +61,7 @@ my name is goni
 how are you?`;
     console.log(content);
 
-     // Quiz 
+    // Quiz 
     // 4.1 다음 작업을 수행하는 코드를 작성하자.
     // 템플릿 리터럴을 활용하여 다양한 변수를 결합하고 원하는 출력을 얻도록 코드를 구현해보자.
     let a = 'Hello,';
@@ -69,8 +71,8 @@ how are you?`;
     let e = 'Kim';
 
     // 예상 결과를 얻기 위해 다음 코드를 수정해보자.
-    let result1 = '';
-    
+    let result1 = `${a} ${c} ${d} ${b} ${e}`;
+
     console.log(result1);
     // 예상 결과: Hello, my name is Kim
 
@@ -84,19 +86,24 @@ how are you?`;
 
     // 다음 코드에 템플릿 리터럴을 사용해보자.
     let result2 = v + ' ' + w + ' ' + x + ' ' + y + ' ' + z;
-    
+    result2 = `${v} ${x} ${2} ${z} ${y}`
+
     console.log(result2);
     // 1 plus 2 equals 3
 
     // 4.3
     // 템플릿 리터럴을 사용하여 다음 코드를 리팩터링하자.
     // 다음 코드에 템플릿 리터럴을 사용해보자.
-    let str = 'this is a very long text\n' + 
-    'a very long text';
-    
+    let str = 'this is a very long text\n' +
+      'a very long text';
+
+    str = `his is a very long text 
+a very long text`
+
     console.log(str);
     // this is a very long text
     // a very long text
-</script>
+  </script>
 </body>
+
 </html>
