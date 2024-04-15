@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. for of 루프(ES6차)
+    // 반복 가능한 객체(literable)의 값을 반복
+    // 예 : Array, String, Map, NodeList 등과 같이 반복 가능한 데이터 구조를 반복할 수있음
+
+    // (참고) literable = symbol.literator가 구현된 객체를 말함
+    // 반복 가능한 객체인지 구분하는 법
+    // 1) for of 루프를 써서 에러나면 아님
+    // 2) symbol.literator가 있는지 확인
+    // 확인 실습:
+    console.log([1, 2, 3]);
+    // Symbol(Symbol.iterator): ƒ values()    안에 들어있다.
+    console.log(new String('abc'));
+    // Symbol(Symbol.iterator): ƒ [Symbol.iterator]()  안에 들어있다
+
+    // for(const literable of Object){
+    // }
+
+    // 1) 배열에 대한 반복
+    const fruits = ['apple', 'banana', 'orange'];
+    // Quiz
+    for(let i = 0; i < fruits.length; i++){
+      console.log(fruits[i]);
+    }
+    
+    console.log('');
+    
+    // for of 루프사용    ==> 코드가 간단하여 일반적으로 for of사용
+    // index값이 필요할땐 일반for문 사용요망 !
+    for(const fruit of fruits){
+      console.log(fruit);
+    }
+
+    console.log('');
+
+    // 문자열에 대한 반복
+    const language = 'JavaScript';
+    for( const str of language){
+      console.log(str);
+    }
+
+    // 3) 객체에 대한 반복
+    // Object 객체는 literable 이 아니다  사용자정의객체
+    // for of 루프 사용불가, log 찍어보아도 Symbol.iterator 안들어있음
+    const car = {
+      market: 'BMW',
+      color : 'white',
+      year : '2020'
+    };
+    
+    // for( const str of car){
+    //   console.log(str);
+    // }
+    // 에러 !! TypeError: car is not iterable
+    
+    // 객체의 key - value 쌍에 대한 반복은 어떻게 구현할까.. ?
+    // Object.keys()라는 메서드를 사용해서 객체의 모든 키를 배열로 가져온 후,
+    // 키에 대한 반복을 수행하면 값에 접근 가능
+    console.log(Object.keys(car));    // ==> 배열은 fop of 루프 가능
+    for(const key of Object.keys(car)){
+      const value = car[key];   //여기서의 key는 => cosnt key
+      console.log(key);
+      console.log(value);
+    }
+
+    // (참고) Object.entries()    객체의 모든 키, 값 쌍을 배열로 가져옴
+    console.log(Object.entries(car));
+
+
+
+  </script>
+</body>
+</html>
