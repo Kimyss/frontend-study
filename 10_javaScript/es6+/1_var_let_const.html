@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     // var, let, const의 차이
@@ -13,7 +15,7 @@
     // 함수 스코프에 종속, 그 외엔 전역
     // 블록 기준으로 스코프가 생기지 않기 때문에 블록 밖에서 접근 가능
     // 예): for문 내에서 var로 선언하면 for문 밖에서도 사용 가능
-    for(let i = 0; i < 10; i++){
+    for (let i = 0; i < 10; i++) {
       var leak = '내 이름은 var, 반복문 밖에서도 사용가능하지';     //전역변수
     }
     console.log(leak);  //반복문 밖에 있지만 사용됨. 블록스코프 벗어나도 접근가능
@@ -30,18 +32,18 @@
     // 변수가 선언된 블록과 그 하위 블록 내에서만 사용가능
     // let 사용예
     let x = 'global';
-    if(x === 'global'){
-      let x ='block-scopde';
-      
+    if (x === 'global') {
+      let x = 'block-scopde';
+
       console.log(x);   //지역변수
     }
     console.log(x);     //전역변수
 
     // var 사용예
     var y = 'global';
-    if(y === 'global'){
-      var y ='block-scopde';
-      
+    if (y === 'global') {
+      var y = 'block-scopde';
+
       console.log(y);   //전역변수 
     }
     console.log(y);     //전역변수
@@ -77,7 +79,7 @@
     // console.log(jam);
     // let jam = 'i am a let';
     // let, const는 정의되기 전에 접근 불가
-    
+
     // var, let, const 선언 모두 호이스팅의 대상이 됨
     // var와 달리 호이스팅시 undefined로 변수를 초기화 하지는 않음
 
@@ -86,7 +88,7 @@
     var user = 'John';
     console.log(user);
 
-        // (정리) var와 let, const의 차이점
+    // (정리) var와 let, const의 차이점
     // 1) 스코프가 다르다. var로 선언한 변수는 블록 스코프가 아닌 함수 수준 스코프를 갖는다.
     // 2) var는 정의되기 전에 접근할 수 있다.(정의되기 전에는 undefined)
     // 3) var는 중복 선언을 허용한다.(변수명이 동일함으로써 예기치 못한 오류가 발생할 수 있음)
@@ -102,7 +104,7 @@
       var greeting = 'Good morning';
     }
 
-    console.log(greeting);  
+    console.log(greeting);
 
     // 1) Hello
     // 2) Good morning
@@ -115,8 +117,8 @@
       let value = 2;
       console.log(value);
     }
-    
-    value = 3;    
+
+    value = 3;
 
     // 1) 1
     // 2) 2
@@ -129,7 +131,7 @@
       let a = 10;
     }
 
-    console.log(a); 
+    console.log(a);
 
     // 1) 10
     // 2) 100
@@ -138,7 +140,7 @@
     // 1.4 다음 코드의 올바른 출력은?
     console.log(b);
 
-    const b = 1;   
+    const b = 1;
 
     // 1) undefined
     // 2) ReferenceError
@@ -147,4 +149,5 @@
     // 2) 2) 2) 2)
   </script>
 </body>
+
 </html>

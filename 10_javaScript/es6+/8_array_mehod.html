@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     // 유용한 배열 메소드(ES5)
@@ -36,7 +38,7 @@
       { firstName: 'Velopert', lastName: 'Kim' }
     ];
 
-  const newPerson = persons.map(({firstName, lastName}, index)=>{
+    const newPerson = persons.map(({ firstName, lastName }, index) => {
       // console.log(firstName, lastName, index);
       // return firstName + ' ' + lastName;
       return `${firstName} ${lastName}`
@@ -44,7 +46,13 @@
     console.log(newPerson);
 
     // 풀이
-    // persons.map(item)
+    // const newPersons = persons.map((item) => {
+    //   // return item.firstName + ' ' + item.lastName;
+    //   return `${item.firstName} ${item.lastName}`;
+    // });
+    // const newPersons = persons.map(item => `${item.firstName} ${item.lastName}`);
+    // console.log(newPersons);
   </script>
 </body>
+
 </html>

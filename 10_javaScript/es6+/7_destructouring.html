@@ -71,7 +71,7 @@
       }
     };
 
-    // Quiz title year director actor 변수할당 (표현식 두개쓰기)
+    // Quiz title, year, director, actor 변수할당 (표현식 두개쓰기)
     // 객체 전체를 넘겨서 한번에 중첩 구조까지 분해 할당하기
 
     // const {title, year} = movie;
@@ -144,10 +144,10 @@
     // years 프로퍼티의 값을 변수 ages에 할당하세요.
     // isAdmin 프로퍼티의 값을 변수 isAdmin에 할당하세요. isAdmin이라는 프로퍼티가 없으면 false를 할당하세요.
 
-    const {nickname, years : ages} = user;
-    const {isAdmin = false}  = user;  //false를 할당 - > 기본값주세요
+    const { nickname, years: ages } = user;
+    const { isAdmin = false } = user;  //false를 할당 - > 기본값주세요
     // console.log(nickname,ages, isAdmin);
-   
+
 
     // 3. 최대 급여 계산하기
     // 급여 관련 정보가 저장된 salaries가 있다고 가정
@@ -180,10 +180,10 @@
 
       // 여기에 코드를 작성하자.
       // 힌트: for of문 + 객체 구조 분해 할당 사용
-      for(const {name, salary} of salaryList){
-        if(max < salary){
+      for (const { name, salary } of salaryList) {
+        if (max < salary) {
           max = salary;
-          maxName =name;
+          maxName = name;
         }
       }
       return maxName;

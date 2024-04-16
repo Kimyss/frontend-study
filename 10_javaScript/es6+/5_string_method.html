@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     // 문자열 메소드 ES6차에서 새로이 추가된것
@@ -17,12 +19,12 @@
     console.log(code.startsWith('ABC'));
     console.log(code.startsWith('DEF'));      //DEF로 시작하지X
     console.log(code.startsWith('DEF', 3));   //검사의 시작점 지정가능
-    
+
     // 사용자가 입력한 웹사이트 주소가 "http"로 시작하는지 확인하고자 할때
     const url = "http://website.com";
-    if(url.startsWith('http://') || url.startsWith('https://')){
+    if (url.startsWith('http://') || url.startsWith('https://')) {
       console.log('올바른 형식의 웹사이트 url');
-    }else{
+    } else {
       console.log('잘못된 형식의 웹사이트 url');
     }
 
@@ -36,7 +38,7 @@
 
     // 사용자가 업로드한 파일의 확장자가 pdf인지 확인하고자 할때
     const file = 'abc.pdf'
-    if(file.endsWith('pdf')){
+    if (file.endsWith('pdf')) {
       console.log('pdf파일');
     } else {
       console.log('다른 형식의 파일');
@@ -61,7 +63,7 @@
     // padEnd(문자열 총길이, 추가할 문자);  문자열 뒤에  지정된 문자를 지정된 길이만큼 추가
     console.log((text.padEnd(4, 0)));   // 총길이 4이기 떄문에 0 3개추가
 
-        // Quiz 
+    // Quiz 
     // 1. 다음 코드의 올바른 출력은?    1)
     const code1 = 'ABCDEFGHI';
     code1.startsWith('EFG', 4);
@@ -81,7 +83,7 @@
     let bat = 'BatMan';
 
     let batman = bat.padStart(str, 8);
-    batman = str.repeat(8) +' '+ bat;
+    batman = str.repeat(8) + ' ' + bat;
     // batman = `${str.repeat(8)} ${bat}`
     console.log(batman);
     // 예상 결과: NaNaNaNaNaNaNaNa BatMan
@@ -90,19 +92,19 @@
     const theDay = new Date(2024, 2, 1);
 
     const year = theDay.getFullYear()
-    
-    const month = theDay.getMonth() +1;
-    const formatMonth = (month+'').padStart(2,'0');       //문자타입으로 변경요망
+
+    const month = theDay.getMonth() + 1;
+    const formatMonth = (month + '').padStart(2, '0');       //문자타입으로 변경요망
     // const formatMonth = String(month.padStart(2,'0'));
     // const formatMonth = month.toString().padStart(2,'0'));
     console.log(formatMonth);
 
     // const day = theDay.datedate();
-    const formatDate = theDay.getDate().padStart(2, '0');
+    // const formatDate = theDay.getDate().padStart(2, '0');
 
-    const formatDay = `${theDay.getFullYear()} - ${formatDate} - ${formatDate}`;
-    console.log(formatDay);
-    
+    // const formatDay = `${theDay.getFullYear()} - ${formatDate} - ${formatDate}`;
+    // console.log(formatDay);
+
     // const formatMonth = month.toString().padStart(2, '0');
     // const formatDate = theDay.getDate().toString().padStart(2, '0');
     // const formatDay = `${theDay.getFullYear()}-${formatMonth}-${formatDate}`;
@@ -111,4 +113,5 @@
 
   </script>
 </body>
+
 </html>
