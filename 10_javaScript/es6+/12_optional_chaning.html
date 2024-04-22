@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     // ?. 옵셔널 체이닝 연산자(ES2020)
     // 예제1: 사용자를 나타내는 간단한 객체
-    const user1= {
-      name : 'Goni',
-      age : 30,
-      work:{
-        title : 'IT teacher',
+    const user1 = {
+      name: 'Goni',
+      age: 30,
+      work: {
+        title: 'IT teacher',
         location: 'korea'
       }
     };
@@ -28,10 +30,10 @@
 
     let jobTitle;
     jobTitle = user1.work.title;
-    jobTitle = user2.work.title;   // 없는 속성
+    // jobTitle = user2.work.title;   // 없는 속성
 
     // if문 사용
-    if(user2.work){
+    if (user2.work) {
       jobTitle = user2.work.title;
     };
 
@@ -42,14 +44,16 @@
     // 이때 옵셔널 체이닝 연산자 사용하면 간결함
 
     jobTitle = user1.work?.title;
-    jobTitle.user1(jobTitle);
+    console.log(jobTitle);
 
     jobTitle = user2.work?.title;
-    jobTitle.user1(jobTitle);
+    console.log(jobTitle);
 
     // work속성의 존재여부묻고
     // 존재한다면 title속성에 접근
     // 존재X 면 에러가 발생하든 대신에 undefine
+
+
     // 예제2: 선택적 속성이 깊게 중첩된 경우
     const ceos = [
       {
@@ -84,8 +88,8 @@
     let graduationYear;
     for (const ceo of ceos) {
       if (ceo.education &&
-          ceo.education.university &&
-          ceo.education.university.graduation) {
+        ceo.education.university &&
+        ceo.education.university.graduation) {
         graduationYear = ceo.education.university.graduation.year;
       }
     }
@@ -97,4 +101,5 @@
     }
   </script>
 </body>
+
 </html>

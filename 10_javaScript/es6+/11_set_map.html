@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     // 1. Set(집합)
@@ -46,6 +48,8 @@
 
     const literator = familySet.values();
     console.log(literator);
+    // next() 메서드는 호출할 때마다 Set 내의 요소들을 하나씩 반환하며, 
+    // 반환된 요소는 { value: 요소값, done: 더 이상 반환할 요소가 없는지 여부 } 형식의 객체로 반환
     console.log(literator.next());
     console.log(literator.next());
     console.log(literator.next());
@@ -53,10 +57,10 @@
     // familySet.add('주소값 테스트')
     // console.log(literator);
     // console.log(familySet);
-  
+
     // for of 사용
 
-    for(const person of familySet){
+    for (const person of familySet) {
       console.log(person);
     };
 
@@ -67,7 +71,7 @@
     // console.log(value);    
     // });
 
-    familySet.forEach(value =>console.log(value));
+    familySet.forEach(value => console.log(value));
 
     // 활용 Tip : 배열에서 중복제거 할때 유용
     // 고유한 값만 갖는 set의 특징을 이용하여 배열에서 중복 제거 가능
@@ -75,17 +79,17 @@
 
     const mySet = new Set(myArray);
     console.log(mySet);
-    
+
     // set을 Array로 변환 (2가지방법)
     const uniqueArray1 = Array.from(mySet);
     console.log(uniqueArray1);
     const uniqueArray2 = [...mySet];
     console.log(uniqueArray2);
-    
+
     // 2. Map(JS에서는 Object와 유사한 부분이 많아 활용도가 낮음)
     // 어떤 자료형이든 키 - 값 쌍으로 저장하는 객체
     // 키는 고유한 값으로 중복 불가하지만 값은 중복 가능
-// Map 객체 생성
+    // Map 객체 생성
     // new Map() 또는 new Map(iterable)
     const familyMap = new Map();
 
@@ -126,4 +130,5 @@
 
   </script>
 </body>
+
 </html>
