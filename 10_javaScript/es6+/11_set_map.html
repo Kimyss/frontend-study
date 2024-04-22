@@ -7,7 +7,123 @@
 </head>
 <body>
   <script>
+    // 1. Set(집합)
+    // 어떠한 자료형의 값이든 각 요소를 고유하게 저장하는 객체
+    // 즉, 중복 저장이 불가
+
+    // set객체 생성
+    // new Set() 또는 new Set(literable)
+    const familySet = new Set();
+    console.log(familySet);
+
+    // Set에 값 추가
+    familySet.add('Dad 요소추가');
+    console.log(familySet);
+
+    familySet.add('Mom 추가');
+    console.log(familySet);
+
+    familySet.add('Son 추가');
+    console.log(familySet);
+
+    familySet.add('Son 추가');
+    console.log(familySet);  //알아서 중복저장 피한다 이 코드는 무용지물
+    // Set은 고유한 값만 가질 수 있기 때문에 중복저장 XXX
+
+    console.log(familySet.size);
+    console.log(familySet.values());  //값들을 literator 객체에 담아 반환
+    console.log(familySet.has('Son 추가'));   //특정 요소 검색
+    familySet.delete('Dad 요소추가');   //특정 요소 삭제
+    console.log(familySet);
+    familySet.clear();    //모든 요소 삭제
+    console.log(familySet);
+
+    // Set에 대한 반복
+    // literator 객체의 next() 메소드를 사용
+    familySet.add('Dad');
+    familySet.add('Mom');
+    familySet.add('Son');
+
+    const literator = familySet.values();
+    console.log(literator);
+    console.log(literator.next());
+    console.log(literator.next());
+    console.log(literator.next());
+    console.log(literator.next());
+    // familySet.add('주소값 테스트')
+    // console.log(literator);
+    // console.log(familySet);
+  
+    // for of 사용
+
+    for(const person of familySet){
+      console.log(person);
+    };
+
+    console.log(' ');
+
+    // forEach() 사용
+    // familySet.forEach((value) =>{
+    // console.log(value);    
+    // });
+
+    familySet.forEach(value =>console.log(value));
+
+    // 활용 Tip : 배열에서 중복제거 할때 유용
+    // 고유한 값만 갖는 set의 특징을 이용하여 배열에서 중복 제거 가능
+    const myArray = ['dad', 'mom', 'son', 'dad', 'mom', 'daugther'];
+
+    const mySet = new Set(myArray);
+    console.log(mySet);
     
+    // set을 Array로 변환 (2가지방법)
+    const uniqueArray1 = Array.from(mySet);
+    console.log(uniqueArray1);
+    const uniqueArray2 = [...mySet];
+    console.log(uniqueArray2);
+    
+    // 2. Map(JS에서는 Object와 유사한 부분이 많아 활용도가 낮음)
+    // 어떤 자료형이든 키 - 값 쌍으로 저장하는 객체
+    // 키는 고유한 값으로 중복 불가하지만 값은 중복 가능
+// Map 객체 생성
+    // new Map() 또는 new Map(iterable)
+    const familyMap = new Map();
+
+    // Map에 값 추가
+    // set(key, value) 메소드
+    familyMap.set('Dad', 50);
+    familyMap.set('Mom', 40);
+    familyMap.set('Son', 20);
+    console.log(familyMap);
+
+    console.log(familyMap.size);
+    console.log(familyMap.get('Dad')); // 키값으로 특정 요소 얻기
+    familyMap.set('Dad', 60); // 같은 키값으로 새로운 값 추가
+    console.log(familyMap);
+    console.log(familyMap.has('Dad')); // 특정 요소 검색
+    familyMap.delete('Dad'); // 특정 요소 삭제
+    console.log(familyMap);
+    familyMap.clear(); // 모든 요소 삭제
+    console.log(familyMap);
+
+    // Map에 대한 루프
+    familyMap.set('Dad', 50);
+    familyMap.set('Mom', 40);
+    familyMap.set('Son', 20);
+
+    // forEach() 사용
+    familyMap.forEach((value, key) => console.log(key, value));
+
+    // for of 루프 사용
+    for (const person of familyMap) {
+      console.log(person);
+    }
+
+    // for of + 배열 구조 분해 할당
+    for (const [key, value] of familyMap) {
+      console.log(key, value);
+    }
+
   </script>
 </body>
 </html>
