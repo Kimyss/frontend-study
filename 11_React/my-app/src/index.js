@@ -10,9 +10,16 @@ import PropsUse from './chapter5/5.3/PropUse';
 import CommentEx from './chapter5/5.6/CommentEx';
 import CommentList from './chapter5/CommentList';
 import Counter from './chapter7/7.2/Counter';
+import MailBox from './chapter9/9.3/MailBox';
+import LoginControl from './chapter9/9.2/LoginControl';
+import LoginControlRefactoring from './chapter9/9.3/LoginControlRefactoring';
+import MainPage from './chapter9/9.3/MainPage';
+import LandingPage from './chapter9/LandingPage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const messages = 2;
 
 // Root DOM Node에 리액트 컴포넌트를 렌더링 하도록 하는 함수(React 엘리먼트를 DOM 엘리먼트로 렌더링하는 역할)
 // 처음으로 렌더링할 컴포넌트를 지정하는데 App 컴포넌트가 기본적으로 들어가있음
@@ -41,7 +48,15 @@ root.render(
   // <CommentList />
   
   //7장예제 
-  <Counter />
+  // <Counter />
+
+  // 9장예제
+  // <MailBox unreadMessages = {['react', 'Re: React', 'Re:Re: React']}/>
+  // <MailBox unreadMessages = {[]} />
+
+  // <LoginControlRefactoring />
+  // <MainPage />
+  <LandingPage />
 );
 // 4장 예제
 // 1초마다 Clock 컴포넌트를 렌더링하는 코드
