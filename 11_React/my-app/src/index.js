@@ -15,6 +15,10 @@ import LoginControl from './chapter9/9.2/LoginControl';
 import LoginControlRefactoring from './chapter9/9.3/LoginControlRefactoring';
 import MainPage from './chapter9/9.3/MainPage';
 import LandingPage from './chapter9/LandingPage';
+import NumberList from './chapter10/10.1/NumberList';
+import ListKey from './chapter10/10.2/ListKey';
+import AttendanceBook from './chapter10/AttendanceBook';
+import NameForm from './chapter11/11.2/NameForm';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -56,7 +60,17 @@ root.render(
 
   // <LoginControlRefactoring />
   // <MainPage />
-  <LandingPage />
+  // <LandingPage />
+
+  // 10장예제
+  // <NumberList />
+  // <ListKey />
+
+  // Quiz
+  // <AttendanceBook />
+
+  // 11장
+  <NameForm />
 );
 // 4장 예제
 // 1초마다 Clock 컴포넌트를 렌더링하는 코드
