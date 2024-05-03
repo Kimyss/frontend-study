@@ -34,3 +34,7 @@ function NameForm() {
 };
 
 export default NameForm;
+
+// (참고) 리액트에서 submit 이벤트(동기식)를 이용하여 서버에 데이터를 전송하지는 않음
+// (동기식)- 서버에 데이터를 보내고 응답이 올때까지 기다렸다가 새로고침
+// 일반적으로 State에 들어있는 데이터를 ajax로 서버에 전송(이미 사용하는 것이 fetch, axious)

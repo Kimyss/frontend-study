@@ -19,6 +19,10 @@ import NumberList from './chapter10/10.1/NumberList';
 import ListKey from './chapter10/10.2/ListKey';
 import AttendanceBook from './chapter10/AttendanceBook';
 import NameForm from './chapter11/11.2/NameForm';
+import EssayForm from './chapter11/11.3/EssayForm';
+import FlavorForm from './chapter11/11.3/FlavorForm';
+import Reservation from './chapter11/11.4/Reservation';
+import ReservationRefactory from './chapter11/11.4/ReservationRefactory';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -70,7 +74,11 @@ root.render(
   // <AttendanceBook />
 
   // 11장
-  <NameForm />
+  // <NameForm />
+  // <EssayForm />
+  // <FlavorForm />
+  // <Reservation />
+  <ReservationRefactory />
 );
 // 4장 예제
 // 1초마다 Clock 컴포넌트를 렌더링하는 코드
