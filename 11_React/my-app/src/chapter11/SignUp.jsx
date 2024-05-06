@@ -1,6 +1,8 @@
 // Quiz
 // 사용자의 정보를 입력받는 가입 양식 컴포넌트 만들기
 
+import { useState } from "react";
+
 // 1. 이름 입력받기
 // 이름을 입력할 수 있는 input 태그와 입력된 값을 저장하기 위한 name이라는 state를 정의(초기값 '')
 // 값이 변경되면 이를 처리하기 위한 handleChangeName() 이라는 이벤트 핸들러 정의
@@ -18,15 +20,48 @@
 // 2) 각각의 state를 여러 개 만들어도 되고 객체 형태로 한번에 관리해도 됨
 
 function SignUp() {
+  const [name, setname] = useState('');
+
+  const handleChangeName = (e) => {
+    setname(e.target.value);
+  };
+
+  const [gender, setGender] = useState('남자');
+
+  const handleChangeGender = (e) => {
+    e.preventDefault();
+    setGender(e.target.value);
+  }
+
+  const clickSubmit = () => {
+    alert('이름' + { name } + '성별' + { gender });
+  }
   return (
     <form>
-      이름 :
-      <input 
-      type="text"
-      name=""
-      value={}
-      onChange={}
-       />
+      <label>
+        이름 : <tr></tr>
+        <input
+          type="text"
+          value={name}
+          onChange={handleChangeName}
+        />
+      </label>
+
+      <br />
+
+      <label>
+        성별 : <tr></tr>
+        <select
+          onChange={handleChangeGender}
+        >
+          <option value="남자">{gender}</option>
+          <option value="여자">여자</option>
+        </select>
+      </label>
+
+      <br />
+
+      <button type="submit" onClick={clickSubmit}>가입하기</button>
     </form>
   );
 };

@@ -23,6 +23,7 @@ import EssayForm from './chapter11/11.3/EssayForm';
 import FlavorForm from './chapter11/11.3/FlavorForm';
 import Reservation from './chapter11/11.4/Reservation';
 import ReservationRefactory from './chapter11/11.4/ReservationRefactory';
+import SignUp from './chapter11/SignUp';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -78,7 +79,10 @@ root.render(
   // <EssayForm />
   // <FlavorForm />
   // <Reservation />
-  <ReservationRefactory />
+  // <ReservationRefactory />
+
+  // SignUp Quiz
+  <SignUp />
 );
 // 4장 예제
 // 1초마다 Clock 컴포넌트를 렌더링하는 코드
