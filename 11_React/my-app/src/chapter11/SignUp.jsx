@@ -33,8 +33,11 @@ function SignUp() {
     setGender(e.target.value);
   }
 
-  const clickSubmit = () => {
-    alert('이름' + { name } + '성별' + { gender });
+  const clickSubmit = (e) => {
+    alert('이름' + name + '성별' + gender);
+    // alert(`이름: ${name} , 성별: ${gender}`);
+    // e.preventDefault();
+  // sads
   }
   return (
     <form>
