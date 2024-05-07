@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import PostDetail from './components/PostDetail';
 
 // POST앱 CRUD 만들기
 // C: Create(등록)
@@ -50,15 +51,16 @@ function App() {
         </div> */}
 
         {/* Quiz : map()을 이용하여 posts 반복 렌더링하기 */}
-        {posts.map((posts, index) => {
+        {posts.map((post, index) => {
           return (
             <div key={index} className='list'
             onClick={()=>{
               setShowPostDetail(true);
               // 리스트를 클릭했을때 콜백함수를 실행
               setCurrentIndex(index);   //id 값이 없으니 index로 - 
-              }}>
-              <h4>{posts}</h4>
+              }}
+            >
+              <h4>{post}</h4>
               <p>2023년 1월 20일</p>
               <p>by goni.kim</p>
             </div>
@@ -67,7 +69,7 @@ function App() {
 
         {/* 포스트 상세보기 */}
         {/* Quiz 조건부 렌더링 논리연산자 / 삼항연산자 */}
-        {showPostDetail && <showPostDetail posts = {posts} currentIndex = {currentIndex}/>}
+        {showPostDetail && <PostDetail posts = {posts} currentIndex = {currentIndex}/>}
 
 
       </div>

@@ -18,6 +18,7 @@ function JsxUse() {
   //   <input type="text" />
   //   <br />
   // </div>
+  // );
 
   // 꼭 감싸져야만 하는 태그
   // 두개 이상읱 태그는 무조건 하나의 태그로 감싸져있어야 함
@@ -28,7 +29,7 @@ function JsxUse() {
   //   <div>안녕히계세요</div>
   // </div>
 
-  // 이렇게 단순히 감싸기 위하여 불필요한 div로 감사는게 별로 좋지 않을 수 있음
+  // 이렇게 단순히 감싸기 위하여 불필요한 div로 감싸는게 별로 좋지 않을 수 있음
   // HTML 중첩구조가 복잡해지며 그에 따른 스타일 설정을 할 때도 복잡해짐
   // 이미 사용하는 것이 React fragment
   // <React.Fragment>
@@ -65,7 +66,7 @@ function JsxUse() {
     backgroundColor: 'black',
     color: 'aqua',
     fontSize: 24,   //기본단위 px
-    padding:'1rem'  //다른 단위 사용시 문자열로 설정
+    padding: '1rem'  //다른 단위 사용시 문자열로 설정
   };
 
   // const element = (
@@ -75,20 +76,20 @@ function JsxUse() {
   //   <div className="gray-box"></div>
   //   </>
   // );
-  
+
   // 5. JSX주석
   // const a = 1;   자바스크립트 주석
   const element = (
     <>
-    {/* 주석은 화면에 보이지 않습니다. JSX주석 */}
+      {/* 주석은 화면에 보이지 않습니다. JSX주석 */}
     //주석은 화면에 보이지않습니다
-    /* 주석은 화면에 보이지 않습니다. */
+      /* 주석은 화면에 보이지 않습니다. */
 
-    <div 
-    // 열리는 태그 내부에서는 이렇게 주석 작성
-    >
+      <div
+      // 열리는 태그 내부에서는 이렇게 주석 작성
+      >
 
-    </div>
+      </div>
     </>
   )
 
