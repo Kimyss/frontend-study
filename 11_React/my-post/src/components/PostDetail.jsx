@@ -7,7 +7,7 @@ function PostDetail(props) {
       <h4>제목: {posts[currentIndex]}</h4>
       <p>날짜: 2023 1월 20일</p>
       <p>작성자 : goni.kim</p>
-      <p>... 상세내용 ...</p>
+      <p>... 상세내용 ...</p>  
 
       {/* 간단한 포스트 수정하기  */}
       <button type="button"
