@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <header className="header--dark">
-        <h4>Gonilog</h4>
+        <h4>Vlog 브이로그</h4>
         <nav>
           <ul>
             <li>트렌딩</li>
