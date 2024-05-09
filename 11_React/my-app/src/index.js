@@ -24,6 +24,12 @@ import FlavorForm from './chapter11/11.3/FlavorForm';
 import Reservation from './chapter11/11.4/Reservation';
 import ReservationRefactory from './chapter11/11.4/ReservationRefactory';
 import SignUp from './chapter11/SignUp';
+import TextInputWithFocusButton from './TextInputWithFocusButton';
+import FileInput from './chapter11/11.3/FileInput';
+import UnitCalculator from './chapter12/UnitCalculator';
+import FancyBoader from './chapter13/13.1.1.1/FancyBorder';
+import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
+import WelcomeDialog from './chapter13/13.1.1.1/WelcomeDialog';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -58,6 +64,8 @@ root.render(
   
   //7장예제 
   // <Counter />
+  // <TextInputWithFocusButton />
+
 
   // 9장예제
   // <MailBox unreadMessages = {['react', 'Re: React', 'Re:Re: React']}/>
@@ -80,9 +88,18 @@ root.render(
   // <FlavorForm />
   // <Reservation />
   // <ReservationRefactory />
+  // <FileInput />
+
+  // 12장 예제
+  // <UnitCalculator />
+
+  // 13장 예제
+  // <FancyBoader />
+  <WelcomeDialog />
+  // <SplitPaneSection />
 
   // SignUp Quiz
-  <SignUp />
+  // <SignUp />
 );
 // 4장 예제
 // 1초마다 Clock 컴포넌트를 렌더링하는 코드
