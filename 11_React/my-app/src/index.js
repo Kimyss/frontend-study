@@ -30,6 +30,11 @@ import UnitCalculator from './chapter12/UnitCalculator';
 import FancyBoader from './chapter13/13.1.1.1/FancyBorder';
 import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
 import WelcomeDialog from './chapter13/13.1.1.1/WelcomeDialog';
+import DialogContainer from './chapter13/13.1.2/DialogContainer';
+import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
+import Card from './chapter13/Card';
+import ProfileCard from './chapter13/ProfileCard';
+import StyledPage from './chapter15/StyledPage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -95,8 +100,14 @@ root.render(
 
   // 13장 예제
   // <FancyBoader />
-  <WelcomeDialog />
+  // <WelcomeDialog />
   // <SplitPaneSection />
+  // <DialogContainer />
+  // <SignUpDialog />
+  // <ProfileCard />
+
+  // 14장 예제
+  <StyledPage />
 
   // SignUp Quiz
   // <SignUp />
