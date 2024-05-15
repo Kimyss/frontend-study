@@ -9,9 +9,9 @@ function Counter(props) {
 
   // Quiz
   const [color, setColor] = useState('blue'); //글자색 상태 (글자색변경을 위한 색상상태)
-  const[button, setButton] = useState('구독');
+  const [button, setButton] = useState('구독');
 
-  const[subscribe, setSubScribe] = useState(false);
+  const [subscribe, setSubScribe] = useState(false);
 
 
   // state 미사용 시
@@ -34,7 +34,7 @@ function Counter(props) {
       <br />
 
 
-      {/* 1. state 변경함수를 이용한 수정 */}
+      {/* 2. state 변경함수를 이용한 수정 */}
       {/*  */}
       <button
         type='button'
@@ -49,16 +49,16 @@ function Counter(props) {
       <br />
       <br />
 
-        {/* 3. state미사용 */}
-        {/* 값은 증가되지만 재렌더링이 일어나지 않음 
+      {/* 3. state미사용 */}
+      {/* 값은 증가되지만 재렌더링이 일어나지 않음 
           다른 이유로 재렌더링 발생 시, 값은 초기화됨*/}
-          
-        <p>총 {wrongCount}번 클릭했어요</p>
+
+      <p>총 {wrongCount}번 클릭했어요</p>
       <button
         type='button'
         onClick={() => {
           wrongCount++;
-          console.log(wrongCount);   
+          console.log(wrongCount);
         }}
       > 클릭(잘못된방법)</button>
 
@@ -67,14 +67,14 @@ function Counter(props) {
       <hr />
 
       {/* Quiz: 글자색 바꾸기, 버튼 내용 바꾸기 */}
-      <p style={{color: color }}>현재 글자색: {color} </p>
-      <button type='button' onClick={()=>{
+      <p style={{ color: color }}>현재 글자색: {color} </p>
+      <button type='button' onClick={() => {
         setColor('red');
         console.log(setColor);
       }}>글자색 변경</button>
 
       <p>버튼 내용 바꾸기</p>
-      <button type='button' onClick={()=>{
+      <button type='button' onClick={() => {
         setButton('구독안함');
       }}>{button}</button>
 
@@ -85,7 +85,7 @@ function Counter(props) {
         {subscribe ? '구독완료' : '구독'}
       </button> */}
 
-      <button type='button' onClick={()=>setSubScribe(!subscribe)}>
+      <button type='button' onClick={() => setSubScribe(!subscribe)}>
         {subscribe ? '구독완료' : '구독'}
       </button>
     </>
