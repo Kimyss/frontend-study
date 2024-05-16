@@ -13,7 +13,7 @@ import Counter from './chapter7/7.2/Counter';
 import MailBox from './chapter9/9.3/MailBox';
 import LoginControl from './chapter9/9.2/LoginControl';
 import LoginControlRefactoring from './chapter9/9.3/LoginControlRefactoring';
-import MainPage from './chapter9/9.3/MainPage';
+import MainPage from './chapter9/9.4/MainPage';
 import LandingPage from './chapter9/LandingPage';
 import NumberList from './chapter10/10.1/NumberList';
 import ListKey from './chapter10/10.2/ListKey';
@@ -37,7 +37,13 @@ import ProfileCard from './chapter13/ProfileCard';
 import StyledPage from './chapter15/StyledPage';
 import Blocks from './chapter15/theme/Blocks';
 import ThemeApp from './chapter15/theme/ThemeApp';
-import ComponentVariable from './chapter7/ComponentVariable';
+import CounterEffect from './chapter7/7.3/ex1/CounterEffect';
+import TimerContainer from './chapter7/7.3/ex2/TimerContainer';
+import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
+import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
+
+
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -73,7 +79,12 @@ root.render(
   //7장예제 
   // <Counter />
   // <TextInputWithFocusButton />
-  <ComponentVariable />
+  // <ComponentVariable />
+  // <CounterEffect />
+  // <TimerContainer />
+  <EffectContainer />
+
+  
 
 
   // 9장예제
