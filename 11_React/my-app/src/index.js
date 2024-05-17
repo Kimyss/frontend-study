@@ -41,6 +41,7 @@ import CounterEffect from './chapter7/7.3/ex1/CounterEffect';
 import TimerContainer from './chapter7/7.3/ex2/TimerContainer';
 import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
 import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
+import SimpleRouter from './chapter16/SimpleRouter';
 
 
 
@@ -82,7 +83,7 @@ root.render(
   // <ComponentVariable />
   // <CounterEffect />
   // <TimerContainer />
-  <EffectContainer />
+  // <EffectContainer />
 
   
 
@@ -125,6 +126,8 @@ root.render(
   // <StyledPage />
   // <Blocks />
   // <ThemeApp />
+
+  <SimpleRouter />
 
   // SignUp Quiz
   // <SignUp />

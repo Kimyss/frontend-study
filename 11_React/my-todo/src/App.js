@@ -6,6 +6,7 @@ import TodoListItem from "./components/TodoListItem";
 import TodoList from "./components/TodoList";
 import { useEffect, useRef, useState } from "react";
 import {v4 as uuidv4  } from "uuid";
+import Modal from "./components/Modal";
 
 // 패키지설치
 // npm install styled-components styled-reset react-icons
@@ -30,22 +31,50 @@ function App() {
   // id, 내용, 완료 여부
   // TodoList에 props로 전달
   const [todos,setTodos] = useState([
-    {
-      id: 1,
-      text: 'React props 공부하기',
-      done: true
-    },
-    {
-      id: 2,
-      text: 'useState, Hook 공부하기',
-      done: true
-    },
-    {
-      id: 3,
-      text: '종합 공부하기',
-      done: false
-    }
+    // {
+    //   id: 1,
+    //   text: '수업 교안 작성하기',
+    //   done: true
+    // },
+    // {
+    //   id: 2,
+    //   text: '시험 채점하기',
+    //   done: true
+    // },
+    // {
+    //   id: 3,
+    //   text: '단계별 실습 예제 만들기',
+    //   done: false
+    // },
   ]);
+
+  const [showModal,setShowModal] =  useState(false) //모달상태
+  const[editTodo,setEditTodo] =  useState({});   //현재 수정할 todo상태
+
+  const handleOpenModal = (id) =>{
+    // 모달 열면서 현재 수정할 todo를 state에 저장
+    setEditTodo(todos.find((todo)=>{
+      return todo.id === id;
+    }));
+    setShowModal(true);
+  };
+
+  const handleCloseModal = (id) =>{
+    setShowModal(false);
+  };
+
+  const handlChange = (e) =>{    // 제어 컴포넌트로 관리
+    setEditTodo({
+      ...editTodo,
+      text: e.target.value
+  });
+  };
+  const handleEdit = () =>{       //실제 수정
+    setTodos(todos.map((todo)=>{
+      return todo.id == editTodo.id? editTodo : todo;
+    }));
+    handleCloseModal();
+  }
 
    // 로컬 스토리지에서 가져오기
    useEffect(() => {
@@ -56,7 +85,7 @@ function App() {
   // *로컬 스토리지에 저장하기 (주의 : DB가 아님, DB처럼 쓰면 안됨!)
   // 추가, 수정, 삭제 각 함수에 로직을 넣어도 되지만, 
   // 이제 리액트를 사용하니 useEffect()를 활용하면 한번에 처리가능
-  // todos가 변경될 대마다 실행하라
+  // todos가 변경될 때마다 실행하라
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
@@ -139,9 +168,20 @@ const nextId = useRef(4);
     <GlobalStyle />
     <TodoTemplate>
       <TodoInsert onInsert = {handleInsert} />
-      <TodoList todos ={todos} onRemove = {handleRemove} onToggle = {handleToggle} />
+      <TodoList todos ={todos} onRemove = {handleRemove} onToggle = {handleToggle} onModal = {handleOpenModal}/>
 
     </TodoTemplate>
+
+    {/* 수정하기 모달 props로 넘겨 */}
+    {showModal && (
+    <Modal 
+    title = '할 일 수정'
+    onCloseModal = {handleCloseModal}
+    onEdit = {handleEdit}
+     >
+      <input type="text" value={editTodo.text} onChange={handlChange} />
+    </Modal>
+    )}
     </>
   );
 }

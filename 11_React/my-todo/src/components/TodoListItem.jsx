@@ -73,19 +73,18 @@ const Edit = styled.div`
   }
 `;
 
-function TodoListItem( {todo: {id, text, done}, onRemove, onToggle} ) {
+function TodoListItem( {todo: {id, text, done}, onRemove, onToggle, onModal} ) {
   return (
     <TodoListItemWrapper>
       <Checkbox done = {done} onClick={() => onToggle(id)}>
         {done ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
       </Checkbox>
       <Text done = {done}>{text}</Text>
-      <Edit>
+      <Edit onClick={() => onModal(id)}>
         <MdEdit />
       </Edit>
       <Remove
-      onClick={()=>
-        {onRemove(id)}}
+      onClick={()=> onRemove(id)}
       >
         <MdRemoveCircleOutline />
       </Remove>
