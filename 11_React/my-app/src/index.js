@@ -42,6 +42,7 @@ import TimerContainer from './chapter7/7.3/ex2/TimerContainer';
 import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
 import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
 import SimpleRouter from './chapter16/SimpleRouter';
+import Greeting from './chapter9/9.1/Greeting';
 
 
 
@@ -89,6 +90,8 @@ root.render(
 
 
   // 9장예제
+  // <Greeting isLoggedIn={true} />
+  // <LoginControl />
   // <MailBox unreadMessages = {['react', 'Re: React', 'Re:Re: React']}/>
   // <MailBox unreadMessages = {[]} />
 

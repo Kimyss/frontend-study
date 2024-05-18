@@ -30,20 +30,20 @@ function Toolbar(props) {
 
         {/* 또는 */}
 
-    {isLoggedIn
-      ?(
-        <>
-        <span style={styles.greeting}>환영합니다</span>
-        <button type="button" onClick={onClickLogOut}>로그아웃</button>
-        </>
-      )
-      : <button type="button" onClick={onClickLogin}> 로그인</button>
-    }
-      </div>  
-      </>
-      
-      
-    );
-  }
+        {isLoggedIn
+          ? (
+            <>
+              <span style={styles.greeting}>환영합니다</span>
+              <button type="button" onClick={onClickLogOut}>로그아웃</button>
+            </>
+          )
+          : <button type="button" onClick={onClickLogin}> 로그인</button>
+        }
+      </div>
+    </>
 
-  export default Toolbar; 
+
+  );
+}
+
+export default Toolbar; 
