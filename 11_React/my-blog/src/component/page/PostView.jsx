@@ -1,6 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../ui/Button";
 import styled from "styled-components";
+import data from "../../data.json";
+
 
 const Wrapper = styled.div`
   padding: 16px;
@@ -48,13 +50,19 @@ function PostViewPage() {
   // URL 파라미터로 전달받은 postView값 가져오기
   // userParams(): URL파라미터 경로에 입력된 값을 가져올 수 있다.
   console.log(useParams());
+  const { postId } = useParams();
+
+  // 배열 전체에서 해당되는 글 찾기
+  const post = data.find(() => {
+
+  })
 
   return (
     <Wrapper>
       <Container>
-        <Button 
-          title = "뒤로가기"
-          onClick = {()=>{navigate('/')}}
+        <Button
+          title="뒤로가기"
+          onClick={() => { navigate('/') }}
         />
         <PostContainer>
           {/* 데이터바인딩 */}

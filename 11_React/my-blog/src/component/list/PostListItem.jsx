@@ -25,13 +25,13 @@ const TitleText = styled.p`
 
 // 글의 제목만 표시해주는 컴포넌트
 function PostListItem(props) {
-  const {post:{id, title}} = props;
+  const { post: { id, title } } = props;
 
   const navigate = useNavigate();
 
   // post란 이름으로 하나하나 넘겨
   return (
-    <Wrapper>
+    <Wrapper onClick={() => navigate(`/post/${id}`)}>
       <TitleText>{title}</TitleText>
     </Wrapper>
   );

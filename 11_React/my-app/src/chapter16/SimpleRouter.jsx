@@ -42,44 +42,44 @@ import NoMatchPage from "./pages/NoMatchPage";
 
 function SimpleRouter() {
   return (
-    // 브라우라우터가 있어야만해 최상위폴더 혹은 app.js에서 전체 바깥쪽에 감싼다
-    <BrowserRouter>  
-    <Routes>
-      {/* 슬래쉬(/) 경로로 접속하면 MainPage컴포넌트가 렌더링 */}
-      <Route path = "/" element ={<Mainpage />}  />
-      <Route path = "/places" element = {<PlacePage/>} />
-      <Route path = "/games" element= {<GamePage/>} />
+    // 브라우저라우터가 있어야만해 최상위폴더 혹은 app.js에서 전체 바깥쪽에 감싼다
+    <BrowserRouter>
+      <Routes>
+        {/* 슬래쉬(/) 경로로 접속하면 MainPage컴포넌트가 렌더링 */}
+        <Route path="/" element={<Mainpage />} />
+        <Route path="/places" element={<PlacePage />} />
+        <Route path="/games" element={<GamePage />} />
 
-      {/* 방법1. 서브경로 변경  */}
-      {/* <Route path="/games/hot" element = {<HotGame/>} />
+        {/* 방법1. 서브경로 변경  */}
+        {/* <Route path="/games/hot" element = {<HotGame/>} />
       <Route path="/games/new" element = {<NewGame/>} /> */}
 
-      {/* 방법2. Nasted Route 방식 */}
-      {/* 서브 경로 방식과 차이점: 부모 엘리먼트 + 자식 엘리먼트가 같이 보임 */}
-      {/* 부모 안에 자식들을 렌더링해 보여줌 (부모안에서 어디에 보여줄지는 Outlet 컴포넌트로 지정 */}
-      {/* 활용 예 : 헤더, 푸터 사이에 메인 영역 */}
-      {/* Nasted안에 또 Nasted 가능 */}
-      <Route path="/games" element= {<GamePage />}>
-        <Route path="hot" element = {<HotGame/>}/>
-        <Route path="new" element = {<NewGame/>}/>
-      </Route>
+        {/* 방법2. Nasted Route 방식 */}
+        {/* 서브 경로 방식과 차이점: 부모 엘리먼트 + 자식 엘리먼트가 같이 보임 */}
+        {/* 부모 안에 자식들을 렌더링해 보여줌 (부모안에서 어디에 보여줄지는 Outlet 컴포넌트로 지정 */}
+        {/* 활용 예 : 헤더, 푸터 사이에 메인 영역 */}
+        {/* Nasted안에 또 Nasted 가능 */}
+        <Route path="/games" element={<GamePage />}>
+          <Route path="hot" element={<HotGame />} />
+          <Route path="new" element={<NewGame />} />
+        </Route>
 
-      {/* URL 파라미터와 쿼리스트링 */}
-      {/* URL 파라미터는 주소의 경로에 유동적인 값을 넣는 형태고, 쿼리스트링은 주소의 뒷부분에? 
+        {/* URL 파라미터와 쿼리스트링 */}
+        {/* URL 파라미터는 주소의 경로에 유동적인 값을 넣는 형태고, 쿼리스트링은 주소의 뒷부분에? 
         문자열 이후에 key = value로 값을 정의하며 &으로 구분을 하는 형태 */}
-      {/* 주로 URL 파라미터는 ID또는 이름을 사용하여 특정 데이터를 조회할 때 사용하고,
+        {/* 주로 URL 파라미터는 ID또는 이름을 사용하여 특정 데이터를 조회할 때 사용하고,
         쿼리스트링은 키워드 검색, 페이지네이션, 정렬 방식 등 데이터 조회에 필요한 옵션을 전달할때 사용
         (주로 이런 용도로 쓰인 다는 것이지 이러한 법칙이 있다는 것은 아님, 정해진 규칙이 있는 것은 아님)
 
         URL 파라미터 예시:
         쿼리스트링 예시: /arcticles? keyword = react&page=1&sort=popular
         */}
-        <Route path="/about" element = {<AboutPage />} />
+        <Route path="/about" element={<AboutPage />} />
 
         {/* 위에 설정한 라우팅 이외의 경우 */}
         {/* *의 의미는 match acything  */}
         <Route path="*" element={<NoMatchPage />} />
-    </Routes> 
+      </Routes>
     </BrowserRouter>
   );
 };
