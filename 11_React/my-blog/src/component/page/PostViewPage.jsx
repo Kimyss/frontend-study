@@ -2,6 +2,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../ui/Button";
 import styled from "styled-components";
 import data from "../../data.json";
+import CommentList from "../list/ComentList";
+import TextInput from "../ui/TextInput";
+import { useState } from "react";
 
 
 const Wrapper = styled.div`
@@ -47,16 +50,20 @@ const CommentLabel = styled.p`
 function PostViewPage() {
   const navigate = useNavigate();
 
+  // 댓글 내용을 위한 state
+  const [comment, setComment] = useState('');
+
+
   // URL 파라미터로 전달받은 postView값 가져오기
   // userParams(): URL파라미터 경로에 입력된 값을 가져올 수 있다.
   console.log(useParams());
-  const { postId } = useParams();
+  const { postView } = useParams();
 
   // 배열 전체에서 해당되는 글 찾기
-  const post = data.find(() => {
-
-  })
-
+  const post = data.find((item) => {
+    return item.id === postView;
+  });
+  console.log(post);
   return (
     <Wrapper>
       <Container>
@@ -66,14 +73,29 @@ function PostViewPage() {
         />
         <PostContainer>
           {/* 데이터바인딩 */}
-          <TitleText />
-          <ContentText />
+          <TitleText>{post.title}</TitleText>
+          <ContentText>{post.content}</ContentText>
         </PostContainer>
 
         <CommentLabel>댓글</CommentLabel>
-        {/* 댓글리스트 */}
+        {/* 댓글리스트 */} 
+
+        {/* Quiz 데이터바인딩 */}
+        <CommentList comment = {post.comments}></CommentList>
+
         {/* 댓글입력 */}
+        <TextInput
+          height = {40}
+          value = {comment}
+          onChange = {(e)=>{setComment(e.target.value)}}
+          />
+
         {/* 댓글 등록 버튼 */}
+        <Button
+          title = "댓글 등록"
+          onClick = {()=>{navigate('/')}}
+         />
+
 
       </Container>
     </Wrapper>
