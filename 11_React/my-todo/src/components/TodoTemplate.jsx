@@ -43,11 +43,11 @@ function TodoTemplate(props) {
   const { children } = props;
   return (
     <>
-    <TodoTemplateWrapper>
-    {/* <AppTitle>일정관리</AppTitle> */}
-    <div className="app-title">일정관리</div>
-    <div className="content">{children}</div>
-    </TodoTemplateWrapper>
+      <TodoTemplateWrapper>
+        {/* <AppTitle>일정관리</AppTitle> */}
+        <div className="app-title">일정관리</div>
+        <div className="content">{children}</div>
+      </TodoTemplateWrapper>
     </>
   );
 };

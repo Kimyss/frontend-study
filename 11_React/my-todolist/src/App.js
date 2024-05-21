@@ -1,10 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import TodoItem from './components/TodoItem';
+import { Reset } from "styled-reset";
+import TodoTemplate from './components/TodoTemplate';
 
 function App() {
   return (
-  <TodoItem />
+    <>
+      <Reset />
+      <TodoTemplate />
+    </>
   );
 }
 

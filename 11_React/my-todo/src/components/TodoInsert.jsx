@@ -44,18 +44,18 @@ const StyledButton = styled.button`
 // 새로운 항목을 입력하고 추가할 수 있는 컴포넌트
 // state를 통해 input의 상태를 관리
 // 
-function TodoInsert( {onInsert} ) {
+function TodoInsert({ onInsert }) {
   const [value, setValue] = useState('');
 
-  const handleChange =(e) =>{
+  const handleChange = (e) => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     // 유효성 검사 추가|(빈문자 안들어가게)
-    if(!value){
+    if (!value) {
       alert('문자입력필요')
       return;
     }
@@ -66,12 +66,12 @@ function TodoInsert( {onInsert} ) {
 
   return (
     <TodoInsertWrapper onSubmit={handleSubmit}>
-      <StyledInput 
+      <StyledInput
         type="text"
         value={value}
         placeholder="할일 입력하세요"
         onChange={handleChange}
-        />
+      />
       <StyledButton type="submit" >
         <AddIcon />
       </StyledButton>

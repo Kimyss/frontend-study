@@ -5,7 +5,7 @@ import TodoInsert from "./components/TodoInsert";
 import TodoListItem from "./components/TodoListItem";
 import TodoList from "./components/TodoList";
 import { useEffect, useRef, useState } from "react";
-import {v4 as uuidv4  } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import Modal from "./components/Modal";
 
 // 패키지설치
@@ -16,7 +16,7 @@ import Modal from "./components/Modal";
 // createGlobalStyle을 이용하여 글로벌 스타일 컴포넌트를 만들고 가장 첫번째로 렌더링 하면 됨
 const GlobalStyle = createGlobalStyle`  //크리에트글로벌스타일
 ${console.log(reset)}
-/* reset css 넣기 */
+/* reset css 넣기 */ 
 ${reset}
 
 /* 글로벌(공통스타일) */
@@ -30,7 +30,7 @@ function App() {
   // todos 배열 안에 객체 형태로 데이터가 존재
   // id, 내용, 완료 여부
   // TodoList에 props로 전달
-  const [todos,setTodos] = useState([
+  const [todos, setTodos] = useState([
     // {
     //   id: 1,
     //   text: '수업 교안 작성하기',
@@ -48,36 +48,36 @@ function App() {
     // },
   ]);
 
-  const [showModal,setShowModal] =  useState(false) //모달상태
-  const[editTodo,setEditTodo] =  useState({});   //현재 수정할 todo상태
+  const [showModal, setShowModal] = useState(false) //모달상태
+  const [editTodo, setEditTodo] = useState({});   //현재 수정할 todo상태
 
-  const handleOpenModal = (id) =>{
+  const handleOpenModal = (id) => {
     // 모달 열면서 현재 수정할 todo를 state에 저장
-    setEditTodo(todos.find((todo)=>{
+    setEditTodo(todos.find((todo) => {
       return todo.id === id;
     }));
     setShowModal(true);
   };
 
-  const handleCloseModal = (id) =>{
+  const handleCloseModal = (id) => {
     setShowModal(false);
   };
 
-  const handlChange = (e) =>{    // 제어 컴포넌트로 관리
+  const handlChange = (e) => {    // 제어 컴포넌트로 관리
     setEditTodo({
       ...editTodo,
       text: e.target.value
-  });
+    });
   };
-  const handleEdit = () =>{       //실제 수정
-    setTodos(todos.map((todo)=>{
-      return todo.id == editTodo.id? editTodo : todo;
+  const handleEdit = () => {       //실제 수정
+    setTodos(todos.map((todo) => {
+      return todo.id == editTodo.id ? editTodo : todo;
     }));
     handleCloseModal();
   }
 
-   // 로컬 스토리지에서 가져오기
-   useEffect(() => {
+  // 로컬 스토리지에서 가져오기
+  useEffect(() => {
     const dbTodos = JSON.parse(localStorage.getItem('todos')) || []; // 초기에 'todos'가 없으면 null을 반환함
     setTodos(dbTodos);
   }, []);
@@ -92,18 +92,18 @@ function App() {
 
 
   // ** npm install uuid ID값
-  
+
 
 
   // 새 객체를 만들 때마다 id값에 1씩 더해줘야하는데
   // id값은 렌더링 되는정보가 아님
   // 단순히 새로운 항목을 만들때 참조되는 값임
   // useRef()를 사용하여 변수 생성
-const nextId = useRef(4);
+  const nextId = useRef(4);
 
 
   // todos 배열에 새 할일 객체를 추가하기 위한 함수
-  const handleInsert = (text) =>{
+  const handleInsert = (text) => {
     // todo라는 이름의 새로운 객체생성
     const todo = {
       // id :nextId.current,
@@ -121,13 +121,13 @@ const nextId = useRef(4);
 
     // 방법 2 - 배열의 내장함수 이용
     setTodos(todos.concat(todo));
-    
+
     nextId.current += 1;  //nextId에 1씩 더하기
 
   };
 
   // todos 배열에서 id값으로 항목을 지우기 위한 함수
-  const handleRemove = (id) =>{
+  const handleRemove = (id) => {
     // 방법1
     // const copyTodos = [...todos];
     // const targetIndex =  todos.findIndex((todo)=>{
@@ -135,7 +135,7 @@ const nextId = useRef(4);
     // });
     // copyTodos.splice(targetIndex,1)
     // // 배열에서 특정요소 제거 splice !
-    
+
     // setTodos(copyTodos);
 
     // 방법 2 - 배열의 내장 함수 이용
@@ -155,33 +155,33 @@ const nextId = useRef(4);
     // setTodos(copyTodos);
 
     // 방법2 배열을 다룰 땐 배열의 내장함수를 많이 이용한다 findIndex는? 내장함수아니?
-    setTodos(todos.map((todo)=>{
-      return todo.id === id ? { ...todo, done : !todo.done} : todo;
+    setTodos(todos.map((todo) => {
+      return todo.id === id ? { ...todo, done: !todo.done } : todo;
     }))
   };
-  
+
 
 
   return (
     <>
-    <Reset />
-    <GlobalStyle />
-    <TodoTemplate>
-      <TodoInsert onInsert = {handleInsert} />
-      <TodoList todos ={todos} onRemove = {handleRemove} onToggle = {handleToggle} onModal = {handleOpenModal}/>
+      <Reset />
+      <GlobalStyle />
+      <TodoTemplate>
+        <TodoInsert onInsert={handleInsert} />
+        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} onModal={handleOpenModal} />
 
-    </TodoTemplate>
+      </TodoTemplate>
 
-    {/* 수정하기 모달 props로 넘겨 */}
-    {showModal && (
-    <Modal 
-    title = '할 일 수정'
-    onCloseModal = {handleCloseModal}
-    onEdit = {handleEdit}
-     >
-      <input type="text" value={editTodo.text} onChange={handlChange} />
-    </Modal>
-    )}
+      {/* 수정하기 모달 props로 넘겨 */}
+      {showModal && (
+        <Modal
+          title='할 일 수정'
+          onCloseModal={handleCloseModal}
+          onEdit={handleEdit}
+        >
+          <input type="text" value={editTodo.text} onChange={handlChange} />
+        </Modal>
+      )}
     </>
   );
 }
@@ -195,7 +195,7 @@ export default App;
 // 최대 5MB까지 문자만 저장 가능
 // 콘솔 창에서 연습해보기
 
-// 웹 스토리지는 origin(도메인 및 프로토콜)당입니다. 
+// 웹 스토리지는 origin(도메인 및 프로토콜)당입니다.
 // 같은 출처의 모든 페이지는 동일한 데이터를 저장하고 액세스할 수 있습니다.
 
 // HTML 웹 스토리지 객체
