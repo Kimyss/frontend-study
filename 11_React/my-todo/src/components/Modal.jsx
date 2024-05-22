@@ -53,18 +53,18 @@ const ModalContainer = styled.div`
 `;
 
 function Modal(props) {
-  const {title, children, onCloseModal,onEdit } = props;    // 모달의 내용, 바디부분을 props로 받아올 것이야
+  const { title, children, onCloseModal, onEdit } = props;    // 모달의 내용, 바디부분을 props로 받아올 것이야
 
   return (
     <Background >
       <ModalContainer>
         <div className="header">
           <span className="modal-title">{title}</span>
-          <MdClose onClick={onCloseModal}/>
+          <MdClose onClick={onCloseModal} />
         </div>
         <hr />
         <div className="body">
-          {children}    
+          {children}
         </div>
         <div className="footer">
           <button type="button" onClick={onEdit}>확인 button</button>

@@ -1,37 +1,26 @@
 import { styled } from "styled-components";
-import Button from "./Button";
 import TodoInsert from "./TodoInsert";
-import { useState } from "react";
+import { CgAdidas } from "react-icons/cg";
 
 const TodoWrapper = styled.div`
-  width: 512px;
-  margin: 6rem auto 0;
-  border-radius: 4px;
-  overflow: hidden;
-  /* background: skyblue; */
+width : 512px;
+margin: 6rem auto 0;
+overflow: hidden;   //넘치는거 숨기기
+background: white;
+border-radius : 10px;
 
-  .app-title{
-  background: #22b8cf;
-  color: white;
-  height: 4rem;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
-
-  .button{
-    /* 버튼css요망 */
-    border-radius: 10px;
-  }
+.app-title{
+  font-size : 30px;
+  height : rem;
+  margin : 10px 10px;
+}
 `
 
 function TodoTemplate() {
-  const [addtodo, setAddtodo] = useState('');
 
   return (
-   <TodoWrapper>
-      <div className="app-title">일정관리</div>
+    <TodoWrapper>
+      <div className="app-title">Todo List <CgAdidas /></div>
       <TodoInsert />
     </TodoWrapper>
   );

@@ -10,7 +10,7 @@ import Modal from "./components/Modal";
 
 // 패키지설치
 // npm install styled-components styled-reset react-icons
-// pacjage.json에서 각각 버전 확인 바라요 styled-components | styled-reset | react-icons 
+// package.json에서 각각 버전 확인 바라요 styled-components | styled-reset | react-icons 
 
 // 글로벌(공통) 스타일 적용과 reset css 적용
 // createGlobalStyle을 이용하여 글로벌 스타일 컴포넌트를 만들고 가장 첫번째로 렌더링 하면 됨
