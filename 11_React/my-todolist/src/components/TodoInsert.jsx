@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import Button from "./Button";
 import { PiCursorClickBold } from "react-icons/pi";
 import { useState } from "react";
+import TodoList from "./TodoList";
 
 const InputInsert = styled.form`
   background: white;
@@ -24,31 +25,35 @@ const StyledInput = styled.input`
 
 
 function TodoInsert() {
-  const [todoInsert, setTodoInsert] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
   const handleInput = (event) => {
-    setTodoInsert(event.target.value);
-  }
+    setInputValue(event.target.value);
+  };
+
+  const [todoList, setTodoList] = useState('');
+
+  const handleTodo = (e) => {
+    e.
+      setTodoList([...todoList, inputValue]);
+    console.log(todoList);
+  };
+
   return (
     <>
       <InputInsert>
         <StyledInput
           type="text"
           placeholder="할일 입력창"
-          value={todoInsert}
+          value={inputValue}
           onChange={handleInput}
         >
         </StyledInput>
-        <button type="submit">
+        <button type="submit" onChange={handleTodo}>
           <PiCursorClickBold />
         </button>
       </InputInsert>
-      <div className="buttonAdmin">
-        {/* <Button buttonName='정렬버튼' />
-        <Button buttonName='할일개수버튼' />
-        <Button buttonName='기능버튼3' />
-        <Button buttonName='기능버튼4' /> */}
-      </div>
+      <TodoList todoList={todoList} />
     </>
   );
 };

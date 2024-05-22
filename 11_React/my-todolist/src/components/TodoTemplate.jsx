@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import TodoInsert from "./TodoInsert";
 import { CgAdidas } from "react-icons/cg";
+import TodoList from "./TodoList";
 
 const TodoWrapper = styled.div`
 width : 512px;
@@ -22,6 +23,7 @@ function TodoTemplate() {
     <TodoWrapper>
       <div className="app-title">Todo List <CgAdidas /></div>
       <TodoInsert />
+      <TodoList />
     </TodoWrapper>
   );
 };
