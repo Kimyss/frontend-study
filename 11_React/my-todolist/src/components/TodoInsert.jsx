@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { PiCursorClickBold } from "react-icons/pi";
+import { PiCursorClickBold as ADDIcon } from "react-icons/pi";
 import { useState } from "react";
 import TodoList from "./TodoList";
 
@@ -22,34 +22,39 @@ const StyledInput = styled.input`
 `
 
 
-function TodoInsert() {
+function TodoInsert(props) {
+  const { addTodo } = props;
+
   const [inputValue, setInputValue] = useState('');
 
-  const handleInput = (event) => {
+  const handleChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  const [todoList, setTodoList] = useState('');
+  const [todoList, setTodoList] = useState([]);
 
-  const handleTodo = (e) => {
-    setTodoList([...todoList, inputValue]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTodo(inputValue);
+    setTodoList(' ');
   };
 
   return (
     <>
-      <InputInsert>
+      <InputInsert onSubmit={handleSubmit}>
         <StyledInput
           type="text"
           placeholder="할일 입력창"
           value={inputValue}
-          onChange={handleInput}
+          onChange={handleChange}
         >
         </StyledInput>
-        <button type="submit" onClick={handleTodo}>
-          <PiCursorClickBold />
+        <button type="submit">    {/* 버튼에 onSumbmit 넣으면 왜? */}
+          <ADDIcon />
         </button>
       </InputInsert>
-      <TodoList todolist = {todoList}/>
+      <TodoList todoList={todoList} />
+
     </>
   );
 };

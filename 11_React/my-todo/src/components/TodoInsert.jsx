@@ -72,7 +72,7 @@ function TodoInsert({ onInsert }) {
         placeholder="할일 입력하세요"
         onChange={handleChange}
       />
-      <StyledButton type="submit" >
+      <StyledButton type="submit">
         <AddIcon />
       </StyledButton>
     </TodoInsertWrapper>

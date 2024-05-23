@@ -17,12 +17,12 @@ border-radius : 10px;
 }
 `
 
-function TodoTemplate() {
-
+function TodoTemplate(props) {
+  const { children } = props;
   return (
     <TodoWrapper>
       <div className="app-title">Todo List <CgAdidas /></div>
-      <TodoInsert />
+      <div>{children}</div>
     </TodoWrapper>
   );
 };
