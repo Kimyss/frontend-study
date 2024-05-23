@@ -23,7 +23,6 @@ function TodoTemplate() {
     <TodoWrapper>
       <div className="app-title">Todo List <CgAdidas /></div>
       <TodoInsert />
-      <TodoList />
     </TodoWrapper>
   );
 };
