@@ -13,6 +13,7 @@ body {
 }
 `
 
+
 function App() {
   const [todos, setTodos] = useState([]);
 
@@ -22,8 +23,19 @@ function App() {
       text,
       done: false
     };
-    setTodos([...todos, newTodo])
+    setTodos([...todos, newTodo]);
   }
+
+  const handleRemove =(id)=>{
+    setTodos(todos.filter((todo)=>{
+      return todo.id !==id;
+    }))
+  }
+
+  const handleTogle = (id) =>{
+
+  }
+
 
   return (
     <>
@@ -31,7 +43,7 @@ function App() {
       <GlobalStyle />
       <TodoTemplate>
         <TodoInsert addTodo={addTodo} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onRemove={handleRemove} />
       </TodoTemplate>
 
     </>

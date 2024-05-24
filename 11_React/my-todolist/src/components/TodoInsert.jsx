@@ -31,12 +31,15 @@ function TodoInsert(props) {
     setInputValue(event.target.value);
   };
 
-  const [todoList, setTodoList] = useState([]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if(!inputValue){
+      alert('문자입력요망')
+      return;
+    }
     addTodo(inputValue);
-    setTodoList(' ');
+    setInputValue('');
   };
 
   return (
@@ -53,7 +56,6 @@ function TodoInsert(props) {
           <ADDIcon />
         </button>
       </InputInsert>
-      <TodoList todoList={todoList} />
 
     </>
   );

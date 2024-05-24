@@ -2,27 +2,21 @@
 import TodoListItem from "./TodoListItem";
 import { styled } from "styled-components";
 
-// const Todo = styled.div`
-//   // display: flex;
-//   // justify-content: space-between;
-//   margin: 10px;
-//   padding: 10px;
-//   border-bottom: 1px solid black;
-// `
-
+const TodoListWrapper = styled.div`
+  min-height: 320px;
+  max-height: 513px;  
+  overflow-y: auto;   
+`
 
 function TodoList(props) {
-  const { todos } = props;
+  const { todos, onRemove } = props;
   return (
-    <>
-      <TodoListItem />
-      {/* {todos.map((todo) => {
-        <TodoListItem
-          key={todo.id}
-          todo={todo}
-        />
-      })} */}
-    </>
+    <TodoListWrapper>
+      {todos.map((todo)=>{
+        return <TodoListItem key = {todo.id} todo = {todo} onRemove = {onRemove}  />;
+      })}
+      
+    </TodoListWrapper>
   );
 };
 
