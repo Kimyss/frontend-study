@@ -28,7 +28,7 @@ const Checkbox = styled.div`
   cursor: pointer;
 
   /* svg 글자처럼 취급 */
-  /* odoListItemWrapper의 자식들한테적용시킨다 */
+  /* todoListItemWrapper의 자식들한테적용시킨다 */
   svg{
     font-size: 1.5rem;
     color: ${props => props.done && css`#22b8cf`};

@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { css } from "styled-components";
-
+import { RiCheckboxBlankLine as BinCheck, RiCheckboxBlankFill as CheckNemo } from "react-icons/ri";
 
 const ItemStyle = styled.div`
 display: flex;
@@ -17,6 +17,20 @@ button{
   border-radius: 5px;
 }
 `
+const Check = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  svg{
+    font-size: 22px;
+    color: #1b1919;
+    & :hover{
+      color: #adb5bd;
+    }
+  }
+`
+
 const Text = styled.div`
   margin-left: 0.5rem;
   flex: 1;
@@ -31,16 +45,23 @@ const Text = styled.div`
 `;
 
 
+
 function TodolistItem(props) {
-  const { todo: { id, text, done, }, onRemove } = props;
+  const { todo: { id, text, done, }, onRemove, onToggle } = props;
   return (
     <ItemStyle>
-      <Text done = {done}>{text}</Text>
-      <button> 수정 </button>
-      <button onClick={()=>{
+      <Check done={done} onClick={() => {
+        onToggle(id);
+      }}>{done ? <CheckNemo /> : <BinCheck />}
+      </Check>
+      <Text done={done}>{text} </Text>
+      <button type="button" onClick={() => {
+
+      }} > 수정 </button>
+      <button type="button" onClick={() => {
         onRemove(id);
       }}>
-      삭제
+        삭제
       </button>
     </ItemStyle>
   );

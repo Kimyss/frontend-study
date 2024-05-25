@@ -24,18 +24,27 @@ function App() {
       done: false
     };
     setTodos([...todos, newTodo]);
-  }
+  };
 
-  const handleRemove =(id)=>{
-    setTodos(todos.filter((todo)=>{
-      return todo.id !==id;
-    }))
-  }
+  const handleRemove = (id) => {
+    setTodos(todos.filter((todo) => {
+      return todo.id !== id;
+    }));
+  };
 
-  const handleTogle = (id) =>{
+  const handleTogle = ((id) => {
+    const copyTodo = [...todos];
+    const copyIndex = todos.findIndex((todo) => {
+      return todo.id === id;
+    });
+    copyTodo[copyIndex].done = !copyTodo[copyIndex].done;
+    setTodos(copyTodo);
+  });
 
-  }
+  const onModal1 = (id)=>{
 
+  };
+  
 
   return (
     <>
@@ -43,7 +52,7 @@ function App() {
       <GlobalStyle />
       <TodoTemplate>
         <TodoInsert addTodo={addTodo} />
-        <TodoList todos={todos} onRemove={handleRemove} />
+        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleTogle} onModal1={handleModal1} />
       </TodoTemplate>
 
     </>
