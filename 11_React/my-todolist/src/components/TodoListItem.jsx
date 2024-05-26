@@ -12,9 +12,12 @@ border-bottom: 1px solid black;
 button{
   background: none;
   display: flex;
+  justify-content: center;
   cursor: pointer;
   margin-left: 5px;
   border-radius: 5px;
+  width: 50px;
+  height: 25px;
 }
 `
 const Check = styled.div`
@@ -45,25 +48,26 @@ const Text = styled.div`
 `;
 
 
-
 function TodolistItem(props) {
-  const { todo: { id, text, done, }, onRemove, onToggle } = props;
+  const { todo: { id, text, done, }, onRemove, onToggle, onModal1 } = props;
   return (
-    <ItemStyle>
-      <Check done={done} onClick={() => {
-        onToggle(id);
-      }}>{done ? <CheckNemo /> : <BinCheck />}
-      </Check>
-      <Text done={done}>{text} </Text>
-      <button type="button" onClick={() => {
-
-      }} > 수정 </button>
-      <button type="button" onClick={() => {
-        onRemove(id);
-      }}>
-        삭제
-      </button>
-    </ItemStyle>
+    <>
+      <ItemStyle>
+        <Check done={done} onClick={() => {
+          onToggle(id);
+        }}>{done ? <CheckNemo /> : <BinCheck />}
+        </Check>
+        <Text done={done}>{text} </Text>
+        <button type="button" onClick={() => {
+          onModal1(id);
+        }} > 수정 </button>
+        <button type="button" onClick={() => {
+          onRemove(id);
+        }}>
+          삭제
+        </button>
+      </ItemStyle>
+    </>
   );
 };
 
