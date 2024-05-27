@@ -61,7 +61,7 @@ function TodolistItem(props) {
           onToggle(id);
         }}>{done ? <CheckNemo /> : <BinCheck />}
         </Check>
-        <Text  done={done}>{text} </Text>
+        <Text done={done}>{text} </Text>
         <button type="button" onClick={() => {
           onModal1(id);
         }} > 수정 </button>
@@ -69,7 +69,7 @@ function TodolistItem(props) {
           onRemove(id);
         }}>
           삭제
-        </button>       
+        </button>
       </ItemStyle>
     </>
   );

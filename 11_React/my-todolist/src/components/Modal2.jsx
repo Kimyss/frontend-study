@@ -10,7 +10,7 @@ const ModalBackground = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  z-index: 98;
   `;
 
 const ModalContainer = styled.div`
@@ -43,7 +43,7 @@ const ModalMessage = styled.p`
 
 
 const Modal2 = (props) => {
-  const {message, onClose } =props;
+  const { message, onClose } = props;
   return (
     <ModalBackground>
       <ModalContainer>

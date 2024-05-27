@@ -8,7 +8,6 @@ import TodoList from "./components/TodoList";
 import Modal from "./components/Modal";
 
 
-
 const GlobalStyle = createGlobalStyle`
 body {
   background: #e9ecef;
@@ -20,10 +19,6 @@ textarea{
   resize: both;  
 }
 `
-
-
-
-
 function App() {
   const [todos, setTodos] = useState([]);
 
@@ -52,7 +47,6 @@ function App() {
   });
 
   const [showModal, setShowModal] = useState(false);
-  const [editTodo, setEditTodo] = useState({});
   const onModal1 = (id) => {
     setEditTodo(todos.find((todo) => {
       return todo.id === id;
@@ -64,12 +58,6 @@ function App() {
     setShowModal(false);
   };
 
-  const handleChange = (e) => {
-    const copyEditTodo = { ...editTodo };
-    copyEditTodo.text = e.target.value;
-    setEditTodo(copyEditTodo);
-  };
-
   const handleEdit = () => {
     setTodos(todos.map((newTodo) => {
       return newTodo.id === editTodo.id ? editTodo : newTodo;
@@ -77,15 +65,35 @@ function App() {
     handleClose();
   };
 
-  
+  const [editTodo, setEditTodo] = useState({});
 
+  const handleChange = (e) => {
+    const copyEditTodo = { ...editTodo };
+    copyEditTodo.text = e.target.value;
+    setEditTodo(copyEditTodo);
+  };
+
+  const handleSorted = (text) => {
+    const newTodo = {
+      id: uuidv4(),
+      text,
+      done: false
+    };
+    const copyTodo = [...todos, newTodo];
+    copyTodo.sort((a, b) => {
+      if (a.text > b.text) return 1;
+      if (a.text === b.text) return 0;
+      if (a.text < b.text) return -1;
+    });
+    setTodos(copyTodo);
+  };
 
   return (
     <>
       <Reset />
       <GlobalStyle />
       <TodoTemplate>
-        <TodoInsert addTodo={addTodo} />
+        <TodoInsert addTodo={addTodo} value={todos.text} onSorted={handleSorted} />
         <TodoList todos={todos} onRemove={handleRemove} onToggle={handleTogle} onModal1={onModal1} />
       </TodoTemplate>
       {showModal ? <Modal

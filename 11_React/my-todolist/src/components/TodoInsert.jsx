@@ -45,7 +45,7 @@ const Today = styled.p`
 
 
 function TodoInsert(props) {
-  const { addTodo } = props;
+  const { addTodo, onSorted } = props;
 
   const [inputValue, setInputValue] = useState('');
   const [showModal2, setShowModal2] = useState(false);
@@ -59,7 +59,8 @@ function TodoInsert(props) {
     e.preventDefault();
 
     if (!inputValue) {
-      setShowModal2(true)
+      setShowModal2(true);
+      return;
     }
 
     addTodo(inputValue);
@@ -77,16 +78,30 @@ function TodoInsert(props) {
     return <p> Today : {todayToday} </p>
   };
 
-// sort 원본배열복사 정렬 후 함수 실행(?)
+
+  // const handleChange2 = (e) => {
+  //   setInputValue(e.target.value);
+  // };
+
+  // const handlesorted = (e) => {
+  //   e.preventDefault();
+  //   if (inputValue.trim()) {
+  //     onSorted(inputValue);
+  //     setInputValue('');
+  //   }
+  // }
+
 
   return (
     <>
-      <TodayAnd>
-        <Today>
-          <TodayDate />
-        </Today>
-        <button type="button">정렬버튼</button>
-      </TodayAnd>
+      <form >
+        <TodayAnd>
+          <Today>
+            <TodayDate />
+          </Today>
+          <button type="button" value={inputValue} onClick={onSorted}>정렬버튼</button>
+        </TodayAnd>
+      </form>
 
       <InputInsert onSubmit={handleSubmit}>
         <StyledInput
@@ -94,7 +109,7 @@ function TodoInsert(props) {
           placeholder="할일 입력창"
           value={inputValue}
           onChange={handleChange}
-          >
+        >
         </StyledInput>
         <button type="submit">    {/* 버튼에 onSumbmit 넣으면? */}
           <ADDIcon />
