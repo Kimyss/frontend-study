@@ -1,6 +1,6 @@
 import { Reset } from "styled-reset";
 import TodoTemplate from './components/TodoTemplate';
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { useState } from "react";
 import TodoInsert from "./components/TodoInsert";
 import { v4 as uuidv4 } from "uuid";
@@ -15,11 +15,13 @@ body {
 }
 
 textarea{
-  width: 300px;  
-  height: 100px; 
+  width: 350px;  
+  height: 150px; 
   resize: both;  
 }
 `
+
+
 
 
 function App() {
@@ -75,8 +77,8 @@ function App() {
     handleClose();
   };
 
-  // 라인하이츠
-  // 버튼동적
+  
+
 
   return (
     <>

@@ -32,23 +32,23 @@ const ModalContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem;
+    padding: 15px;
   }
   
   hr{
     margin: 0;
-    border: 0.5px solid #ccc;
+    border: 1px solid #ccc;
   }
 
   .body{
     padding: 1.25rem;
     font-size: 1rem;
-    line-height: 1.125rem;
+    line-height: 1.5rem;
   }
 
   .footer{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
     padding: 10px 20px;
   }

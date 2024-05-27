@@ -40,12 +40,16 @@ const Text = styled.div`
 
   
   ${props => props.done &&
+
     css`
-    color: #adb5bd;
+    color: #7c7c7c;
     text-decoration: line-through;
+
   `
   }
 `;
+
+
 
 
 function TodolistItem(props) {
@@ -57,7 +61,7 @@ function TodolistItem(props) {
           onToggle(id);
         }}>{done ? <CheckNemo /> : <BinCheck />}
         </Check>
-        <Text done={done}>{text} </Text>
+        <Text  done={done}>{text} </Text>
         <button type="button" onClick={() => {
           onModal1(id);
         }} > 수정 </button>
@@ -65,7 +69,7 @@ function TodolistItem(props) {
           onRemove(id);
         }}>
           삭제
-        </button>
+        </button>       
       </ItemStyle>
     </>
   );

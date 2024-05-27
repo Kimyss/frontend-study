@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { PiCursorClickBold as ADDIcon } from "react-icons/pi";
 import { useState } from "react";
+import Modal2 from "./Modal2";
 
 
 const InputInsert = styled.form`
@@ -20,11 +21,34 @@ const StyledInput = styled.input`
   flex: 1;
 `
 
+const TodayAnd = styled.div`
+  display: flex; 
+  justify-content: space-between;
+  margin: 0 10px;
+  
+  button{
+    background: none;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 5px;
+    border-radius: 5px;
+    height: 25px;
+  }
+`
+
+const Today = styled.p`
+  text-decoration: underline;
+`
+
+
+
 
 function TodoInsert(props) {
   const { addTodo } = props;
 
   const [inputValue, setInputValue] = useState('');
+  const [showModal2, setShowModal2] = useState(false);
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
@@ -35,28 +59,48 @@ function TodoInsert(props) {
     e.preventDefault();
 
     if (!inputValue) {
-      alert('문자입력요망');
-      return;
+      setShowModal2(true)
     }
+
     addTodo(inputValue);
     setInputValue('');
   };
 
+  const handleCloseModal = () => {
+    setShowModal2(false);
+  };
+
+  const TodayDate = () => {
+    const today = new Date();
+    const todayToday =
+      `${today.getFullYear()}년 ${today.getMonth() + 1}월 ${today.getDate()}일`;
+    return <p> Today : {todayToday} </p>
+  };
+
+// sort 원본배열복사 정렬 후 함수 실행(?)
+
   return (
     <>
+      <TodayAnd>
+        <Today>
+          <TodayDate />
+        </Today>
+        <button type="button">정렬버튼</button>
+      </TodayAnd>
+
       <InputInsert onSubmit={handleSubmit}>
         <StyledInput
           type="text"
           placeholder="할일 입력창"
           value={inputValue}
           onChange={handleChange}
-        >
+          >
         </StyledInput>
         <button type="submit">    {/* 버튼에 onSumbmit 넣으면? */}
           <ADDIcon />
         </button>
       </InputInsert>
-
+      {showModal2 ? <Modal2 message="문자입력필요" onClose={handleCloseModal} /> : null}
     </>
   );
 };
