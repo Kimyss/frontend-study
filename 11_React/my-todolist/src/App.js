@@ -73,19 +73,24 @@ function App() {
     setEditTodo(copyEditTodo);
   };
 
-  const handleSorted = (text) => {
-    const newTodo = {
-      id: uuidv4(),
-      text,
-      done: false
-    };
-    const copyTodo = [...todos, newTodo];
-    copyTodo.sort((a, b) => {
-      if (a.text > b.text) return 1;
-      if (a.text === b.text) return 0;
-      if (a.text < b.text) return -1;
-    });
+  const [isSorted, setIsSorted ] = useState(true);
+  const handleSorted = () => {
+
+    const copyTodo = [...todos];
+    if(!isSorted){
+      copyTodo.sort((a, b)=>{
+        if(a.text < b.text) return 1;
+        if(a.text === b.text) return 0;
+        if(a.text > b.text) return -1; 
+      })
+    }else{
+      copyTodo.sort((a, b)=>{
+        if(a.text > b.text) return 1;
+        if(a.text < b.text) return -1; 
+      })
+    }
     setTodos(copyTodo);
+    setIsSorted(!isSorted);
   };
 
   return (
@@ -93,7 +98,7 @@ function App() {
       <Reset />
       <GlobalStyle />
       <TodoTemplate>
-        <TodoInsert addTodo={addTodo} value={todos.text} onSorted={handleSorted} />
+        <TodoInsert addTodo={addTodo} value={todos.text} onSorted={handleSorted} sortedTitle = {isSorted ? '이름순' : '역이름순'} />
         <TodoList todos={todos} onRemove={handleRemove} onToggle={handleTogle} onModal1={onModal1} />
       </TodoTemplate>
       {showModal ? <Modal

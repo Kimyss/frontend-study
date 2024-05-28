@@ -45,7 +45,7 @@ const Today = styled.p`
 
 
 function TodoInsert(props) {
-  const { addTodo, onSorted } = props;
+  const { addTodo, onSorted, sortedTitle } = props;
 
   const [inputValue, setInputValue] = useState('');
   const [showModal2, setShowModal2] = useState(false);
@@ -79,27 +79,29 @@ function TodoInsert(props) {
   };
 
 
-  // const handleChange2 = (e) => {
-  //   setInputValue(e.target.value);
-  // };
+  const handleChange2 = (e) => {
+    setInputValue(e.target.value);
+  };
 
-  // const handlesorted = (e) => {
-  //   e.preventDefault();
-  //   if (inputValue.trim()) {
-  //     onSorted(inputValue);
-  //     setInputValue('');
-  //   }
-  // }
+  const handlesorted = (e) => {
+    e.preventDefault();
+    if (inputValue.trim()) {
+      onSorted(inputValue);
+      setInputValue('');
+    }
+  }
+
+  
 
 
   return (
     <>
-      <form >
+      <form onSubmit={handlesorted}>
         <TodayAnd>
           <Today>
             <TodayDate />
           </Today>
-          <button type="button" value={inputValue} onClick={onSorted}>정렬버튼</button>
+          <button type="button" value={handleChange2} onClick={onSorted}>{sortedTitle}</button>
         </TodayAnd>
       </form>
 

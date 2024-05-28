@@ -45,10 +45,19 @@ const Text = styled.div`
     color: #7c7c7c;
     text-decoration: line-through;
 
+    
   `
   }
 `;
 
+
+const BackDiv = styled.div`
+  /* position: fixed;    //뷰포트에 고정 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`
 
 
 
