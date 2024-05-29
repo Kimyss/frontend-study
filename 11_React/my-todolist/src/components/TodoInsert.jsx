@@ -35,6 +35,9 @@ const TodayAnd = styled.div`
     border-radius: 5px;
     height: 25px;
   }
+  button + button{
+    
+  }
 `
 
 const Today = styled.p`
@@ -90,10 +93,7 @@ function TodoInsert(props) {
       setInputValue('');
     }
   }
-
   
-
-
   return (
     <>
       <form onSubmit={handlesorted}>
@@ -102,6 +102,7 @@ function TodoInsert(props) {
             <TodayDate />
           </Today>
           <button type="button" value={handleChange2} onClick={onSorted}>{sortedTitle}</button>
+          
         </TodayAnd>
       </form>
 
@@ -113,7 +114,7 @@ function TodoInsert(props) {
           onChange={handleChange}
         >
         </StyledInput>
-        <button type="submit">    {/* 버튼에 onSumbmit 넣으면? */}
+        <button type="submit">   
           <ADDIcon />
         </button>
       </InputInsert>

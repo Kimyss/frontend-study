@@ -1,11 +1,12 @@
 import { Reset } from "styled-reset";
 import TodoTemplate from './components/TodoTemplate';
 import styled, { createGlobalStyle } from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TodoInsert from "./components/TodoInsert";
 import { v4 as uuidv4 } from "uuid";
 import TodoList from "./components/TodoList";
 import Modal from "./components/Modal";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -93,12 +94,27 @@ function App() {
     setIsSorted(!isSorted);
   };
 
+  const navigate = useNavigate()
+
+  const GoogleRouter = () =>{
+    navigate('/RouterEx');
+  };
+
+  useEffect(()=>{
+    const dbTodos = JSON.parse(localStorage.getItem('todos')) || [];
+    setTodos(dbTodos);
+  },[]);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <>
       <Reset />
       <GlobalStyle />
-      <TodoTemplate>
-        <TodoInsert addTodo={addTodo} value={todos.text} onSorted={handleSorted} sortedTitle = {isSorted ? '이름순' : '역이름순'} />
+      <TodoTemplate google = {GoogleRouter}>
+        <TodoInsert addTodo={addTodo} value={todos.text} onSorted={handleSorted} sortedTitle = {isSorted ? '이름순' : '이름역순'} />
         <TodoList todos={todos} onRemove={handleRemove} onToggle={handleTogle} onModal1={onModal1} />
       </TodoTemplate>
       {showModal ? <Modal
@@ -109,7 +125,6 @@ function App() {
         <textarea value={editTodo.text} onChange={handleChange} />
       </Modal>
         : null}
-
     </>
   );
 }

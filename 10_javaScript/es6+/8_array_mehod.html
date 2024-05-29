@@ -128,7 +128,7 @@
     // }, 0);
     // 0 초기값부터 시작해서 + 16 + 2 + 1 +5
     const sum = floatNumbers.reduce((total, num) => total + Math.round(num), 0);
-    console.log(sum);
+    console.log("reduce", sum);
 
     // 주의 ! 초기값이 없는 경우 실행결과가 달라질 수 있음
     const sum2 = floatNumbers.reduce((total, num) => {
