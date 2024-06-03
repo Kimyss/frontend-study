@@ -43,6 +43,7 @@ import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
 import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
 import SimpleRouter from './chapter16/SimpleRouter';
 import Greeting from './chapter9/9.1/Greeting';
+import ApiRequest from './chapter17/ApiRequest';
 
 
 
@@ -130,7 +131,11 @@ root.render(
   // <Blocks />
   // <ThemeApp />
 
-  <SimpleRouter />
+  // 16장 예제
+  // <SimpleRouter />
+
+  // 17장예제
+  <ApiRequest />
 
   // SignUp Quiz
   // <SignUp />
