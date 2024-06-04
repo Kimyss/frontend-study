@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import NewsItems from "./newsItems";
 
-import NewsItems from "./NewsItems";
+
 
 const NewsListBlock = styled.div`
   box-sizing: border-box;
@@ -28,6 +30,9 @@ const sampleArticle = {
 
 // API를 요청하고 뉴스 데이터가 들어있는 배열을 리액트 엘리먼트 배열로 변환하여 렌더링하는 컴포넌트
 function NewsList() {
+  const {category = 'all'} =  useParams();
+  console.log(category);
+
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false); // 로딩을 상태로 관리하여 API 요청이 대기중인지 판별
 
@@ -38,7 +43,13 @@ function NewsList() {
     const fetchNewsData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('https://newsapi.org/v2/top-headlines?country=kr&apiKey=ceb8d915e94f45079475365770e158c2');
+        // API 호출 시 카테고리 지정하기
+        // 카테고리가 all일 떄는 아무것도 들어가면 안되고, 그 외엔 해당 카테고리 값이 들어감
+        // 예시: 
+        // https://newsapi.org/v2/top-headlines?country=kr&apiKey=ceb8d915e94f45079475365770e158c2
+        // https://newsapi.org/v2/top-headlines?country=kr&category=sports&apiKey=ceb8d915e94f45079475365770e158c2
+        const query = category === 'all'? '' : `&category=${category}`;
+        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=ceb8d915e94f45079475365770e158c2`);
         console.log(response.data.articles);
         setArticles(response.data.articles);
       } catch (err) {
@@ -47,7 +58,7 @@ function NewsList() {
       setLoading(false);
     };
     fetchNewsData();
-  }, []);
+  }, [category]);
 
   // article 값이 없을 때 렌더링 막기
   // if (!articles) {
