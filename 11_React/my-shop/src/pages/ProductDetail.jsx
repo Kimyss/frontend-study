@@ -8,7 +8,7 @@ import { getAllProducts, getSelectedProduct } from "../features/product/productS
 
 function ProductDetail() {
 
-  const {productId} =  useParams();
+  const { productId } = useParams();
   console.log(productId);
 
   const dispatch = useDispatch();
@@ -18,12 +18,12 @@ function ProductDetail() {
   // 처음 마운트 됐을 때 서버에 상품 id를 이용하여 데이터를 요청하고 
   // 그 결과를 리덕스 스토어에 저장
 
-  useEffect(()=>{
+  useEffect(() => {
     // 서버에 특정 상품의 데이터 요청 Main.jsx에서는 .then. catch사용
     // 여기선 async사용
-    const fetchProductById = async ()=>{
+    const fetchProductById = async () => {
       try {
-        const response =  axios.get(`https://my-json-server.typicode.com/kimyss/db-shop/products/${productId}`)
+        const response = await axios.get(`https://my-json-server.typicode.com/kimyss/db-shop/products/${productId}`)
         // 프로미스객체 ↑
         console.log(response);
         dispatch(getSelectedProduct(response.data));
@@ -32,7 +32,7 @@ function ProductDetail() {
       }
     }
     fetchProductById();
-  },[])
+  }, [])
 
 
   return (

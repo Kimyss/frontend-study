@@ -26,7 +26,7 @@ const MainBackground = styled.div`
 function Main() {
   const dispatch = useDispatch();
 
-  const productList =  useSelector(selectproductList);
+  const productList = useSelector(selectproductList);
 
   // 처음 마운트 됐을 때 서버에 상품 목록 데이터를 요청하고
   // 그 결과를 리덕스 스토어에 전역 상태로 저장
@@ -34,7 +34,7 @@ function Main() {
     // 서버에 상품 목록 요청
     axios.get('https://my-json-server.typicode.com/kimyss/db-shop/products')
       .then((response) => {
-        console.log(response.data);
+        console.log(response.data); //위 주소의 가짜 API 데이타객체로그로 찍힌다
         dispatch(getAllProducts(response.data));
       })
       .catch((err) => {
@@ -74,15 +74,14 @@ function Main() {
 
             {/* productListItem 컴포넌트를 만들어서 반복 렌더링으로 바꾸고 데이터 바인딩 */}
             {/* Quiz:
-             1) 반복적인 상품아이템을 src/components/ProductListItem 컴포넌트로 만들기
-             2) productList배열을 반복하여 ProductListItem 컴포넌트를 렌더링하기
-             3) 상품 정보를 props로 넘겨서 데이터 바인딩 하기 */}
+              1) 반복적인 상품아이템을 src/components/ProductListItem 컴포넌트로 만들기
+              2) productList배열을 반복하여 ProductListItem 컴포넌트를 렌더링하기
+              3) 상품 정보를 props로 넘겨서 데이터 바인딩 하기 */}
 
-             {productList.map((product)=>{
-              return <ProductListItem key ={product.id} product = {product}/>;   
+            {productList.map((product) => {
+              return <ProductListItem key={product.id} product={product} />;
               // 리턴 해준걸가지고 새로운 배열로 만들어줘
-             })}
-      
+            })}
           </Row>
         </Container>
       </section>
@@ -102,7 +101,7 @@ export default Main;
 // json-server 사용법
 // ./src/data.json 이라는 파일을 작성
 // npx json-server ./src/data.json --port 4000
-// 또는 
+// 또는
 // npm i -g json-server
 // json-server --watch ./src/data.json --port 4000
 
