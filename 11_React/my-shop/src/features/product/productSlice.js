@@ -1,26 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 
 const initialState = {
-  productList: [],  // 상품목록 초기값 빈배열
+  productList: [],
   selectedProduct: null,
 };
 
-// 상품 정보를 담을 slice만들기
+// 상품 정보를 담을 slice 만들기
 const productSlice = createSlice({
-  name : 'product',
+  name: 'product',
   initialState,
   reducers: {
-    getAllProdcuts: (state, action)=>{
-      console.log(state);
-      state.selectedProduct  = action.payload;
+    getAllProducts: (state, action) => {
+      console.log(action.payload);
+      state.productList = action.payload;
+    },
+    getSelectedProduct: (state, action) => {
+      state.selectedProduct = action.payload;
     }
   }
 });
 
 // 액션 생성 함수
-export const {getAllProdcuts} =  productSlice.actions; 
+export const { getAllProducts, getSelectedProduct } = productSlice.actions;
 
+// 선택자 함수
+export const selectproductList = (state) => state.product.productList;
+// 위에 getAllProducts: (state, action) state랑 다름
 
-// 리듀서 함수들 내보내기
+// 리듀서 함수들
 export default productSlice.reducer;

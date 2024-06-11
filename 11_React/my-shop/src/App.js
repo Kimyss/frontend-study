@@ -1,8 +1,9 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Main from "./pages/Main";
+import ProductDetail from "./pages/ProductDetail";
 
 
 
@@ -28,6 +29,8 @@ body{
 // `;
 
 function App() {
+
+ 
   return (
     <>
       {/* 부트스트랩 연습 */}
@@ -46,7 +49,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* index: index route(여기서는 기본 자식 라우트를 의미 위의 path로 접속 했을때 기본으로 보여준다) */}
-          <Route index element = {<Main />}/>          
+          <Route index element = {<Main />}/>
+          {/* <Route path="detail" element = {<ProductDetail />} />  */}
+          {/* Quiz : 상품별 상세페이지를 여러 개를 라우팅 하려면? URL파라미터 사용
+              예:/detail/1로 접속하면 productId에 1이 담기도록 */}
+          <Route path="detail/:productId" element = {<ProductDetail />} />
         </Route>
       </Routes>
 

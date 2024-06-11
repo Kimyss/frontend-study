@@ -1,39 +1,48 @@
-// 리액트(JS)에서 이미지 파일 가져오기
-// 1) src 폴더 안 이미지(상대 경로로 import해서 사용)
-import yonexImg from "../images/yonex.jpg";  //중괄호 없이 사용하세요
-
+import { useDebugValue, useEffect } from "react";
 import styled from "styled-components";
 import { Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getAllProdcuts } from "../features/product/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProducts, selectproductList } from "../features/product/productSlice";
+import ProductListItem from "../components/ProductListItem";
+
+// 리액트(JS)에서 이미지 파일 가져오기
+// 1) src 폴더 안 이미지(상대 경로로 import해서 사용)
+import yonexImg from "../images/yonex.jpg";
+
+// 2) public 폴더 안 이미지 (root 경로로 바로 접근)
+// 빌드 시 src 폴더에 있는 코드와 파일은 압축이 되지만 public폴더에 있는 것들은 그대로 보존
+// 이미지 같은 수정이 필요없는 static 파일의 경우 public에 보관하기도 함
 
 const MainBackground = styled.div`
   height: 500px;
   background-image: url(${yonexImg});
-  background-repeat: no-repeat;   //기본이 반복이니 no-repeat로 배경채워
+  /* background-image: url("/images/yonex.jpg"); */
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-`
+`;
 
 function Main() {
+  const dispatch = useDispatch();
 
-  const dispatch =  useDispatch();
+  const productList =  useSelector(selectproductList);
 
-  // 처음 마운트 됐을 때 서버에 상품 목록 데이터를 요청하고 
+  // 처음 마운트 됐을 때 서버에 상품 목록 데이터를 요청하고
   // 그 결과를 리덕스 스토어에 전역 상태로 저장
   useEffect(() => {
-    // 서버에 상품 목록 요청 fetch를 써도 되지만 axios주로 더 사용
-      axios.get('https://my-json-server.typicode.com/kimyss/db-shop/products')
-      .then((response)=>{
-        console.log(response.data);  //일단 목록을 잘 가져오는 지 홱인 
-        dispatch(getAllProdcuts(response.data));
+    // 서버에 상품 목록 요청
+    axios.get('https://my-json-server.typicode.com/kimyss/db-shop/products')
+      .then((response) => {
+        console.log(response.data);
+        dispatch(getAllProducts(response.data));
       })
-      .catch((err)=>{
+      .catch((err) => {
         console.error(err);
       });
   }, []);
+
+
   return (
     <>
       {/* 메인 이미지 섹션 */}
@@ -41,31 +50,47 @@ function Main() {
         <MainBackground />
       </section>
 
-      {/* 상품 목록 섹션  */}
-      <Container>
-        <Row>
-          {/* 부트스트랩을 이용한 반응형 작업*/}
-          {/* md >= 768px 이상에서 전체 12등분 중 4:4:4로 보여줌 */}
-          <Col>
-            <img src="https://www.yonexmall.com/shop/data/goods/1645767865278s0.png" width="80%" />
-            <h4>상품명</h4>
-            <p>상품가격</p>
-          </Col>
-          <Col md={4}>
-            <img src="https://www.yonexmall.com/shop/data/goods/1659329583483s0.png" width="80%" />
-            <h4>상품명</h4>
-            <p>상품가격</p>
-          </Col>
-          <Col md={4}>
-            <img src="https://www.yonexmall.com/shop/data/goods/1667190100104s0.png" width="80%" />
-            <h4>상품명</h4>
-            <p>상품가격</p>
-          </Col>
-        </Row>
-      </Container>
+      {/* 상품 목록 섹션 */}
+      <section>
+        <Container>
+          <Row>
+            {/* 부트스트랩 이용한 반응형 작업 */}
+            {/* md >= 768px 이상에서 전체 12등분 중 4:4:4로 보여줌 */}
+            {/* <Col md={4} sm={6}>
+              <img src="https://www.yonexmall.com/shop/data/goods/1645767865278s0.png" width="80%" />
+              <h4>상품명</h4>
+              <p>상품가격</p>
+            </Col>
+            <Col md={4} sm={6}>
+              <img src="https://www.yonexmall.com/shop/data/goods/1659329583483s0.png" width="80%" />
+              <h4>상품명</h4>
+              <p>상품가격</p>
+            </Col>
+            <Col md={4} sm={6}>
+              <img src="https://www.yonexmall.com/shop/data/goods/1667190100104s0.png" width="80%" />
+              <h4>상품명</h4>
+              <p>상품가격</p>
+            </Col> */}
+
+            {/* productListItem 컴포넌트를 만들어서 반복 렌더링으로 바꾸고 데이터 바인딩 */}
+            {/* Quiz:
+             1) 반복적인 상품아이템을 src/components/ProductListItem 컴포넌트로 만들기
+             2) productList배열을 반복하여 ProductListItem 컴포넌트를 렌더링하기
+             3) 상품 정보를 props로 넘겨서 데이터 바인딩 하기 */}
+
+             {productList.map((product)=>{
+              return <ProductListItem key ={product.id} product = {product}/>;   
+              // 리턴 해준걸가지고 새로운 배열로 만들어줘
+             })}
+      
+          </Row>
+        </Container>
+      </section>
     </>
   );
 };
+
+export default Main;
 
 // 가짜(Fake) API 서버 만들기
 // 실무와 비슷한 느낌으로 하기 위해 가짜(Fake) API 서버를 만들거임
@@ -97,5 +122,3 @@ function Main() {
 // https://my-json-server.typicode.com/geoblo/db-shop
 // https://my-json-server.typicode.com/geoblo/db-shop/products
 // https://my-json-server.typicode.com/geoblo/db-shop/products/1
-
-export default Main;
