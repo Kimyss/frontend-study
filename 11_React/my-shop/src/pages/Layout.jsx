@@ -25,7 +25,7 @@ function Layout() {
 
       <footer>
         <p className="py-5 mb-0 bg-dark text-white">
-          &copy; KYS KIMYS. All Rights Reserved.
+          &copy; Yonex Company. All Rights Reserved.
         </p>
       </footer>
     </>

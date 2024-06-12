@@ -1,6 +1,8 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
+import { ToastContainer} from "react-toastify";
+
 import Layout from "./pages/Layout";
 import Main from "./pages/Main";
 import ProductDetail from "./pages/ProductDetail";
@@ -57,6 +59,16 @@ function App() {
         </Route>
       </Routes>
 
+      {/* 토스트 컨테이너 하나로 재사용
+          만약 다른 옵션의 토스트 쓰고 싶다면 컨테이너 여러개 사용 */}
+      {/* npm install --save react-toastif */}
+      {/*  import 'react-toastify/dist/ReactToastify.css'; */}
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        pauseOnFocusLoss={false}
+        theme="dark"
+      />
     </>
   );
 }
