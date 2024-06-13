@@ -1,14 +1,16 @@
 import { useDebugValue, useEffect } from "react";
 import styled from "styled-components";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts, selectproductList } from "../features/product/productSlice";
+import { addMoreProducts, getAllProducts, getMoreProductsAsync, selectStatus, selectproductList } from "../features/product/productSlice";
 import ProductListItem from "../components/ProductListItem";
+import { FadeLoader } from "react-spinners";
 
 // 리액트(JS)에서 이미지 파일 가져오기
 // 1) src 폴더 안 이미지(상대 경로로 import해서 사용)
 import yonexImg from "../images/yonex.jpg";
+import { getMoreProducts } from "../api/productAPI";
 
 // 2) public 폴더 안 이미지 (root 경로로 바로 접근)
 // 빌드 시 src 폴더에 있는 코드와 파일은 압축이 되지만 public폴더에 있는 것들은 그대로 보존
@@ -25,8 +27,8 @@ const MainBackground = styled.div`
 
 function Main() {
   const dispatch = useDispatch();
-
   const productList = useSelector(selectproductList);
+  const status = useSelector(selectStatus);   //API요청상태
 
   // 처음 마운트 됐을 때 서버에 상품 목록 데이터를 요청하고
   // 그 결과를 리덕스 스토어에 전역 상태로 저장
@@ -42,6 +44,17 @@ function Main() {
       });
   }, []);
 
+  const handleGetMoreProducts = async () => {
+    // 여기서 버튼 클릭할때 axios로 데이터요청 비동기함수 / 동기함수
+    const result = await getMoreProducts();
+    console.log(result);
+    // 함수 만들고 이제 전역상태를 바꿔야하니 리듀서 생성요망
+    dispatch(addMoreProducts(result));  //액션객체 생성, store쪽으로 result 보내
+  };
+
+  const handleGetMoreProductsAsync = async () => {
+    dispatch(getMoreProductsAsync());
+  };
 
   return (
     <>
@@ -82,8 +95,37 @@ function Main() {
               return <ProductListItem key={product.id} product={product} />;
               // 리턴 해준걸가지고 새로운 배열로 만들어줘
             })}
+
+            {/* 로딩 화면 만들기 - 상품목록 바로아래. 여기 표시하도록 npm install react-spinners https://www.davidhu.io/react-spinners/storybook/?path=/docs/fadeloader--main */}
+            <div>
+              {status === 'loading' &&
+                <FadeLoader
+                color="#36d7b7"
+                height={30}
+                margin={20}
+                radius={10}
+                width={5}
+                cssOverride={{
+                  display: 'block'
+                }}
+              />
+              }
+            </div>
           </Row>
         </Container>
+
+        {/* 상품 더보기 기능
+            더보기 버튼 클릭시 axios를 사용하여 데이터요청
+            받아온 결과를 전역 상태에 추가하기 위해 리듀서 추가 및 액션 생성 함수 export
+            스토어에 dispatch로 요청(액션) 보내기 */}
+        <Button variant="secondary" className="mb-4" onClick={handleGetMoreProducts}>
+          더보기➕
+        </Button>
+
+        {/* thunk를 이용한 비동기 작업 처리하기  */}
+        <Button variant="secondary" className="mb-4" onClick={handleGetMoreProductsAsync}>
+          더보기➕ {status}
+        </Button>
       </section>
     </>
   );

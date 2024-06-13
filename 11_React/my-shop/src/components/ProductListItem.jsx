@@ -10,7 +10,7 @@ const StyledCol = styled(Col)`
 `
 
 function ProductListItem(props) {
-  console.log(props);
+  // console.log(props);  // 각각의 객체리스트 찍혀
 
   const { product :{id, title, price, imagePath} } = props;
   
