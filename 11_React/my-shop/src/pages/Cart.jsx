@@ -6,16 +6,16 @@ function Cart() {
   const cartList = useSelector(selectcartList);
   const dispatch = useDispatch();
 
-  const handleMinus= ()=>{
+  const handleMinus = () => {
     dispatch(decreaseCount(cartList.id));
   };
 
-  const handlePlus =()=>{
+  const handlePlus = () => {
     dispatch(increaseCount(cartList.id))
   }
 
   const formatter = new Intl.NumberFormat('ko-KR');
-  console.log(cartList);
+
   return (
     <>
       {/* 표 레이아웃 만들기 그냥은 안 예쁘니 좀 더 편리하게 reactbootStrap 사용해도 좋아 */}
@@ -38,16 +38,22 @@ function Cart() {
           {/* Quiz: cartList 반복렌더링 및 데이터바인딩 */}
           {cartList.map((cartProduct, index) => {
             return (
-              <tr key = {cartList.index}>
+              <tr key={cartProduct.id}>
                 <td>{index + 1}</td>
                 <td>{cartProduct.title}</td>
                 <td>
-                  <button onClick={handleMinus}>-</button>
+                  {/* <button onClick={handleMinus}> */}
+                  <button onClick={() => dispatch(decreaseCount(cartProduct.id))}>
+                    -
+                  </button>
                   {cartProduct.count}
-                  <button onClick={handlePlus}>+</button>
+                  {/* <button onClick={handlePlus}> */}
+                  <button onClick={() => dispatch(increaseCount(cartProduct.id))}>
+                    +
+                  </button>
                   {/* 전역상태 버튼 바꾸려면 리듀서 필요하니 리듀서로 넘어가 */}
                 </td>
-                <td>{formatter.format(cartProduct.price)}원</td>
+                <td>{formatter.format(cartProduct.price * cartProduct.count)}원</td>
               </tr>
             )
           })}
