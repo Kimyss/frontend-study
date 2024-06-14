@@ -4,14 +4,20 @@ import { decreaseCount, increaseCount, selectcartList } from "../features/cart/C
 
 function Cart() {
   const cartList = useSelector(selectcartList);
+  console.log(cartList);
   const dispatch = useDispatch();
 
-  const handleMinus = () => {
-    dispatch(decreaseCount(cartList.id));
+
+  const handleMinus = (id) => {
+    dispatch(decreaseCount(id));
   };
 
-  const handlePlus = () => {
-    dispatch(increaseCount(cartList.id))
+  // const handleMinus11 = () =>{
+  //   dispatch(decreaseCount(cartList.id));
+  // };
+
+  const handlePlus = (id) => {
+    dispatch(increaseCount(id))
   }
 
   const formatter = new Intl.NumberFormat('ko-KR');
@@ -42,13 +48,13 @@ function Cart() {
                 <td>{index + 1}</td>
                 <td>{cartProduct.title}</td>
                 <td>
-                  {/* <button onClick={handleMinus}> */}
-                  <button onClick={() => dispatch(decreaseCount(cartProduct.id))}>
+                  <button onClick={() => handleMinus(cartProduct.id)}>
+                    {/* <button onClick={() => dispatch(decreaseCount(cartProduct.id))}> */}
                     -
                   </button>
                   {cartProduct.count}
-                  {/* <button onClick={handlePlus}> */}
-                  <button onClick={() => dispatch(increaseCount(cartProduct.id))}>
+                  <button onClick={() => handlePlus(cartProduct.id)}>
+                    {/* <button onClick={() => dispatch(increaseCount(cartProduct.id))}> */}
                     +
                   </button>
                   {/* 전역상태 버튼 바꾸려면 리듀서 필요하니 리듀서로 넘어가 */}
