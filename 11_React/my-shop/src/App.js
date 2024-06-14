@@ -6,6 +6,7 @@ import { ToastContainer} from "react-toastify";
 import Layout from "./pages/Layout";
 import Main from "./pages/Main";
 import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
 
 
 
@@ -56,6 +57,9 @@ function App() {
           {/* Quiz : 상품별 상세페이지를 여러 개를 라우팅 하려면? URL파라미터 사용
               예:/detail/1로 접속하면 productId에 1이 담기도록 */}
           <Route path="detail/:productId" element={<ProductDetail />} />
+          <Route path="cart" element = {<Cart />}/>
+          <Route path="*" element = {<div>페이지 존재하지 않아요</div>}/>
+          {/* *: 위에서 맵핑되는게 없으면 이페이지 보여줘 */}
         </Route>
       </Routes>
 
