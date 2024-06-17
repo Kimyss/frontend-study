@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { decreaseCount, increaseCount, selectcartList } from "../features/cart/CartSlice";
+import { decreaseCount, increaseCount, removeItemFromCart, selectcartList } from "../features/cart/CartSlice";
 
 function Cart() {
   const cartList = useSelector(selectcartList);
@@ -12,12 +12,12 @@ function Cart() {
     dispatch(decreaseCount(id));
   };
 
-  // const handleMinus11 = () =>{
-  //   dispatch(decreaseCount(cartList.id));
-  // };
-
   const handlePlus = (id) => {
     dispatch(increaseCount(id))
+  }
+
+  const handleRemove = (id)=>{
+    dispatch(removeItemFromCart(id));
   }
 
   const formatter = new Intl.NumberFormat('ko-KR');
@@ -32,6 +32,7 @@ function Cart() {
             <th>상품명</th>
             <th>수량</th>
             <th>가격</th>
+            <th>삭제</th>
           </tr>
         </thead>
         <tbody>
@@ -60,6 +61,12 @@ function Cart() {
                   {/* 전역상태 버튼 바꾸려면 리듀서 필요하니 리듀서로 넘어가 */}
                 </td>
                 <td>{formatter.format(cartProduct.price * cartProduct.count)}원</td>
+                <td>
+                  {/* <button onClick={() => dispatch(removeItemFromCart(cartProduct.id))}> */}
+                  <button onClick={ ()=> handleRemove(cartProduct.id)}>
+                    X
+                  </button>
+                </td>
               </tr>
             )
           })}

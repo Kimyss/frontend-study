@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Alert, Button, Col, Container, Form, Nav, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Alert, Button, Col, Container, Form, Modal, Nav, Row } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearSelectedProduct, getAllProducts, getSelectedProduct, selectSelectproductList } from "../features/product/productSlice";
 import styled, { keyframes } from "styled-components";
 import { toast } from "react-toastify";
 import TabContents from "../components/TabContents";
+import { addItemToCart } from "../features/cart/CartSlice";
 
 // 스타일드 컴포넌트를 이용한 애니메이션 속성 적용 자동완성이 안되네
 const highlight = keyframes`
@@ -23,18 +24,30 @@ const StyledAlert = styled(Alert)`
 function ProductDetail() {
 
   const { productId } = useParams();
-  console.log(productId);
+  // console.log(productId);
 
   const dispatch = useDispatch();
 
   const product = useSelector(selectSelectproductList);
+  // console.log(product);
+  
 
   const formatter = new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' })
 
   const [alert, setAlert] = useState(true);
   const [orderCount, setOrderCount] = useState('1');  //주문수량상태
   const [currentTabIndex, setCurrentTabIndex] = useState(0);  //현재 탭 상태
-  const [currentTab, setCurrentTab] = useState('detail');
+  const [currentTab, setCurrentTab] = useState('detail'); //
+  const [showModal, setShowModal] = useState(false);    //모달상태
+  const handleCloseModal = ()=>{
+    setShowModal(false);
+  };
+  const handleOpenModal = ()=>{
+    setShowModal(true);
+  };
+
+
+  const navigatge = useNavigate();
 
   // 처음 마운트 됐을 때 서버에 상품 id를 이용하여 데이터를 요청하고 
   // 그 결과를 리덕스 스토어에 저장
@@ -45,7 +58,7 @@ function ProductDetail() {
       try {
         const response = await axios.get(`https://my-json-server.typicode.com/kimyss/db-shop/products/${productId}`)
         // 프로미스객체 ↑
-        console.log(response);
+        // console.log(response);
         dispatch(getSelectedProduct(response.data));
       } catch (err) {
         console.error(err);
@@ -77,6 +90,25 @@ function ProductDetail() {
       return;
     }
     setOrderCount(Number(e.target.value));
+  };
+
+  const handleClickCart = (id)=>{
+    // 상품 정보 + 주문수량도 같이 전달 = 객체형태로 넘기면 됩니다. 객체형태는 데이터의 묶음
+    // dispatch(addItemToCart({
+    //   id: product.id,
+    //   title: product.title, 
+    //   price: product.price, 
+    //   count: orderCount
+    // }));
+
+    // 확장성을 고려하여 전체를 넘기고 다른 수정사항등이 있으면 바로 수정가능
+    dispatch(addItemToCart({
+      ...product,
+      count: orderCount
+    }));
+    
+    handleOpenModal();
+    
   };
 
   // if(!product){
@@ -112,6 +144,7 @@ function ProductDetail() {
           </Col>
 
           <Button variant="primary">주문하기</Button>
+          <Button variant="warning" onClick={handleClickCart}>장바구니</Button>
         </Col>
       </Row>
       {/* 탭버튼 UI react-bootstrap nav검색요망*/}
@@ -165,8 +198,26 @@ function ProductDetail() {
         'qa': <div>큐에이</div>,
         'exchange': <div>익스첸지</div>
       } [currentTab]}
-      
       {/* currentTab.detail 이건 커렌트탭에 디테일이잇는지확인하는거(?) */}
+
+      {/* 장바구니 모달 => 추후 범용적 모달로 만들고 구체화하여 사용하는 것이 좋음*/}
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>YONEX 알림창🏸</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          장바구니에 상품을 담았습니다. <br />
+          장바구니로 이동하시겠습니까?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            취소
+          </Button>
+          <Button variant="primary" onClick={()=> navigatge('/cart')}>
+            확인
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       </Container>
   );

@@ -35,11 +35,37 @@ const cartSlice = createSlice({
       });
       targetItem.count -= 1;
     },
+    // 상품 객체로 넘겨주면 cartList에 아이템을 추가하는 리듀서 만들기
+    // 무조건 추가하는게 아니라: 이미 들어있는 상품이면 수량만 증가시키기
+    // 장바구니에 없는 상품이면 새롭게 추가
+    addItemToCart:(state, {payload: prodcut})=>{
+      console.log(prodcut);
+      const targetItem = state.cartList.find(cartItem => cartItem.id === prodcut.id);
+      if(targetItem){
+        targetItem.count += prodcut.count;
+      } else {
+        state.cartList.push(prodcut);
+        // prodcut 객체니 prodcut만 넣으면 되요
+      }
+    },
+    // 장바구니에서 삭제하는 리듀서 만들기 페이로드, 아이디값만 넘겨서 제거
+    removeItemFromCart:(state, {payload: prodcutId})=>{
+      // 방법1 리덕스툴킷은 불변성관리 용이 푸쉬 슬라이스등등 바로가능 
+      // const targetIndex = state.cartList.findIndex(cartItem => cartItem.id === prodcutId);
+      // state.cartList.splice(targetIndex, 1);
+
+      // 방법2 filter() 사용시
+      // const targetItem = state.cartList.find(cartItem => cartItem.id === prodcutId);???
+      // console.log(prodcutId);???
+      // console.log(targetItem);???챗지피티요망
+      // const newCartList = state.cartList.filter(cartItem => cartItem.id !== prodcutId);
+      // state.cartList = newCartList;
+    },
   }
 });
 
 export const selectcartList = state => state.cart.cartList;
 
-export const { increaseCount, decreaseCount } = cartSlice.actions;  //액션생성함수 내보내
+export const { increaseCount, decreaseCount, addItemToCart, removeItemFromCart } = cartSlice.actions;  //액션생성함수 내보내
 
 export default cartSlice.reducer;
