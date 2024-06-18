@@ -35,7 +35,7 @@ function ProductDetail() {
   const formatter = new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' })
 
   const [alert, setAlert] = useState(true);
-  const [orderCount, setOrderCount] = useState('1');  //주문수량상태
+  const [orderCount, setOrderCount] = useState(1);  //주문수량상태
   const [currentTabIndex, setCurrentTabIndex] = useState(0);  //현재 탭 상태
   const [currentTab, setCurrentTab] = useState('detail'); //
   const [showModal, setShowModal] = useState(false);    //모달상태
@@ -80,8 +80,26 @@ function ProductDetail() {
     // 불필요하게 타이머 계속 쌓이는 것을 정리. timeout함수 사용시 세트처럼생각해
     return () => {
       clearTimeout(timeout);
-    }
-  });
+    };
+  },[]);
+
+  // 상품 상세페이지에 들어갔을때 해당 상품이 존재할때만 id값을 localStorage에 추가
+  useEffect(() => {
+    console.log(product);
+      if(!product) return;
+
+      let recentProducts = JSON.parse(localStorage.getItem('recentProducts')) || [];     //getItem 가져오는거 setItem 넣는거
+      //  null일때 기본값으로 빈배열 넣어줘
+    
+      // id값을 넣기 전에 기존배열에 존재하는지 검사하거나
+      // 아니면 일단 배열에 넣고 set 자료형을 이용하여 중복제거
+      recentProducts.push(productId);   //
+      // recentProducts.unshift(productId);   //최근에 선택한 순으로 상품정렬 최근에 새로 넣은 요소 index 0번으로
+      console.log(recentProducts);
+      recentProducts = new Set(recentProducts);  // 배열을 Set 객체로 만듦(중복요소가 제거됨)
+      recentProducts = [...recentProducts];      // Set 객체를 다시 배열로 변환
+      localStorage.setItem('recentProducts', JSON.stringify(recentProducts));   //JSON문자열로 저장
+  }, [product]);
 
   const handleChangeOrderCount = (e) => {
     // 숫자 외 입력 시 유효성 검사 후 경고 토스트 띄우기

@@ -70,6 +70,19 @@ function Cart() {
               </tr>
             )
           })}
+
+          {/* 합계 구하기  */}
+          <tr>
+            <th>합계</th>
+            <td></td>
+            <td></td>
+            <th>
+              {formatter.format(cartList.reduce((prev, cartItem)=>{
+                console.log(prev);  //주의: 초기값이 없으면 배열 인덱스 0이 초기값으로 사용됨 초기값없으면 객체로나와요 객체 + 숫자 = NaN
+                return prev + (cartItem.price * cartItem.count);
+              }, 0))}원
+            </th>
+          </tr>
         </tbody>
       </Table>
     </>

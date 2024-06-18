@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   cartList:
@@ -55,11 +55,11 @@ const cartSlice = createSlice({
       // state.cartList.splice(targetIndex, 1);
 
       // 방법2 filter() 사용시
-      // const targetItem = state.cartList.find(cartItem => cartItem.id === prodcutId);???
-      // console.log(prodcutId);???
-      // console.log(targetItem);???챗지피티요망
-      // const newCartList = state.cartList.filter(cartItem => cartItem.id !== prodcutId);
-      // state.cartList = newCartList;
+      const targetItem = state.cartList.find(cartItem => cartItem.id === prodcutId);
+      console.log(prodcutId);
+      console.log(current(targetItem));
+      const newCartList = state.cartList.filter(cartItem => cartItem.id !== prodcutId);
+      state.cartList = newCartList;
     },
   }
 });
