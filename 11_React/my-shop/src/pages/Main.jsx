@@ -12,6 +12,8 @@ import { FadeLoader } from "react-spinners";
 import yonexImg from "../images/yonex.jpg";
 import { getMoreProducts } from "../api/productAPI";
 import RecentProducts from "../components/RecentProducts";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 // 2) public 폴더 안 이미지 (root 경로로 바로 접근)
 // 빌드 시 src 폴더에 있는 코드와 파일은 압축이 되지만 public폴더에 있는 것들은 그대로 보존
@@ -30,6 +32,7 @@ function Main() {
   const dispatch = useDispatch();
   const productList = useSelector(selectproductList);
   const status = useSelector(selectStatus);   //API요청상태
+  const navigate = useNavigate();
 
   // 처음 마운트 됐을 때 서버에 상품 목록 데이터를 요청하고
   // 그 결과를 리덕스 스토어에 전역 상태로 저장
@@ -126,6 +129,29 @@ function Main() {
         {/* thunk를 이용한 비동기 작업 처리하기  */}
         <Button variant="secondary" className="mb-4" onClick={handleGetMoreProductsAsync}>
           더보기➕ {status}
+        </Button>
+
+        {/* (테스트용) 게시물 목록조회  */}
+        <Button variant="secondary" className="mb-4"
+          onClick={async ()=>{
+            try {
+              const token  = localStorage.getItem('token');
+              const response = await axios.get(`http://ec2-13-209-77-178.ap-northeast-2.compute.amazonaws.com:8080/board/list`, {
+                headers:{
+                  Authorization:token
+                }
+              });
+              console.log(response);
+            } catch (error) {
+              console.error(error);
+              toast.error(error.response.data.message, {
+                position: 'top-center'
+              });
+              navigate('/login');
+            }
+          }}
+        >
+        게시물조회
         </Button>
       </section>
 
