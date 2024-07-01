@@ -14,6 +14,7 @@ import { getMoreProducts } from "../api/productAPI";
 import RecentProducts from "../components/RecentProducts";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { logoutSuccess } from "../features/user/userSlice";
 
 // 2) public 폴더 안 이미지 (root 경로로 바로 접근)
 // 빌드 시 src 폴더에 있는 코드와 파일은 압축이 되지만 public폴더에 있는 것들은 그대로 보존
@@ -136,9 +137,10 @@ function Main() {
           onClick={async ()=>{
             try {
               const token  = localStorage.getItem('token');
-              const response = await axios.get(`http://ec2-13-209-77-178.ap-northeast-2.compute.amazonaws.com:8080/board/list`, {
+              const response = await axios.get(`${process.env.REACT_APP_API_URL}/board/list`, {
                 headers:{
                   Authorization:token
+                  // Authorization: 1
                 }
               });
               console.log(response);
@@ -147,7 +149,11 @@ function Main() {
               toast.error(error.response.data.message, {
                 position: 'top-center'
               });
-              navigate('/login');
+
+              if(error.response.data.code =='403'){
+                dispatch(logoutSuccess());
+                navigate('/login');
+              }
             }
           }}
         >
